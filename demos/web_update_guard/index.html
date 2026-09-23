@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>web_update_guard — live demo</title>
+<link rel="icon" type="image/png" href="app/favicon.png">
+<meta name="description" content="Live demo of web_update_guard: a stamped Flutter web build detecting a new deploy.">
+<style>
+  :root { --bg:#fbfbfd; --fg:#1a1a2e; --muted:#5b5b73; --card:#fff; --line:#e6e6ef; --accent:#4b3f9e; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#131320; --fg:#f0f0f5; --muted:#a2a2bb; --card:#1c1c2e; --line:#2d2d44; --accent:#a99cff; }
+  }
+  * { box-sizing:border-box; }
+  html, body { height:100%; }
+  body { margin:0; background:var(--bg); color:var(--fg); display:flex; flex-direction:column;
+         font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+  header { border-bottom:1px solid var(--line); background:var(--card); padding:14px 18px; }
+  .row { max-width:980px; margin:0 auto; }
+  h1 { font-size:1.05rem; margin:0 0 4px; }
+  p { margin:0; color:var(--muted); font-size:.9rem; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .bar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:10px; }
+  button { font:inherit; font-size:.88rem; padding:7px 13px; border-radius:8px; cursor:pointer;
+           border:1px solid var(--line); background:var(--bg); color:var(--fg); }
+  button.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  button:disabled { opacity:.5; cursor:not-allowed; }
+  .state { font-size:.85rem; color:var(--muted); }
+  .frame { flex:1; min-height:0; }
+  iframe { width:100%; height:100%; border:0; display:block; background:var(--card); }
+</style>
+</head>
+<body>
+<header>
+  <div class="row">
+    <h1><a href="/">← Manish Kumar Panday</a> / <a href="https://pub.dev/packages/web_update_guard">web_update_guard</a> demo</h1>
+    <p>The app below is a real <code>flutter build web</code> output stamped with
+       <code>dart run web_update_guard stamp</code>. The guard polls <code>version.json</code> and compares build IDs.
+       Press <strong>Simulate a new deploy</strong>, then <strong>Check now</strong> inside the app: a demo service worker
+       serves the app a <code>version.json</code> with a different build ID, exactly as a redeploy would, and the guard reacts.
+       “Purge caches &amp; reload” clears the simulation too, so the app comes back up to date.</p>
+    <div class="bar">
+      <button id="deploy" class="primary" disabled>Simulate a new deploy</button>
+      <button id="reset" disabled>Reset to current build</button>
+      <span class="state" id="state">starting the demo service worker…</span>
+    </div>
+  </div>
+</header>
+<div class="frame"><iframe id="app" title="web_update_guard example app"></iframe></div>
+<script>
+  const state = document.getElementById('state');
+  const frame = document.getElementById('app');
+  const deploy = document.getElementById('deploy');
+  const reset = document.getElementById('reset');
+  let registration = null;
+
+  function send(type) {
+    const worker = (registration && registration.active) || navigator.serviceWorker.controller;
+    if (worker) worker.postMessage({ type: type });
+  }
+
+  async function start() {
+    if (!('serviceWorker' in navigator)) {
+      state.textContent = 'This browser has no service workers, so the deploy cannot be simulated. The app still runs below.';
+      frame.src = 'app/';
+      return;
+    }
+    try {
+      registration = await navigator.serviceWorker.register('sw.js', { scope: './' });
+      await navigator.serviceWorker.ready;
+      send('reset');
+      deploy.disabled = false;
+      reset.disabled = false;
+      state.textContent = 'ready — the app is serving its real, stamped build.';
+    } catch (e) {
+      state.textContent = 'Service worker registration failed: ' + e + ' — the app still runs below.';
+    }
+    frame.src = 'app/';
+  }
+
+  deploy.addEventListener('click', () => {
+    send('deploy');
+    state.textContent = 'a new build is now "deployed" — press “Check now” in the app (or wait for the 30s poll).';
+  });
+  reset.addEventListener('click', () => {
+    send('reset');
+    state.textContent = 'back to the real build — “Check now” will report up to date.';
+  });
+  start();
+</script>
+</body>
+</html>

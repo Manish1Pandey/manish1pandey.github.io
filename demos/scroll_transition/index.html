@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>scroll_transition — live demo</title>
+<meta name="description" content="Live web demo of the Flutter package scroll_transition.">
+<link rel="icon" type="image/png" href="app/favicon.png">
+<style>
+  :root { --bg:#fbfbfd; --fg:#1a1a2e; --muted:#5b5b73; --card:#fff; --line:#e6e6ef; --accent:#4b3f9e; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#131320; --fg:#f0f0f5; --muted:#a2a2bb; --card:#1c1c2e; --line:#2d2d44; --accent:#a99cff; }
+  }
+  * { box-sizing:border-box; }
+  html, body { height:100%; }
+  body { margin:0; background:var(--bg); color:var(--fg); display:flex; flex-direction:column;
+         font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+  header { border-bottom:1px solid var(--line); background:var(--card); padding:14px 18px; }
+  .row { max-width:980px; margin:0 auto; }
+  h1 { font-size:1.05rem; margin:0 0 4px; font-weight:600; }
+  p { margin:0; color:var(--muted); font-size:.9rem; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .frame { flex:1; min-height:0; }
+  iframe { width:100%; height:100%; border:0; display:block; background:var(--card); }
+</style>
+</head>
+<body>
+<header>
+  <div class="row">
+    <h1><a href="/">← Manish Kumar Panday</a> / <a href="https://pub.dev/packages/scroll_transition">scroll_transition</a> demo</h1>
+    <p>Open any of the demos in the list, then scroll. Each item is transformed by how far it is through the viewport — fade, scale, 3D rotation, blur, or your own effect.</p>
+  </div>
+</header>
+<div class="frame"><iframe src="app/" title="scroll_transition example app"></iframe></div>
+</body>
+</html>

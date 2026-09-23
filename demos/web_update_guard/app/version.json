@@ -1,0 +1,10 @@
+{
+  "app_name": "web_update_guard_example",
+  "version": "1.0.0",
+  "build_number": "1",
+  "package_name": "web_update_guard_example",
+  "buildId": "f161f3f9ddcb7afa-20260923T061351Z",
+  "builtAt": "2026-09-23T06:13:51.000Z",
+  "appVersion": "1.0.0+1",
+  "contentHash": "f161f3f9ddcb7afa3e05e5c79f14a59a351ac289a0362ee5547edeeea4f8adae"
+}
