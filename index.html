@@ -148,6 +148,17 @@ section{padding:clamp(56px,8vh,88px) 0 0;}
   transition:opacity .55s cubic-bezier(.2,.9,.3,1),transform .55s cubic-bezier(.2,.9,.3,1),
              box-shadow .22s ease,border-color .22s ease;}
 .card.in{opacity:1; transform:none; transition-delay:calc(var(--i) * 45ms);}
+/* The card title's link is stretched over the whole card, so clicking
+   anywhere on a card opens its pub.dev page. Everything else that is
+   clickable sits above it. */
+.c-top h3 a::after{content:""; position:absolute; inset:0; z-index:1; border-radius:15px;}
+.card{cursor:pointer;}
+/* Only the controls themselves, not their containers — otherwise the
+   rows they sit in become dead zones over the card-wide link. */
+.live,.cp,.c-foot a,.dep code{position:relative; z-index:2;}
+.live{text-decoration:none;}
+.live:hover{filter:brightness(1.08);}
+.card:focus-within{border-color:color-mix(in srgb,var(--brand) 45%,var(--line));}
 .card:hover{transform:translateY(-4px); box-shadow:var(--sh-m); border-color:color-mix(in srgb,var(--brand) 45%,var(--line));}
 .card::after{content:""; position:absolute; left:22px; right:22px; top:0; height:2px; border-radius:0 0 3px 3px;
   background:linear-gradient(90deg,var(--brand),var(--brand2)); transform:scaleX(0); transform-origin:left;
@@ -363,7 +374,7 @@ footer a:hover{color:var(--brand);}
             <h3><a href="https://pub.dev/packages/input_language">input_language</a></h3>
             <span class="ver">0.1.0</span>
           </div>
-          <span class="live">&#9658; Live demo</span>
+          <a class="live" href="/demos/input_language/">&#9658; Live demo</a>
           <p class="blurb">Detects the active keyboard language and sets text direction.</p>
           <div class="pls"><span class="pl">Android</span><span class="pl">iOS</span><span class="pl">macOS</span><span class="pl">Windows</span><span class="pl">Linux</span><span class="pl">Web</span></div>
           <div class="dep"><code>input_language: ^0.1.0</code><button class="cp" data-c="input_language: ^0.1.0" aria-label="Copy dependency for input_language">Copy</button></div>
@@ -374,7 +385,7 @@ footer a:hover{color:var(--brand);}
             <h3><a href="https://pub.dev/packages/mobius_carousel">mobius_carousel</a></h3>
             <span class="ver">0.3.1</span>
           </div>
-          <span class="live">&#9658; Live demo</span>
+          <a class="live" href="/demos/mobius_carousel/">&#9658; Live demo</a>
           <p class="blurb">A drag-driven carousel with tilted cards and a ripple reveal.</p>
           <div class="pls"><span class="pl">Android</span><span class="pl">iOS</span><span class="pl">macOS</span><span class="pl">Windows</span><span class="pl">Linux</span><span class="pl">Web</span></div>
           <div class="dep"><code>mobius_carousel: ^0.3.1</code><button class="cp" data-c="mobius_carousel: ^0.3.1" aria-label="Copy dependency for mobius_carousel">Copy</button></div>
@@ -385,7 +396,7 @@ footer a:hover{color:var(--brand);}
             <h3><a href="https://pub.dev/packages/scroll_transition">scroll_transition</a></h3>
             <span class="ver">0.1.1</span>
           </div>
-          <span class="live">&#9658; Live demo</span>
+          <a class="live" href="/demos/scroll_transition/">&#9658; Live demo</a>
           <p class="blurb">SwiftUI-style scroll transitions and visual effects.</p>
           <div class="pls"><span class="pl">Android</span><span class="pl">iOS</span><span class="pl">macOS</span><span class="pl">Windows</span><span class="pl">Linux</span><span class="pl">Web</span></div>
           <div class="dep"><code>scroll_transition: ^0.1.1</code><button class="cp" data-c="scroll_transition: ^0.1.1" aria-label="Copy dependency for scroll_transition">Copy</button></div>
@@ -396,7 +407,7 @@ footer a:hover{color:var(--brand);}
             <h3><a href="https://pub.dev/packages/material_defaults">material_defaults</a></h3>
             <span class="ver">0.1.0</span>
           </div>
-          <span class="live">&#9658; Live demo</span>
+          <a class="live" href="/demos/material_defaults/">&#9658; Live demo</a>
           <p class="blurb">Public access to the Material 3 default styles Flutter keeps private.</p>
           <div class="pls"><span class="pl">Android</span><span class="pl">iOS</span><span class="pl">macOS</span><span class="pl">Windows</span><span class="pl">Linux</span><span class="pl">Web</span></div>
           <div class="dep"><code>material_defaults: ^0.1.0</code><button class="cp" data-c="material_defaults: ^0.1.0" aria-label="Copy dependency for material_defaults">Copy</button></div>
@@ -407,7 +418,7 @@ footer a:hover{color:var(--brand);}
             <h3><a href="https://pub.dev/packages/middle_click_autoscroll">middle_click_autoscroll</a></h3>
             <span class="ver">0.1.1</span>
           </div>
-          <span class="live">&#9658; Live demo</span>
+          <a class="live" href="/demos/middle_click_autoscroll/">&#9658; Live demo</a>
           <p class="blurb">Browser-style middle-click autoscroll for desktop and web.</p>
           <div class="pls"><span class="pl">Android</span><span class="pl">iOS</span><span class="pl">macOS</span><span class="pl">Windows</span><span class="pl">Linux</span><span class="pl">Web</span></div>
           <div class="dep"><code>middle_click_autoscroll: ^0.1.1</code><button class="cp" data-c="middle_click_autoscroll: ^0.1.1" aria-label="Copy dependency for middle_click_autoscroll">Copy</button></div>
@@ -418,7 +429,7 @@ footer a:hover{color:var(--brand);}
             <h3><a href="https://pub.dev/packages/universal_spell_check">universal_spell_check</a></h3>
             <span class="ver">0.1.1</span>
           </div>
-          <span class="live">&#9658; Live demo</span>
+          <a class="live" href="/demos/universal_spell_check/">&#9658; Live demo</a>
           <p class="blurb">Spell check for text fields on web, macOS, Windows and Linux.</p>
           <div class="pls"><span class="pl">Android</span><span class="pl">iOS</span><span class="pl">macOS</span><span class="pl">Windows</span><span class="pl">Linux</span><span class="pl">Web</span></div>
           <div class="dep"><code>universal_spell_check: ^0.1.1</code><button class="cp" data-c="universal_spell_check: ^0.1.1" aria-label="Copy dependency for universal_spell_check">Copy</button></div>
@@ -429,7 +440,7 @@ footer a:hover{color:var(--brand);}
             <h3><a href="https://pub.dev/packages/web_update_guard">web_update_guard</a></h3>
             <span class="ver">0.1.0</span>
           </div>
-          <span class="live">&#9658; Live demo</span>
+          <a class="live" href="/demos/web_update_guard/">&#9658; Live demo</a>
           <p class="blurb">Stops Flutter web users running a stale cached build after a deploy.</p>
           <div class="pls"><span class="pl">Android</span><span class="pl">iOS</span><span class="pl">macOS</span><span class="pl">Windows</span><span class="pl">Linux</span><span class="pl">Web</span></div>
           <div class="dep"><code>web_update_guard: ^0.1.0</code><button class="cp" data-c="web_update_guard: ^0.1.0" aria-label="Copy dependency for web_update_guard">Copy</button></div>
