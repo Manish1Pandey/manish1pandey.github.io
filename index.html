@@ -76,6 +76,11 @@ nav{position:sticky; top:0; z-index:40; background:color-mix(in srgb,var(--bg) 8
   :root:not([data-t="dark"]) .i-moon{display:none;}}
 :root[data-t="light"] .i-sun{display:block;} :root[data-t="light"] .i-moon{display:none;}
 @media (max-width:660px){.nav-links a:not(.cta){display:none;}}
+.nav-links a.learn{display:inline-flex; align-items:center; gap:6px; color:var(--brand); font-weight:600;
+  border:1px solid color-mix(in srgb,var(--brand) 45%,transparent); background:var(--sky); margin-right:6px;}
+.nav-links a.learn:hover{color:#fff; background:linear-gradient(145deg,var(--brand),var(--brand2)); border-color:transparent;}
+.nav-links a.learn .dot{width:7px; height:7px; border-radius:50%; background:currentColor; box-shadow:0 0 0 3px color-mix(in srgb,currentColor 22%,transparent);}
+@media (max-width:420px){.nav-links a.learn .more{display:none;}}
 
 /* ---------- hero ---------- */
 .hero{position:relative; padding:clamp(60px,10vh,104px) 0 clamp(54px,8vh,84px); overflow:hidden;}
@@ -257,6 +262,7 @@ footer a:hover{color:var(--brand);}
       <span>flutterdev<span class="tld">.in</span></span>
     </a>
     <div class="nav-links">
+      <a class="cta learn" href="https://algoistan.flutterdev.in/" title="Algoistan: learn data structures and algorithms in Dart, from zero"><span class="dot" aria-hidden="true"></span><span>Learn DSA<span class="more"> by Dart</span></span></a>
       <a href="#packages">Packages</a>
       <a href="/demos/">Demos</a>
       <a href="https://github.com/Manish1Pandey">GitHub</a>
@@ -473,6 +479,7 @@ footer a:hover{color:var(--brand);}
 <footer class="wrap">
   <span class="f-mark"><b>flutterdev.in</b> &middot; open source, MIT</span>
   <span class="f-right">
+    <a href="https://algoistan.flutterdev.in/">Learn DSA by Dart</a>
     <a href="/demos/">Demos</a>
     <a href="https://github.com/Manish1Pandey">GitHub</a>
     <a href="https://www.linkedin.com/in/manish-flutter">LinkedIn</a>
