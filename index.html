@@ -85,6 +85,18 @@ nav{position:sticky; top:0; z-index:40; background:color-mix(in srgb,var(--bg) 8
 .nav-links a.algoistan .ag-logo{width:24px; height:24px; flex:none;}
 .nav-links a.algoistan .ist{color:#ffb877;}
 footer a.ag-foot .ist{color:#e3741a;}
+/* shine: a light sweep crosses the badge every few seconds, and the saffron glows softly */
+.nav-links a.algoistan{position:relative; overflow:hidden; isolation:isolate;}
+.nav-links a.algoistan::after{content:""; position:absolute; inset:-2px auto -2px -60%; width:55%; z-index:1; pointer-events:none; mix-blend-mode:screen;
+  background:linear-gradient(105deg,transparent 0%,rgba(255,214,170,.18) 28%,rgba(255,250,240,.85) 50%,rgba(255,214,170,.18) 72%,transparent 100%);
+  transform:skewX(-18deg); animation:ag-shine 4.2s cubic-bezier(.4,0,.2,1) 1.2s infinite;}
+.nav-links a.algoistan:hover::after{animation-duration:1.6s;}
+.nav-links a.algoistan .ist{text-shadow:0 0 10px rgba(255,159,67,.55); animation:ag-glow 4.2s ease-in-out 1.2s infinite;}
+.nav-links a.algoistan .ag-logo{filter:drop-shadow(0 0 4px rgba(255,159,67,.35)); animation:ag-logo 4.2s ease-in-out 1.2s infinite;}
+@keyframes ag-shine{0%{left:-60%;} 38%,100%{left:125%;}}
+@keyframes ag-glow{0%,100%{text-shadow:0 0 6px rgba(255,159,67,.35);} 30%{text-shadow:0 0 14px rgba(255,159,67,.85);}}
+@keyframes ag-logo{0%,100%{filter:drop-shadow(0 0 3px rgba(255,159,67,.3));} 30%{filter:drop-shadow(0 0 8px rgba(255,159,67,.75));}}
+@media (prefers-reduced-motion:reduce){.nav-links a.algoistan::after,.nav-links a.algoistan .ist,.nav-links a.algoistan .ag-logo{animation:none;}}
 
 /* ---------- hero ---------- */
 .hero{position:relative; padding:clamp(60px,10vh,104px) 0 clamp(54px,8vh,84px); overflow:hidden;}
