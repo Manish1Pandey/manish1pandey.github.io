@@ -76,11 +76,15 @@ nav{position:sticky; top:0; z-index:40; background:color-mix(in srgb,var(--bg) 8
   :root:not([data-t="dark"]) .i-moon{display:none;}}
 :root[data-t="light"] .i-sun{display:block;} :root[data-t="light"] .i-moon{display:none;}
 @media (max-width:660px){.nav-links a:not(.cta){display:none;}}
-.nav-links a.learn{display:inline-flex; align-items:center; gap:6px; color:var(--brand); font-weight:600;
-  border:1px solid color-mix(in srgb,var(--brand) 45%,transparent); background:var(--sky); margin-right:6px;}
-.nav-links a.learn:hover{color:#fff; background:linear-gradient(145deg,var(--brand),var(--brand2)); border-color:transparent;}
-.nav-links a.learn .dot{width:7px; height:7px; border-radius:50%; background:currentColor; box-shadow:0 0 0 3px color-mix(in srgb,currentColor 22%,transparent);}
-@media (max-width:420px){.nav-links a.learn .more{display:none;}}
+.nav-links a.algoistan{display:inline-flex; align-items:center; gap:8px; padding:5px 13px 5px 6px; margin-right:6px;
+  font-weight:800; letter-spacing:.01em; color:#e2e9e6; border-radius:10px;
+  background:linear-gradient(180deg,#1d2a28,#0f1817); border:1px solid rgba(143,248,229,.22);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 2px 8px -3px rgba(0,0,0,.45); transition:transform .18s,box-shadow .18s,border-color .18s;}
+.nav-links a.algoistan:hover{color:#e2e9e6; background:linear-gradient(180deg,#22322f,#111b1a); border-color:rgba(143,248,229,.5);
+  transform:translateY(-1px); box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 6px 16px -6px rgba(111,219,201,.45);}
+.nav-links a.algoistan .ag-logo{width:24px; height:24px; flex:none;}
+.nav-links a.algoistan .ist{color:#ffb877;}
+footer a.ag-foot .ist{color:#e3741a;}
 
 /* ---------- hero ---------- */
 .hero{position:relative; padding:clamp(60px,10vh,104px) 0 clamp(54px,8vh,84px); overflow:hidden;}
@@ -262,7 +266,7 @@ footer a:hover{color:var(--brand);}
       <span>flutterdev<span class="tld">.in</span></span>
     </a>
     <div class="nav-links">
-      <a class="cta learn" href="https://algoistan.flutterdev.in/" title="Algoistan: learn data structures and algorithms in Dart, from zero"><span class="dot" aria-hidden="true"></span><span>Learn DSA<span class="more"> by Dart</span></span></a>
+      <a class="cta algoistan" href="https://algoistan.flutterdev.in/" title="Algoistan · the land of algorithms: learn data structures and algorithms in Dart, from zero"><svg viewBox="0 0 64 64" class="ag-logo" aria-hidden="true" focusable="false"><defs><linearGradient id="ag-saffron" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd09a"/><stop offset=".55" stop-color="#ff9f43"/><stop offset="1" stop-color="#e3741a"/></linearGradient><linearGradient id="ag-saffron2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb877"/><stop offset="1" stop-color="#c85f12"/></linearGradient><linearGradient id="ag-teal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8ff8e5"/><stop offset="1" stop-color="#1fa894"/></linearGradient><radialGradient id="ag-bg" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#1d2a28"/><stop offset="1" stop-color="#0a1110"/></radialGradient></defs><rect x="1" y="1" width="62" height="62" rx="16" fill="url(#ag-bg)"/><rect x="1.5" y="1.5" width="61" height="61" rx="15.5" fill="none" stroke="#ffffff" stroke-opacity=".08"/><path d="M43.6 12.2 A23 23 0 1 1 20.4 12.2" fill="none" stroke="url(#ag-teal)" stroke-width="3" stroke-linecap="round"/><circle cx="43.6" cy="12.2" r="2.6" fill="#0a1110" stroke="#8ff8e5" stroke-width="1.8"/><circle cx="20.4" cy="12.2" r="2.6" fill="#0a1110" stroke="#8ff8e5" stroke-width="1.8"/><path d="M32 14 C38.5 23 38.5 34 32 45 C25.5 34 25.5 23 32 14 Z" fill="url(#ag-saffron)"/><path d="M32 45 C23 42.5 16.5 35.5 15.5 26 C24 28 30 35 32 45 Z" fill="url(#ag-saffron2)" opacity=".92"/><path d="M32 45 C41 42.5 47.5 35.5 48.5 26 C40 28 34 35 32 45 Z" fill="url(#ag-saffron2)" opacity=".92"/><path d="M32 45 V51.5 M24 47.5 L20 51.5 M40 47.5 L44 51.5" stroke="url(#ag-teal)" stroke-width="2" stroke-linecap="round"/><circle cx="32" cy="52.5" r="2.4" fill="#8ff8e5"/><circle cx="19.3" cy="52.2" r="2" fill="#8ff8e5"/><circle cx="44.7" cy="52.2" r="2" fill="#8ff8e5"/><path d="M32 20 V40" stroke="#fff3e3" stroke-opacity=".55" stroke-width="1.2" stroke-linecap="round"/></svg><span>Algo<span class="ist">istan</span></span></a>
       <a href="#packages">Packages</a>
       <a href="/demos/">Demos</a>
       <a href="https://github.com/Manish1Pandey">GitHub</a>
@@ -479,7 +483,7 @@ footer a:hover{color:var(--brand);}
 <footer class="wrap">
   <span class="f-mark"><b>flutterdev.in</b> &middot; open source, MIT</span>
   <span class="f-right">
-    <a href="https://algoistan.flutterdev.in/">Learn DSA by Dart</a>
+    <a class="ag-foot" href="https://algoistan.flutterdev.in/" title="Learn data structures and algorithms in Dart">Algo<span class="ist">istan</span></a>
     <a href="/demos/">Demos</a>
     <a href="https://github.com/Manish1Pandey">GitHub</a>
     <a href="https://www.linkedin.com/in/manish-flutter">LinkedIn</a>
