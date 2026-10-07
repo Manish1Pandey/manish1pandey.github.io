@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" data-t="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>material_defaults · Flutter package: Public access to the Material 3 default styles Flutter keeps private | flutterdev.in</title>
+<meta name="description" content="Public, context-aware access to the private Material 3 widget defaults (ButtonStyle, ChipThemeData, InputDecoration...), generated from Flutter&#x27;s own token…">
+<link rel="canonical" href="https://flutterdev.in/packages/material_defaults/">
+<meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#060c14" media="(prefers-color-scheme:dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="flutterdev.in">
+<meta property="og:title" content="material_defaults · Flutter package">
+<meta property="og:description" content="Public, context-aware access to the private Material 3 widget defaults (ButtonStyle, ChipThemeData, InputDecoration...), generated from Flutter&#x27;s own token…">
+<meta property="og:url" content="https://flutterdev.in/packages/material_defaults/">
+<meta property="og:image" content="https://flutterdev.in/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"material_defaults","description":"Public, context-aware access to the private Material 3 widget defaults (ButtonStyle, ChipThemeData, InputDecoration...), generated from Flutter's own token data.","url":"https://flutterdev.in/packages/material_defaults/","codeRepository":"https://github.com/Manish1Pandey/material_defaults","programmingLanguage":"Dart","runtimePlatform":"Flutter","version":"0.1.0","license":"https://opensource.org/licenses/MIT","author":{"@type":"Person","name":"Manish Kumar Panday","url":"https://flutterdev.in/"},"targetProduct":{"@type":"SoftwareApplication","name":"material_defaults","operatingSystem":"Android, iOS, macOS, Windows, Linux, Web","applicationCategory":"DeveloperApplication"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"flutterdev.in","item":"https://flutterdev.in/"},{"@type":"ListItem","position":2,"name":"Packages","item":"https://flutterdev.in/#packages"},{"@type":"ListItem","position":3,"name":"material_defaults","item":"https://flutterdev.in/packages/material_defaults/"}]}</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='58 16 226 266'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%230468d7'/><stop offset='1' stop-color='%2312b3f3'/></linearGradient></defs><path d='M196 24 66 154l40 40L276 24z' fill='url(%23g)'/><path d='M196 140 130 206l40 40 66-66z' fill='url(%23g)' opacity='.82'/><path d='M106 194 66 234l40 40h84l-44-44z' fill='url(%23g)' opacity='.6'/></svg>">
+<style>
+:root{
+  --bg:#f6f8fb; --surf:#ffffff; --surf2:#eef3f9; --ink:#0a1a2b; --mute:#5b6f85;
+  --line:#dde6f1; --brand:#0468d7; --brand2:#12b3f3; --sky:#e8f3ff; --ok:#087f5b;
+  --sh-s:0 1px 2px rgba(10,26,43,.06); --sh-m:0 4px 16px -4px rgba(10,26,43,.10);
+  --sh-l:0 18px 46px -18px rgba(4,104,215,.30);
+  color-scheme:light;
+}
+:root[data-t="dark"]{
+  --bg:#060c14; --surf:#0d1725; --surf2:#101d2e; --ink:#e8f0f9; --mute:#8fa5bd;
+  --line:#1b2b3f; --brand:#54c5f8; --brand2:#0fa5e0; --sky:#0e2338; --ok:#3fcf9a;
+  --sh-s:0 1px 2px rgba(0,0,0,.5); --sh-m:0 4px 18px -6px rgba(0,0,0,.6);
+  --sh-l:0 20px 50px -20px rgba(84,197,248,.28);
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:dark){:root:not([data-t="light"]){
+  --bg:#060c14; --surf:#0d1725; --surf2:#101d2e; --ink:#e8f0f9; --mute:#8fa5bd;
+  --line:#1b2b3f; --brand:#54c5f8; --brand2:#0fa5e0; --sky:#0e2338; --ok:#3fcf9a;
+  --sh-s:0 1px 2px rgba(0,0,0,.5); --sh-m:0 4px 18px -6px rgba(0,0,0,.6);
+  --sh-l:0 20px 50px -20px rgba(84,197,248,.28);
+  color-scheme:dark;
+}}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth; scroll-padding-top:78px;}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font:400 16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  transition:background .3s ease,color .3s ease;}
+.mono{font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;}
+.wrap{width:min(1180px,100% - 40px); margin-inline:auto;}
+a{color:var(--brand);}
+h1,h2,h3{letter-spacing:-.025em; margin:0;}
+
+/* ---------- nav ---------- */
+nav{position:sticky; top:0; z-index:40; background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:blur(16px) saturate(1.6); border-bottom:1px solid var(--line);}
+.nav-in{display:flex; align-items:center; gap:22px; height:64px;}
+.mark{display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--ink); font-weight:650;
+  letter-spacing:-.03em; font-size:17px;}
+.mark .glyph{width:30px; height:30px; flex:none; border-radius:8px; background:linear-gradient(145deg,var(--brand),var(--brand2));
+  display:grid; place-items:center; box-shadow:var(--sh-m);}
+.mark .glyph svg{width:16px; height:16px;}
+.mark .tld{color:var(--mute); font-weight:450;}
+.nav-links{margin-left:auto; display:flex; align-items:center; gap:6px;}
+.nav-links a{font-size:14.5px; color:var(--mute); text-decoration:none; padding:8px 13px; border-radius:8px;
+  transition:color .18s,background .18s;}
+.nav-links a:hover{color:var(--ink); background:var(--surf2);}
+.tt{display:grid; place-items:center; width:36px; height:36px; border-radius:9px; cursor:pointer;
+  border:1px solid var(--line); background:var(--surf); color:var(--mute);
+  transition:color .18s,border-color .18s;}
+.tt:hover{color:var(--brand); border-color:var(--brand);}
+.tt svg{width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round;}
+:root[data-t="dark"] .i-sun,:root:not([data-t="light"]) .i-sun{display:none;}
+:root[data-t="dark"] .i-moon,:root:not([data-t="light"]) .i-moon{display:block;}
+.i-moon{display:none;}
+@media (prefers-color-scheme:light){:root:not([data-t="dark"]) .i-sun{display:block;}
+  :root:not([data-t="dark"]) .i-moon{display:none;}}
+:root[data-t="light"] .i-sun{display:block;} :root[data-t="light"] .i-moon{display:none;}
+@media (max-width:660px){.nav-links a:not(.cta){display:none;}}
+.nav-links a.algoistan{display:inline-flex; align-items:center; gap:8px; padding:5px 13px 5px 6px; margin-right:6px;
+  font-weight:800; letter-spacing:.01em; color:#e2e9e6; border-radius:10px;
+  background:linear-gradient(180deg,#1d2a28,#0f1817); border:1px solid rgba(143,248,229,.22);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 2px 8px -3px rgba(0,0,0,.45); transition:transform .18s,box-shadow .18s,border-color .18s;}
+.nav-links a.algoistan:hover{color:#e2e9e6; background:linear-gradient(180deg,#22322f,#111b1a); border-color:rgba(143,248,229,.5);
+  transform:translateY(-1px); box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 6px 16px -6px rgba(111,219,201,.45);}
+.nav-links a.algoistan .ag-logo{width:24px; height:24px; flex:none;}
+.nav-links a.algoistan .ist{color:#ffb877;}
+footer a.ag-foot .ist{color:#e3741a;}
+/* shine: a light sweep crosses the badge every few seconds, and the saffron glows softly */
+.nav-links a.algoistan{position:relative; overflow:hidden; isolation:isolate;}
+.nav-links a.algoistan::after{content:""; position:absolute; inset:-2px auto -2px -60%; width:55%; z-index:1; pointer-events:none; mix-blend-mode:screen;
+  background:linear-gradient(105deg,transparent 0%,rgba(255,214,170,.18) 28%,rgba(255,250,240,.85) 50%,rgba(255,214,170,.18) 72%,transparent 100%);
+  transform:skewX(-18deg); animation:ag-shine 4.2s cubic-bezier(.4,0,.2,1) 1.2s infinite;}
+.nav-links a.algoistan:hover::after{animation-duration:1.6s;}
+.nav-links a.algoistan .ist{text-shadow:0 0 10px rgba(255,159,67,.55); animation:ag-glow 4.2s ease-in-out 1.2s infinite;}
+.nav-links a.algoistan .ag-logo{filter:drop-shadow(0 0 4px rgba(255,159,67,.35)); animation:ag-logo 4.2s ease-in-out 1.2s infinite;}
+@keyframes ag-shine{0%{left:-60%;} 38%,100%{left:125%;}}
+@keyframes ag-glow{0%,100%{text-shadow:0 0 6px rgba(255,159,67,.35);} 30%{text-shadow:0 0 14px rgba(255,159,67,.85);}}
+@keyframes ag-logo{0%,100%{filter:drop-shadow(0 0 3px rgba(255,159,67,.3));} 30%{filter:drop-shadow(0 0 8px rgba(255,159,67,.75));}}
+@media (prefers-reduced-motion:reduce){.nav-links a.algoistan::after,.nav-links a.algoistan .ist,.nav-links a.algoistan .ag-logo{animation:none;}}
+
+/* ---------- hero ---------- */
+.hero{position:relative; padding:clamp(60px,10vh,104px) 0 clamp(54px,8vh,84px); overflow:hidden;}
+.hero::before{content:""; position:absolute; inset:-30% -10% auto -10%; height:120%;
+  background:radial-gradient(48% 42% at 22% 8%,color-mix(in srgb,var(--brand) 16%,transparent),transparent 70%),
+             radial-gradient(38% 40% at 86% 22%,color-mix(in srgb,var(--brand2) 14%,transparent),transparent 72%);
+  pointer-events:none;}
+.hero-in{position:relative; display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  gap:54px; align-items:center;}
+@media (max-width:900px){.hero-in{grid-template-columns:1fr; gap:38px;} .beam-wrap{order:-1;}}
+.pill{display:inline-flex; align-items:center; gap:9px; font-size:13px; font-weight:550; color:var(--brand);
+  background:var(--sky); border:1px solid color-mix(in srgb,var(--brand) 26%,transparent);
+  padding:6px 14px; border-radius:99px; margin-bottom:22px;}
+.pill i{width:6px; height:6px; border-radius:50%; background:var(--brand); font-style:normal;
+  animation:pulse 2.4s ease-out infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--brand) 60%,transparent);}70%,100%{box-shadow:0 0 0 8px transparent;}}
+h1{font-size:clamp(34px,5.4vw,58px); line-height:1.06; font-weight:700; margin-bottom:20px;}
+h1 .grad{background:linear-gradient(115deg,var(--brand),var(--brand2)); -webkit-background-clip:text;
+  background-clip:text; color:transparent;}
+.sub{font-size:clamp(16px,1.9vw,18.5px); color:var(--mute); max-width:54ch; margin:0 0 30px;}
+.cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:38px;}
+.btn{display:inline-flex; align-items:center; gap:9px; font-size:14.5px; font-weight:600; text-decoration:none;
+  padding:12px 22px; border-radius:11px; transition:transform .18s cubic-bezier(.2,.9,.3,1),box-shadow .18s,background .18s;}
+.btn.pri{background:linear-gradient(145deg,var(--brand),var(--brand2)); color:#fff; box-shadow:var(--sh-l);}
+.btn.pri:hover{transform:translateY(-2px);}
+.btn.sec{background:var(--surf); color:var(--ink); border:1px solid var(--line); box-shadow:var(--sh-s);}
+.btn.sec:hover{border-color:var(--brand); color:var(--brand); transform:translateY(-2px);}
+.stats{display:flex; flex-wrap:wrap; gap:34px;}
+.stats b{display:block; font-size:26px; font-weight:700; letter-spacing:-.03em; line-height:1.15;}
+.stats span{font-size:13px; color:var(--mute);}
+.stats .b1 b{color:var(--brand);}
+
+/* beam graphic */
+.beam-wrap{display:grid; place-items:center;}
+.beam{width:min(400px,84%); height:auto; filter:drop-shadow(0 26px 46px rgba(4,104,215,.26));}
+/* one mark, one motion: every plane in every logo shares this animation,
+   with no delay, so the nav mark and the hero beam stay frame-locked. */
+/* the original hero motion, now shared by the nav mark: each plane floats on
+   the same 7s curve, offset from the next, so the beams drift against each
+   other. Identical delays in both logos keep the two marks frame-locked. */
+.beam .p,.mark .glyph .p{animation:float 7s ease-in-out infinite;}
+.beam .p2,.mark .glyph .p2{animation-delay:-2.3s;}
+.beam .p3,.mark .glyph .p3{animation-delay:-4.6s;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-11px);}}
+
+/* ---------- section ---------- */
+section{padding:clamp(56px,8vh,88px) 0 0;}
+.sec-h{display:flex; align-items:end; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  margin-bottom:28px;}
+.sec-h h2{font-size:clamp(23px,3vw,31px); font-weight:680;}
+.sec-h p{margin:7px 0 0; color:var(--mute); font-size:15px; max-width:56ch;}
+.tools{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:26px;}
+#q{flex:1 1 200px; min-width:0; font:14.5px inherit; padding:10px 15px; border-radius:10px;
+  border:1px solid var(--line); background:var(--surf); color:var(--ink); box-shadow:var(--sh-s);}
+#q:focus{outline:2px solid var(--brand); outline-offset:1px; border-color:transparent;}
+.chips{display:flex; gap:7px; flex-wrap:wrap;}
+.chip{font:13px inherit; font-weight:520; padding:8px 14px; border-radius:9px; cursor:pointer;
+  border:1px solid var(--line); background:var(--surf); color:var(--mute);
+  transition:color .16s,border-color .16s,background .16s,transform .16s;}
+.chip:hover{color:var(--ink); transform:translateY(-1px);}
+.chip[aria-pressed="true"]{background:var(--brand); border-color:var(--brand); color:#fff;}
+:root[data-t="dark"] .chip[aria-pressed="true"],
+:root:not([data-t="light"]) .chip[aria-pressed="true"]{color:#06131f;}
+
+/* ---------- cards ---------- */
+.grid{display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(324px,1fr));}
+.card{position:relative; background:var(--surf); border:1px solid var(--line); border-radius:15px;
+  padding:22px 22px 18px; display:flex; flex-direction:column; gap:13px; box-shadow:var(--sh-s);
+  opacity:0; transform:translateY(18px);
+  transition:opacity .55s cubic-bezier(.2,.9,.3,1),transform .55s cubic-bezier(.2,.9,.3,1),
+             box-shadow .22s ease,border-color .22s ease;}
+.card.in{opacity:1; transform:none; transition-delay:calc(var(--i) * 45ms);}
+/* The card title's link is stretched over the whole card, so clicking
+   anywhere on a card opens its package page on this site. Everything else that is
+   clickable sits above it. */
+.c-top h3 a::after{content:""; position:absolute; inset:0; z-index:1; border-radius:15px;}
+.card{cursor:pointer;}
+/* Only the controls themselves, not their containers — otherwise the
+   rows they sit in become dead zones over the card-wide link. */
+.live,.cp,.c-foot a,.dep code{position:relative; z-index:2;}
+.live{text-decoration:none;}
+.live:hover{filter:brightness(1.08);}
+.card:focus-within{border-color:color-mix(in srgb,var(--brand) 45%,var(--line));}
+.card:hover{transform:translateY(-4px); box-shadow:var(--sh-m); border-color:color-mix(in srgb,var(--brand) 45%,var(--line));}
+.card::after{content:""; position:absolute; left:22px; right:22px; top:0; height:2px; border-radius:0 0 3px 3px;
+  background:linear-gradient(90deg,var(--brand),var(--brand2)); transform:scaleX(0); transform-origin:left;
+  transition:transform .34s cubic-bezier(.2,.9,.3,1);}
+.card:hover::after,.card:focus-within::after{transform:scaleX(1);}
+.c-top{display:flex; align-items:center; gap:10px;}
+.c-top h3{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:15.5px; font-weight:620;
+  letter-spacing:-.035em; overflow-wrap:anywhere;}
+.c-top h3 a{color:inherit; text-decoration:none;}
+.c-top h3 a:hover{color:var(--brand);}
+.ver{margin-left:auto; font:11.5px ui-monospace,Menlo,monospace; color:var(--mute); background:var(--surf2);
+  padding:3px 8px; border-radius:6px; white-space:nowrap;}
+.live{display:inline-flex; align-self:flex-start; align-items:center; gap:5px; font-size:11px; font-weight:650; color:#fff;
+  background:linear-gradient(145deg,var(--brand),var(--brand2)); padding:3px 9px; border-radius:99px;
+  letter-spacing:.02em; white-space:nowrap;}
+:root[data-t="dark"] .live,:root:not([data-t="light"]) .live{color:#06131f;}
+.blurb{margin:0; font-size:14.5px; color:var(--mute); flex:1;}
+.pls{display:flex; gap:5px; flex-wrap:wrap;}
+.pl{font:11px ui-monospace,Menlo,monospace; color:var(--mute); background:var(--surf2);
+  padding:3px 8px; border-radius:6px;}
+.dep{display:flex; align-items:center; gap:8px; background:var(--surf2); border:1px solid var(--line);
+  border-radius:9px; padding:8px 10px;}
+.dep code{flex:1; font:12.5px ui-monospace,Menlo,monospace; white-space:nowrap; overflow-x:auto;
+  scrollbar-width:none;}
+.dep code::-webkit-scrollbar{display:none;}
+.cp{font:11px inherit; font-weight:600; border:0; background:transparent; color:var(--mute); cursor:pointer;
+  padding:3px 5px; border-radius:5px;}
+.cp:hover{color:var(--brand);}
+.c-foot{display:flex; align-items:center; gap:15px; padding-top:3px; border-top:1px solid var(--line);
+  margin-top:2px; padding-top:13px;}
+.c-foot a{font-size:13px; font-weight:550; text-decoration:none; color:var(--mute);
+  transition:color .16s;}
+.c-foot a:hover{color:var(--brand);}
+.c-foot a.demo{color:var(--brand);}
+.pts{margin-left:auto; font:11.5px ui-monospace,Menlo,monospace; color:var(--ok);}
+.empty{display:none; text-align:center; padding:58px 20px; color:var(--mute);}
+.empty b{display:block; font-size:17px; color:var(--ink); margin-bottom:5px;}
+
+/* ---------- demo band ---------- */
+.band{margin-top:clamp(56px,8vh,86px); border-radius:20px; padding:clamp(30px,5vw,46px);
+  background:linear-gradient(135deg,color-mix(in srgb,var(--brand) 12%,var(--surf)),var(--surf));
+  border:1px solid color-mix(in srgb,var(--brand) 26%,var(--line)); box-shadow:var(--sh-m);
+  display:grid; grid-template-columns:minmax(0,1fr) auto; gap:26px; align-items:center;}
+@media (max-width:760px){.band{grid-template-columns:1fr;}}
+.band h2{font-size:clamp(21px,2.7vw,27px); margin-bottom:9px;}
+.band p{margin:0; color:var(--mute); font-size:15px; max-width:54ch;}
+
+footer{margin-top:clamp(56px,8vh,86px); border-top:1px solid var(--line); padding:30px 0 56px;
+  display:flex; flex-wrap:wrap; gap:14px 26px; align-items:center;}
+footer a{font-size:13.5px; color:var(--mute); text-decoration:none;}
+footer a:hover{color:var(--brand);}
+.f-mark{display:flex; align-items:center; gap:9px; font-size:13.5px; color:var(--mute);}
+.f-mark b{color:var(--ink); font-weight:620; letter-spacing:-.02em;}
+.f-right{margin-left:auto; display:flex; gap:22px; flex-wrap:wrap;}
+:focus-visible{outline:2px solid var(--brand); outline-offset:2px; border-radius:5px;}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{
+  animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;}
+  .card{opacity:1; transform:none;}}
+
+/* ---------- wordmark: same beam, same float as the hero ---------- */
+.mark .glyph{width:32px; height:32px; background:none; box-shadow:none; border-radius:0;
+  display:grid; place-items:center;}
+.mark .glyph svg{width:30px; height:30px; overflow:visible;
+  filter:drop-shadow(0 4px 10px color-mix(in srgb,var(--brand) 34%,transparent));
+  transition:transform .34s cubic-bezier(.2,.9,.3,1),filter .34s ease;}
+.mark:hover .glyph svg,.mark:focus-visible .glyph svg{
+  transform:translateY(-1px) scale(1.09) rotate(-3deg);
+  filter:drop-shadow(0 9px 20px color-mix(in srgb,var(--brand) 52%,transparent));}
+.mark .tld{transition:color .28s ease;}
+.mark:hover .tld{color:var(--brand);}
+@media (prefers-reduced-motion:reduce){
+  .mark:hover .glyph svg,.mark:focus-visible .glyph svg{transform:none;}
+}
+
+.pk{padding:40px 0 70px;}
+.crumbs{font-size:13.5px; color:var(--mute); margin-bottom:18px;}
+.crumbs a{color:var(--mute); text-decoration:none;} .crumbs a:hover{color:var(--brand);}
+.pk-head h1{font-size:clamp(30px,5vw,46px); letter-spacing:-.03em; margin:0 0 10px; word-break:break-word;}
+.pk-head .lede{font-size:18px; color:var(--mute); max-width:760px; margin:0 0 20px; line-height:1.55;}
+.pk-meta{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:22px;}
+.pk-meta .tag{font-size:13px; font-weight:600; padding:5px 11px; border-radius:999px; border:1px solid var(--line); background:var(--surf); color:var(--ink);}
+.pk-meta .tag.ok{color:var(--ok);}
+.pk-actions{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:26px;}
+.pk .dep{max-width:520px; margin-bottom:34px;}
+.md{max-width:860px; font-size:16px; line-height:1.7; color:var(--ink); overflow-wrap:break-word;}
+.md :not(pre) > code, .md a{overflow-wrap:anywhere;}
+.pk-head .lede, .dep code{overflow-wrap:anywhere;}
+.md h1{display:none;}
+.md h2{font-size:26px; letter-spacing:-.02em; margin:42px 0 12px; padding-top:8px; border-top:1px solid var(--line);}
+.md h3{font-size:19px; margin:28px 0 8px;}
+.md a{color:var(--brand);} .md a.anchor{display:none;}
+.md p,.md li{color:var(--ink);} .md ul,.md ol{padding-left:22px;}
+.md code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.88em; background:var(--surf2); padding:2px 6px; border-radius:6px;}
+.md pre{background:var(--surf2); border:1px solid var(--line); border-radius:12px; padding:16px 18px; overflow-x:auto; line-height:1.55;}
+.md pre code{background:none; padding:0; font-size:13.5px;}
+.md .highlight{margin:14px 0;}
+.md table{border-collapse:collapse; display:block; overflow-x:auto; max-width:100%; margin:16px 0;}
+.md th,.md td{border:1px solid var(--line); padding:8px 12px; text-align:left; vertical-align:top;}
+.md th{background:var(--surf2);}
+.md img{max-width:100%; height:auto; border-radius:10px;}
+.md p > a > img, .md p > img[src*="shields.io"], .md p > a > img[src*="pub.dev"]{border-radius:0;}
+.md blockquote{margin:16px 0; padding:4px 16px; border-left:3px solid var(--brand); color:var(--mute);}
+.md .markdown-alert{border-left:3px solid var(--brand); padding:6px 16px; margin:16px 0; background:var(--sky); border-radius:0 10px 10px 0;}
+.md .markdown-alert-title{font-weight:700;} .md svg.octicon{display:none;}
+/* GitHub syntax colours */
+.md .pl-k{color:#cf222e;} .md .pl-s,.md .pl-pds{color:#0a3069;} .md .pl-c{color:#6e7781; font-style:italic;}
+.md .pl-en,.md .pl-e{color:#8250df;} .md .pl-c1,.md .pl-v{color:#0550ae;} .md .pl-smi{color:inherit;} .md .pl-ent{color:#116329;}
+:root[data-t="dark"] .md .pl-k{color:#ff7b72;} :root[data-t="dark"] .md .pl-s,:root[data-t="dark"] .md .pl-pds{color:#a5d6ff;}
+:root[data-t="dark"] .md .pl-c{color:#8b949e;} :root[data-t="dark"] .md .pl-en,:root[data-t="dark"] .md .pl-e{color:#d2a8ff;}
+:root[data-t="dark"] .md .pl-c1,:root[data-t="dark"] .md .pl-v{color:#79c0ff;} :root[data-t="dark"] .md .pl-ent{color:#7ee787;}
+@media (prefers-color-scheme:dark){:root:not([data-t="light"]) .md .pl-k{color:#ff7b72;} :root:not([data-t="light"]) .md .pl-s,:root:not([data-t="light"]) .md .pl-pds{color:#a5d6ff;}
+  :root:not([data-t="light"]) .md .pl-c{color:#8b949e;} :root:not([data-t="light"]) .md .pl-en,:root:not([data-t="light"]) .md .pl-e{color:#d2a8ff;}
+  :root:not([data-t="light"]) .md .pl-c1,:root:not([data-t="light"]) .md .pl-v{color:#79c0ff;} :root:not([data-t="light"]) .md .pl-ent{color:#7ee787;}}
+.more-pk{margin-top:56px; padding-top:24px; border-top:1px solid var(--line);}
+.more-pk h2{font-size:20px; margin:0 0 12px;}
+.more-pk ul{list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:8px;}
+.more-pk a{display:inline-block; font-size:14px; padding:7px 12px; border-radius:9px; border:1px solid var(--line); background:var(--surf); color:var(--ink); text-decoration:none;}
+.more-pk a:hover{border-color:var(--brand); color:var(--brand);}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap nav-in">
+    <a class="mark" href="/">
+      <span class="glyph">
+        <svg viewBox="58 16 226 266" aria-hidden="true">
+          <defs>
+            <linearGradient id="n1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="var(--brand)"/><stop offset="1" stop-color="var(--brand2)"/>
+            </linearGradient>
+            <linearGradient id="n2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="var(--brand2)"/><stop offset="1" stop-color="var(--brand)"/>
+            </linearGradient>
+          </defs>
+          <g class="p p1"><path d="M196 24 66 154l40 40L276 24z" fill="url(#n1)"/></g>
+          <g class="p p2"><path d="M196 140 130 206l40 40 66-66z" fill="url(#n2)" opacity=".82"/></g>
+          <g class="p p3"><path d="M106 194 66 234l40 40h84l-44-44z" fill="url(#n1)" opacity=".6"/></g>
+        </svg>
+      </span>
+      <span>flutterdev<span class="tld">.in</span></span>
+    </a>
+    <div class="nav-links">
+      <a class="cta algoistan" href="https://algoistan.flutterdev.in/" title="Algoistan · the land of algorithms: learn data structures and algorithms in Dart, from zero"><svg viewBox="0 0 64 64" class="ag-logo" aria-hidden="true" focusable="false"><defs><linearGradient id="ag-saffron" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd09a"/><stop offset=".55" stop-color="#ff9f43"/><stop offset="1" stop-color="#e3741a"/></linearGradient><linearGradient id="ag-saffron2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb877"/><stop offset="1" stop-color="#c85f12"/></linearGradient><linearGradient id="ag-teal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8ff8e5"/><stop offset="1" stop-color="#1fa894"/></linearGradient><radialGradient id="ag-bg" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#1d2a28"/><stop offset="1" stop-color="#0a1110"/></radialGradient></defs><rect x="1" y="1" width="62" height="62" rx="16" fill="url(#ag-bg)"/><rect x="1.5" y="1.5" width="61" height="61" rx="15.5" fill="none" stroke="#ffffff" stroke-opacity=".08"/><path d="M43.6 12.2 A23 23 0 1 1 20.4 12.2" fill="none" stroke="url(#ag-teal)" stroke-width="3" stroke-linecap="round"/><circle cx="43.6" cy="12.2" r="2.6" fill="#0a1110" stroke="#8ff8e5" stroke-width="1.8"/><circle cx="20.4" cy="12.2" r="2.6" fill="#0a1110" stroke="#8ff8e5" stroke-width="1.8"/><path d="M32 14 C38.5 23 38.5 34 32 45 C25.5 34 25.5 23 32 14 Z" fill="url(#ag-saffron)"/><path d="M32 45 C23 42.5 16.5 35.5 15.5 26 C24 28 30 35 32 45 Z" fill="url(#ag-saffron2)" opacity=".92"/><path d="M32 45 C41 42.5 47.5 35.5 48.5 26 C40 28 34 35 32 45 Z" fill="url(#ag-saffron2)" opacity=".92"/><path d="M32 45 V51.5 M24 47.5 L20 51.5 M40 47.5 L44 51.5" stroke="url(#ag-teal)" stroke-width="2" stroke-linecap="round"/><circle cx="32" cy="52.5" r="2.4" fill="#8ff8e5"/><circle cx="19.3" cy="52.2" r="2" fill="#8ff8e5"/><circle cx="44.7" cy="52.2" r="2" fill="#8ff8e5"/><path d="M32 20 V40" stroke="#fff3e3" stroke-opacity=".55" stroke-width="1.2" stroke-linecap="round"/></svg><span>Algo<span class="ist">istan</span></span></a>
+      <a href="/#packages">Packages</a>
+      <a href="/demos/">Demos</a>
+      <a href="https://github.com/Manish1Pandey">GitHub</a>
+      <button class="tt" id="tt" aria-label="Toggle light or dark theme">
+        <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.8v2.1M12 19.1v2.1M2.8 12h2.1M19.1 12h2.1M5.4 5.4l1.5 1.5M17.1 17.1l1.5 1.5M18.6 5.4l-1.5 1.5M6.9 17.1l-1.5 1.5"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.2A8.4 8.4 0 0 1 9.8 3.5a8.4 8.4 0 1 0 10.7 10.7z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<main class="wrap pk">
+  <div class="crumbs"><a href="/">flutterdev.in</a> &rsaquo; <a href="/#packages">Packages</a> &rsaquo; material_defaults</div>
+  <header class="pk-head">
+    <h1>material_defaults</h1>
+    <p class="lede">Public, context-aware access to the private Material 3 widget defaults (ButtonStyle, ChipThemeData, InputDecoration...), generated from Flutter&#x27;s own token data.</p>
+    <div class="pk-meta"><span class="tag">v0.1.0</span><span class="tag ok">160/160 pub points</span><span class="tag">MIT</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">macOS</span><span class="tag">Windows</span><span class="tag">Linux</span><span class="tag">Web</span></div>
+    <div class="pk-actions"><a class="btn pri" href="https://pub.dev/packages/material_defaults">View on pub.dev &#8594;</a><a class="btn sec" href="/demos/material_defaults/">&#9658; Live demo</a><a class="btn sec" href="https://github.com/Manish1Pandey/material_defaults">Source on GitHub</a></div>
+    <div class="dep"><code>material_defaults: ^0.1.0</code><button class="cp" data-c="material_defaults: ^0.1.0" aria-label="Copy dependency for material_defaults">Copy</button></div>
+  </header>
+  <article class="md">
+<p>Public, context-aware access to the <strong>Material 3 default styles</strong> that
+Flutter widgets compute in private classes such as <code>_FilledButtonDefaultsM3</code>
+and <code>_InputDecoratorDefaultsM3</code>.</p>
+<p>Solves <a href="https://github.com/flutter/flutter/issues/130135">flutter/flutter#130135</a>
+("Expose M3 defaults", labelled <em>would be a good package</em>).</p>
+<p>
+  <a target="_blank" rel="noopener noreferrer" href="https://github.com/Manish1Pandey/material_defaults/blob/HEAD/screenshots/ios_filled_button_dark.png"><img loading="lazy" src="https://raw.githubusercontent.com/Manish1Pandey/material_defaults/HEAD/screenshots/ios_filled_button_dark.png" width="260" alt="FilledButton defaults per state, dark" style="max-width: 100%;"></a>
+  <a target="_blank" rel="noopener noreferrer" href="https://github.com/Manish1Pandey/material_defaults/blob/HEAD/screenshots/ios_custom_widgets_light.png"><img loading="lazy" src="https://raw.githubusercontent.com/Manish1Pandey/material_defaults/HEAD/screenshots/ios_custom_widgets_light.png" width="260" alt="Stock widgets next to pixel-identical widgets built from MaterialDefaults" style="max-width: 100%;"></a>
+</p>
+<p><em>Example app on the iOS simulator: the defaults gallery, and stock widgets
+next to re-implementations built only from <code>MaterialDefaults</code> (verified
+pixel-identical by the example's integration test).</em></p>
+<div class="markdown-heading"><h2 class="heading-element">Why</h2><a id="user-content-why" class="anchor" aria-label="Permalink: Why" href="#why"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Flutter generates each Material 3 component's defaults from the Material
+Design token database (<code>dev/tools/gen_defaults</code>), but keeps the resulting
+classes private. So you cannot read "what color is a disabled <code>FilledButton</code>"
+to build a custom widget that matches Material, or change one property of a
+theme while keeping every other default.</p>
+<p><code>material_defaults</code> gives you those objects:</p>
+<div class="highlight highlight-source-dart"><pre><span class="pl-k">final</span> defaults <span class="pl-k">=</span> <span class="pl-c1">MaterialDefaults</span>.<span class="pl-en">of</span>(context);
+
+<span class="pl-k">final</span> <span class="pl-c1">ButtonStyle</span> filled <span class="pl-k">=</span> defaults.filledButton;
+<span class="pl-k">final</span> <span class="pl-c1">Color</span><span class="pl-k">?</span> disabledBg <span class="pl-k">=</span>
+    filled.backgroundColor<span class="pl-k">?</span>.<span class="pl-en">resolve</span>(<span class="pl-k">&lt;</span><span class="pl-c1">WidgetState</span><span class="pl-k">&gt;</span>{<span class="pl-c1">WidgetState</span>.disabled});
+
+<span class="pl-c">// Partial override: change only the shape, keep every state-dependent default.</span>
+<span class="pl-c1">FilledButton</span>(
+  style<span class="pl-k">:</span> defaults.filledButton.<span class="pl-en">copyWith</span>(
+    shape<span class="pl-k">:</span> <span class="pl-k">const</span> <span class="pl-c1">WidgetStatePropertyAll</span>(<span class="pl-c1">RoundedRectangleBorder</span>()),
+  ),
+  onPressed<span class="pl-k">:</span> () {},
+  child<span class="pl-k">:</span> <span class="pl-k">const</span> <span class="pl-c1">Text</span>(<span class="pl-s">'Square'</span>),
+);</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">How the values are made exact</h2><a id="user-content-how-the-values-are-made-exact" class="anchor" aria-label="Permalink: How the values are made exact" href="#how-the-values-are-made-exact"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<code>tool/generate.dart</code> runs <strong>the SDK's own <code>gen_defaults</code> templates</strong> over
+the SDK's token JSON (<code>dev/tools/gen_defaults/data</code>) and fails unless every
+generated block is byte-identical to the block compiled into
+<code>packages/flutter/lib/src/material</code>. The output is committed in
+<code>lib/src/generated/</code> (47 blocks from 39 framework files).</li>
+<li>
+<code>MaterialDefaults.tokenVersion</code> records the Flutter version the tokens came
+from (<code>3.41.8</code>), with <code>flutterRevision</code> and <code>tokenDataVersions</code> (<code>6_1_0</code>).</li>
+<li>214 tests prove equivalence with what the real widgets use, in a light and
+a dark <code>ColorScheme</code>:
+<ul>
+<li>
+<strong>instance parity</strong> – where the framework exposes its private object
+(<code>ButtonStyleButton.defaultStyleOf</code>, <code>MenuItemButton.defaultStyleOf</code>,
+<code>RawChip.defaultProperties</code>, <code>DatePickerTheme.defaults</code>) every property is
+compared, resolving each <code>WidgetStateProperty</code> for all 256 combinations of
+8 widget states;</li>
+<li>
+<strong>render parity</strong> – for every other component the real widget is pumped
+with the stock theme and with our defaults injected as the component
+theme, through idle / hover / keyboard-focus / press (or open) states;
+pixels and render trees must be identical, and a perturbed copy must
+render differently;</li>
+<li>
+<strong>source parity</strong> – the generated code equals the running framework's.</li>
+</ul>
+</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Install</h2><a id="user-content-install" class="anchor" aria-label="Permalink: Install" href="#install"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>flutter pub add material_defaults</pre></div>
+<p>or add it to <code>pubspec.yaml</code> yourself:</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">dependencies</span>:
+  <span class="pl-ent">material_defaults</span>: <span class="pl-s">^0.1.0</span></pre></div>
+<div class="markdown-heading"><h2 class="heading-element">Usage</h2><a id="user-content-usage" class="anchor" aria-label="Permalink: Usage" href="#usage"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Call <code>MaterialDefaults.of(context)</code> inside <code>build</code>. Values resolve against
+the nearest <code>Theme</code> (its <code>ColorScheme</code> and <code>TextTheme</code>).</p>
+<div class="highlight highlight-source-dart"><pre><span class="pl-k">import</span> <span class="pl-s">'package:material_defaults/material_defaults.dart'</span>;
+
+<span class="pl-k">@override</span>
+<span class="pl-c1">Widget</span> <span class="pl-en">build</span>(<span class="pl-c1">BuildContext</span> context) {
+  <span class="pl-k">final</span> defaults <span class="pl-k">=</span> <span class="pl-c1">MaterialDefaults</span>.<span class="pl-en">of</span>(context);
+
+  <span class="pl-c">// 1. Read a single default for a given state.</span>
+  <span class="pl-k">final</span> <span class="pl-c1">Color</span><span class="pl-k">?</span> hoverOverlay <span class="pl-k">=</span> defaults.filledButton.overlayColor
+      <span class="pl-k">?</span>.<span class="pl-en">resolve</span>(<span class="pl-k">&lt;</span><span class="pl-c1">WidgetState</span><span class="pl-k">&gt;</span>{<span class="pl-c1">WidgetState</span>.hovered});
+
+  <span class="pl-c">// 2. Build a custom widget that matches Material exactly.</span>
+  <span class="pl-k">final</span> <span class="pl-c1">CardThemeData</span> card <span class="pl-k">=</span> defaults.outlinedCard;
+  <span class="pl-k">return</span> <span class="pl-c1">Material</span>(
+    color<span class="pl-k">:</span> card.color,
+    shape<span class="pl-k">:</span> card.shape,
+    elevation<span class="pl-k">:</span> card.elevation <span class="pl-k">??</span> <span class="pl-c1">0</span>,
+    child<span class="pl-k">:</span> <span class="pl-k">const</span> <span class="pl-c1">Padding</span>(padding<span class="pl-k">:</span> <span class="pl-c1">EdgeInsets</span>.<span class="pl-en">all</span>(<span class="pl-c1">16</span>), child<span class="pl-k">:</span> <span class="pl-c1">Text</span>(<span class="pl-s">'Custom'</span>)),
+  );
+}</pre></div>
+<p>Override one property of a component theme while keeping every other default:</p>
+<div class="highlight highlight-source-dart"><pre><span class="pl-c1">Builder</span>(
+  builder<span class="pl-k">:</span> (context) {
+    <span class="pl-k">final</span> defaults <span class="pl-k">=</span> <span class="pl-c1">MaterialDefaults</span>.<span class="pl-en">of</span>(context);
+    <span class="pl-k">return</span> <span class="pl-c1">Theme</span>(
+      data<span class="pl-k">:</span> <span class="pl-c1">Theme</span>.<span class="pl-en">of</span>(context).<span class="pl-en">copyWith</span>(
+        filledButtonTheme<span class="pl-k">:</span> <span class="pl-c1">FilledButtonThemeData</span>(
+          style<span class="pl-k">:</span> defaults.filledButton.<span class="pl-en">copyWith</span>(
+            shape<span class="pl-k">:</span> <span class="pl-k">const</span> <span class="pl-c1">WidgetStatePropertyAll</span>(<span class="pl-c1">StadiumBorder</span>()),
+          ),
+        ),
+      ),
+      child<span class="pl-k">:</span> child,
+    );
+  },
+);</pre></div>
+<p><code>MaterialDefaults.tokenVersion</code> tells you which Flutter version the values
+were generated from. See <code>example/</code> for a full gallery.</p>
+<div class="markdown-heading"><h2 class="heading-element">What is exposed</h2><a id="user-content-what-is-exposed" class="anchor" aria-label="Permalink: What is exposed" href="#what-is-exposed"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Members</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buttons</td>
+<td>
+<code>elevatedButton</code>, <code>filledButton</code>, <code>filledTonalButton</code>, <code>outlinedButton</code>, <code>textButton</code>, <code>iconButton()</code>, <code>filledIconButton()</code>, <code>filledTonalIconButton()</code>, <code>outlinedIconButton()</code> (each with <code>toggleable</code>), <code>menuButton</code>, <code>segmentedButton</code>
+</td>
+</tr>
+<tr>
+<td>FAB</td>
+<td>
+<code>floatingActionButton</code>, <code>smallFloatingActionButton</code>, <code>largeFloatingActionButton</code>, <code>extendedFloatingActionButton({hasIcon})</code>
+</td>
+</tr>
+<tr>
+<td>Surfaces</td>
+<td>
+<code>card</code>, <code>filledCard</code>, <code>outlinedCard</code>, <code>dialog</code>, <code>fullscreenDialog</code>, <code>bottomSheet</code>, <code>snackBar({floating})</code>, <code>banner</code>, <code>divider</code>, <code>listTile</code>, <code>expansionTile</code>
+</td>
+</tr>
+<tr>
+<td>Chips</td>
+<td>
+<code>chip({enabled})</code>, <code>actionChip({enabled, elevated})</code>, <code>filterChip({enabled, selected, elevated})</code>, <code>choiceChip(...)</code>, <code>inputChip({enabled, selected})</code>
+</td>
+</tr>
+<tr>
+<td>Inputs</td>
+<td>
+<code>inputDecoration</code>, <code>checkbox</code>, <code>radio</code>, <code>switchTheme</code>, <code>slider</code>, <code>rangeSlider</code>, <code>searchBar</code>, <code>searchView({fullScreen})</code>, <code>datePicker</code>
+</td>
+</tr>
+<tr>
+<td>Navigation</td>
+<td>
+<code>appBar</code>, <code>bottomAppBar</code>, <code>navigationBar</code>, <code>navigationRail</code>, <code>navigationDrawer</code>, <code>drawer</code>, <code>tabBar({isScrollable})</code>, <code>secondaryTabBar({isScrollable})</code>, <code>menu</code>, <code>menuBar</code>, <code>popupMenu</code>
+</td>
+</tr>
+<tr>
+<td>Feedback</td>
+<td>
+<code>badge</code>, <code>linearProgressIndicator</code>, <code>circularProgressIndicator({indeterminate})</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Every member returns an ordinary framework object (<code>ButtonStyle</code>,
+<code>ChipThemeData</code>, <code>InputDecorationThemeData</code>, …): <code>resolve</code>, <code>copyWith</code>,
+<code>merge</code> and passing it to <code>ThemeData</code> all work. Values are snapshots taken
+when you call the member, so obtain them in <code>build</code>.</p>
+<div class="markdown-heading"><h2 class="heading-element">Platform support</h2><a id="user-content-platform-support" class="anchor" aria-label="Permalink: Platform support" href="#platform-support"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Pure Dart/Flutter, no platform code.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Android</th>
+<th align="center">iOS</th>
+<th align="center">Web</th>
+<th align="center">macOS</th>
+<th align="center">Windows</th>
+<th align="center">Linux</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+</tr>
+</tbody>
+</table>
+<div class="markdown-heading"><h2 class="heading-element">Limitations</h2><a id="user-content-limitations" class="anchor" aria-label="Permalink: Limitations" href="#limitations"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong>Version-specific.</strong> Values are exact for Flutter <code>tokenVersion</code>
+(3.41.8). The package requires <code>flutter &gt;=3.41.0</code>; on a newer framework
+whose defaults changed, regenerate with
+<code>dart run tool/generate.dart --flutter-root &lt;sdk&gt;</code> (the <code>source_parity</code>
+test fails when the committed code no longer matches the running SDK).</li>
+<li>
+<strong>Material 3 only.</strong> With <code>useMaterial3: false</code> widgets use other classes;
+check <code>appliesToCurrentTheme</code>.</li>
+<li>
+<strong>Not everything is token generated.</strong> <code>Tooltip</code>, <code>DropdownMenu</code>,
+<code>TimePicker</code> (extends a private base class), medium/large <code>SliverAppBar</code>
+title configs and the <code>year2023: true</code> Slider / progress indicators are
+hand-written in the framework and are not exposed. <code>slider</code>, <code>rangeSlider</code>
+and the progress indicator members are the <code>year2023: false</code> defaults.</li>
+<li>
+<strong>Effective values over private values.</strong> Where a private class declares a
+value its widget never reads, the member returns what the widget renders:
+<code>appBar</code> (toolbarHeight 56, scrolled-under <code>surfaceContainer</code>, <code>surfaceTint</code>
+tint), <code>banner.elevation</code> 0, fixed <code>snackBar()</code> without shape.
+<code>dialog</code> matches <code>Dialog</code>/<code>AlertDialog</code>; <code>SimpleDialog</code> titles use
+<code>titleLarge</code>.</li>
+<li>
+<strong>Setting a theme property can differ from leaving it unset</strong> in a few
+widgets that branch on <em>presence</em>, not value: <code>RawChip</code> disables its
+InkWell hover color once <code>chipTheme.color</code> is set; <code>SnackBar</code> switches its
+hit-test behavior when <code>snackBarTheme.insetPadding</code> is set; <code>TabBar</code> adds
+<code>WidgetState.selected</code> for the selected tab only when resolving its own
+defaults. Reading and resolving the values is unaffected.</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Example app</h2><a id="user-content-example-app" class="anchor" aria-label="Permalink: Example app" href="#example-app"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><code>example/</code> has a gallery of every member (states grouped by resolved value,
+colors as swatches), a light/dark and seed switcher, and a <em>Custom</em> tab where
+a button, card and divider re-implemented from <code>MaterialDefaults</code> sit next to
+the stock widgets. <code>example/integration_test/app_test.dart</code> runs the real app,
+walks the whole gallery in light and dark, captures screenshots and asserts
+the custom widgets are pixel-identical to the stock ones:</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> example
+flutter <span class="pl-c1">test</span> integration_test -d <span class="pl-k">&lt;</span>device<span class="pl-k">&gt;</span> --dart-define=SHOT_DIR=/tmp/shots</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">Regenerating</h2><a id="user-content-regenerating" class="anchor" aria-label="Permalink: Regenerating" href="#regenerating"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="highlight highlight-source-shell"><pre>dart run tool/generate.dart            <span class="pl-c"><span class="pl-c">#</span> uses FLUTTER_ROOT or `flutter` on PATH</span>
+dart run tool/generate.dart --check    <span class="pl-c"><span class="pl-c">#</span> exit 1 if lib/src/generated is stale</span></pre></div>
+<div class="markdown-heading"><h2 class="heading-element">License</h2><a id="user-content-license" class="anchor" aria-label="Permalink: License" href="#license"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>MIT © 2026 Manish Kumar Panday. Generated/copied framework code is
+© The Flutter Authors, BSD-3-Clause (see <code>LICENSE</code>).</p>
+
+  </article>
+  <section class="more-pk"><h2>More Flutter packages</h2><ul><li><a href="/packages/flutter_rich_notifications/">flutter_rich_notifications</a></li><li><a href="/packages/interactive_keyboard_dismiss/">interactive_keyboard_dismiss</a></li><li><a href="/packages/flutter_control_center/">flutter_control_center</a></li><li><a href="/packages/wear_os_tiles/">wear_os_tiles</a></li><li><a href="/packages/input_language/">input_language</a></li><li><a href="/packages/mobius_carousel/">mobius_carousel</a></li><li><a href="/packages/scroll_transition/">scroll_transition</a></li><li><a href="/packages/middle_click_autoscroll/">middle_click_autoscroll</a></li><li><a href="/packages/universal_spell_check/">universal_spell_check</a></li><li><a href="/packages/web_update_guard/">web_update_guard</a></li><li><a href="/packages/native_proxy_resolver/">native_proxy_resolver</a></li></ul></section>
+</main>
+<footer class="wrap">
+  <span class="f-mark"><b>flutterdev.in</b> &middot; open source, MIT</span>
+  <span class="f-right">
+    <a class="ag-foot" href="https://algoistan.flutterdev.in/" title="Learn data structures and algorithms in Dart">Algo<span class="ist">istan</span></a>
+    <a href="/demos/">Demos</a>
+    <a href="https://github.com/Manish1Pandey">GitHub</a>
+    <a href="https://www.linkedin.com/in/manish-flutter">LinkedIn</a>
+  </span>
+</footer>
+<script>(function(){var r=document.documentElement;try{var s=localStorage.getItem('t');if(s)r.setAttribute('data-t',s);}catch(e){}
+function f(){var c=r.getAttribute('data-t');if(!c)c=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';var n=c==='dark'?'light':'dark';r.setAttribute('data-t',n);try{localStorage.setItem('t',n);}catch(e){}}
+document.getElementById('tt').addEventListener('click',function(){if(document.startViewTransition&&!matchMedia('(prefers-reduced-motion:reduce)').matches)document.startViewTransition(f);else f();});
+document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',function(){navigator.clipboard&&navigator.clipboard.writeText(b.dataset.c).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1400);});});});})();</script>
+</body>
+</html>
