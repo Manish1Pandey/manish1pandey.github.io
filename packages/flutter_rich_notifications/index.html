@@ -391,13 +391,13 @@ footer a:hover{color:var(--brand);}
 </tr>
 <tr>
 <td><strong>iOS</strong></td>
-<td>Notification Content Extension (NCE) you add to your app. The NCE renders a programmatic <code>UIViewController</code> with <code>UIImageView</code> (hero) + multi-line <code>UILabel</code> (full body). The OS routes the notification to the NCE when the APNs payload includes a matching <code>aps.category</code>.</td>
+<td>Notification Content Extension (NCE) you add to your app. The NCE renders a programmatic <code>UIViewController</code> with <code>UIImageView</code> (hero) + multi-line <code>UILabel</code> (full body). The OS routes the notification to the NCE <strong>only when</strong> the APNs payload includes a matching <code>aps.category</code>. The category is <strong>optional</strong> — omit it and the notification still renders (title, body, and image via the NSE) using the system's default layout; you simply don't get the NCE's custom full-body UI.</td>
 </tr>
 </tbody>
 </table>
 <div class="markdown-heading"><h2 class="heading-element">Installation</h2><a id="user-content-installation" class="anchor" aria-label="Permalink: Installation" href="#installation"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">dependencies</span>:
-  <span class="pl-ent">flutter_rich_notifications</span>: <span class="pl-s">^0.1.0</span></pre></div>
+  <span class="pl-ent">flutter_rich_notifications</span>: <span class="pl-s">^0.1.3</span></pre></div>
 <div class="highlight highlight-source-shell"><pre>flutter pub get</pre></div>
 <div class="markdown-heading"><h2 class="heading-element">Android setup</h2><a id="user-content-android-setup" class="anchor" aria-label="Permalink: Android setup" href="#android-setup"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Zero changes to your <code>MainActivity</code> — the plugin auto-registers its MethodChannel.</p>
@@ -484,6 +484,7 @@ footer a:hover{color:var(--brand);}
 <thead>
 <tr>
 <th>Field</th>
+<th>Required?</th>
 <th>Why it's needed</th>
 </tr>
 </thead>
@@ -491,18 +492,40 @@ footer a:hover{color:var(--brand);}
 <tr>
 <td>
 <code>notification.image</code> (or <code>notification.android.image</code> / <code>apns.fcm_options.image</code>)</td>
+<td>For images</td>
 <td>Image URL; consumed by Android plugin and iOS NSE</td>
 </tr>
 <tr>
 <td><code>apns.payload.aps.mutable-content: 1</code></td>
+<td>For images (iOS)</td>
 <td>Triggers iOS NSE (image download)</td>
 </tr>
 <tr>
 <td><code>apns.payload.aps.category: "rich_notification"</code></td>
-<td>Triggers iOS NCE (rich UI) — must match <code>UNNotificationExtensionCategory</code> in the NCE's Info.plist</td>
+<td><strong>Optional</strong></td>
+<td>Triggers iOS NCE (rich full-body UI) — must match <code>UNNotificationExtensionCategory</code> in the NCE's Info.plist. <strong>Omit it and the notification still arrives</strong> with title/body/image in the system's default layout; only the NCE's custom UI is skipped.</td>
 </tr>
 </tbody>
 </table>
+<div class="markdown-heading"><h3 class="heading-element">Minimal payload (no custom UI)</h3><a id="user-content-minimal-payload-no-custom-ui" class="anchor" aria-label="Permalink: Minimal payload (no custom UI)" href="#minimal-payload-no-custom-ui"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Drop <code>aps.category</code> when you don't need the NCE's custom layout. The image still
+attaches via the NSE, so iOS renders the stock expanded notification with the
+hero image:</p>
+<div class="highlight highlight-source-json"><pre>{
+  <span class="pl-ent">"message"</span>: {
+    <span class="pl-ent">"token"</span>: <span class="pl-s"><span class="pl-pds">"</span>&lt;device_fcm_token&gt;<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"notification"</span>: {
+      <span class="pl-ent">"title"</span>: <span class="pl-s"><span class="pl-pds">"</span>Payment Successful<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"body"</span>: <span class="pl-s"><span class="pl-pds">"</span>Your rent payment of ₹12,500 has been processed.<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"image"</span>: <span class="pl-s"><span class="pl-pds">"</span>https://example.com/receipt.jpg<span class="pl-pds">"</span></span>
+    },
+    <span class="pl-ent">"apns"</span>: {
+      <span class="pl-ent">"headers"</span>: { <span class="pl-ent">"apns-priority"</span>: <span class="pl-s"><span class="pl-pds">"</span>10<span class="pl-pds">"</span></span> },
+      <span class="pl-ent">"payload"</span>: { <span class="pl-ent">"aps"</span>: { <span class="pl-ent">"mutable-content"</span>: <span class="pl-c1">1</span> } }
+    }
+  }
+}</pre></div>
+<p>Drop <code>mutable-content</code> too for a plain text-only notification with no image.</p>
 <div class="markdown-heading"><h2 class="heading-element">Usage</h2><a id="user-content-usage" class="anchor" aria-label="Permalink: Usage" href="#usage"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="markdown-heading"><h3 class="heading-element">One-time configuration</h3><a id="user-content-one-time-configuration" class="anchor" aria-label="Permalink: One-time configuration" href="#one-time-configuration"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Optional. Defaults work out of the box.</p>
