@@ -74,6 +74,7 @@ def gh(args, inp=None):
 
 def render(name, md):
     md = re.sub(r'\A\s*#\s[^\n]*\n', '', md)   # the page's own <h1> carries the name
+    md = re.sub(r'^## Links\n[\s\S]*?(?=^## |\Z)', '', md, flags=re.M)   # README's links point back to this very site
     out = gh(['api', 'markdown', '--input', '-'], json.dumps({'text': md, 'mode': 'markdown', 'context': OWNER + '/' + name}))
     raw = 'https://raw.githubusercontent.com/%s/%s/HEAD/' % (OWNER, name)
     blob = 'https://github.com/%s/%s/blob/HEAD/' % (OWNER, name)
