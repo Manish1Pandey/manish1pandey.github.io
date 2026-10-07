@@ -85,7 +85,9 @@ nav{position:sticky; top:0; z-index:40; background:color-mix(in srgb,var(--bg) 8
   transform:translateY(-1px); box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 6px 16px -6px rgba(111,219,201,.45);}
 .nav-links a.algoistan .ag-logo{width:24px; height:24px; flex:none;}
 .nav-links a.algoistan .ist{color:#ffb877;}
-footer a.ag-foot .ist{color:#e3741a;}
+footer a.ag-foot .ist{color:#b45309;}
+:root[data-t="dark"] footer a.ag-foot .ist{color:#ffb877;}
+@media (prefers-color-scheme:dark){:root:not([data-t="light"]) footer a.ag-foot .ist{color:#ffb877;}}
 /* shine: a light sweep crosses the badge every few seconds, and the saffron glows softly */
 .nav-links a.algoistan{position:relative; overflow:hidden; isolation:isolate;}
 .nav-links a.algoistan::after{content:""; position:absolute; inset:-2px auto -2px -60%; width:55%; z-index:1; pointer-events:none; mix-blend-mode:screen;
@@ -159,8 +161,8 @@ section{padding:clamp(56px,8vh,88px) 0 0;}
   transition:color .16s,border-color .16s,background .16s,transform .16s;}
 .chip:hover{color:var(--ink); transform:translateY(-1px);}
 .chip[aria-pressed="true"]{background:var(--brand); border-color:var(--brand); color:#fff;}
-:root[data-t="dark"] .chip[aria-pressed="true"],
-:root:not([data-t="light"]) .chip[aria-pressed="true"]{color:#06131f;}
+:root[data-t="dark"] .chip[aria-pressed="true"]{color:#06131f;}
+@media (prefers-color-scheme:dark){:root:not([data-t="light"]) .chip[aria-pressed="true"]{color:#06131f;}}
 
 /* ---------- cards ---------- */
 .grid{display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(324px,1fr));}
@@ -286,7 +288,7 @@ footer a:hover{color:var(--brand);}
 .md .markdown-alert{border-left:3px solid var(--brand); padding:6px 16px; margin:16px 0; background:var(--sky); border-radius:0 10px 10px 0;}
 .md .markdown-alert-title{font-weight:700;} .md svg.octicon{display:none;}
 /* GitHub syntax colours */
-.md .pl-k{color:#cf222e;} .md .pl-s,.md .pl-pds{color:#0a3069;} .md .pl-c{color:#6e7781; font-style:italic;}
+.md .pl-k{color:#cf222e;} .md .pl-s,.md .pl-pds{color:#0a3069;} .md .pl-c{color:#57606a; font-style:italic;}
 .md .pl-en,.md .pl-e{color:#8250df;} .md .pl-c1,.md .pl-v{color:#0550ae;} .md .pl-smi{color:inherit;} .md .pl-ent{color:#116329;}
 :root[data-t="dark"] .md .pl-k{color:#ff7b72;} :root[data-t="dark"] .md .pl-s,:root[data-t="dark"] .md .pl-pds{color:#a5d6ff;}
 :root[data-t="dark"] .md .pl-c{color:#8b949e;} :root[data-t="dark"] .md .pl-en,:root[data-t="dark"] .md .pl-e{color:#d2a8ff;}

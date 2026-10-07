@@ -54,7 +54,7 @@ PAGE_CSS = """
 .md .markdown-alert{border-left:3px solid var(--brand); padding:6px 16px; margin:16px 0; background:var(--sky); border-radius:0 10px 10px 0;}
 .md .markdown-alert-title{font-weight:700;} .md svg.octicon{display:none;}
 /* GitHub syntax colours */
-.md .pl-k{color:#cf222e;} .md .pl-s,.md .pl-pds{color:#0a3069;} .md .pl-c{color:#6e7781; font-style:italic;}
+.md .pl-k{color:#cf222e;} .md .pl-s,.md .pl-pds{color:#0a3069;} .md .pl-c{color:#57606a; font-style:italic;}
 .md .pl-en,.md .pl-e{color:#8250df;} .md .pl-c1,.md .pl-v{color:#0550ae;} .md .pl-smi{color:inherit;} .md .pl-ent{color:#116329;}
 :root[data-t="dark"] .md .pl-k{color:#ff7b72;} :root[data-t="dark"] .md .pl-s,:root[data-t="dark"] .md .pl-pds{color:#a5d6ff;}
 :root[data-t="dark"] .md .pl-c{color:#8b949e;} :root[data-t="dark"] .md .pl-en,:root[data-t="dark"] .md .pl-e{color:#d2a8ff;}

@@ -87,7 +87,9 @@ nav{position:sticky; top:0; z-index:40; background:color-mix(in srgb,var(--bg) 8
   transform:translateY(-1px); box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 6px 16px -6px rgba(111,219,201,.45);}
 .nav-links a.algoistan .ag-logo{width:24px; height:24px; flex:none;}
 .nav-links a.algoistan .ist{color:#ffb877;}
-footer a.ag-foot .ist{color:#e3741a;}
+footer a.ag-foot .ist{color:#b45309;}
+:root[data-t="dark"] footer a.ag-foot .ist{color:#ffb877;}
+@media (prefers-color-scheme:dark){:root:not([data-t="light"]) footer a.ag-foot .ist{color:#ffb877;}}
 /* shine: a light sweep crosses the badge every few seconds, and the saffron glows softly */
 .nav-links a.algoistan{position:relative; overflow:hidden; isolation:isolate;}
 .nav-links a.algoistan::after{content:""; position:absolute; inset:-2px auto -2px -60%; width:55%; z-index:1; pointer-events:none; mix-blend-mode:screen;
@@ -161,8 +163,8 @@ section{padding:clamp(56px,8vh,88px) 0 0;}
   transition:color .16s,border-color .16s,background .16s,transform .16s;}
 .chip:hover{color:var(--ink); transform:translateY(-1px);}
 .chip[aria-pressed="true"]{background:var(--brand); border-color:var(--brand); color:#fff;}
-:root[data-t="dark"] .chip[aria-pressed="true"],
-:root:not([data-t="light"]) .chip[aria-pressed="true"]{color:#06131f;}
+:root[data-t="dark"] .chip[aria-pressed="true"]{color:#06131f;}
+@media (prefers-color-scheme:dark){:root:not([data-t="light"]) .chip[aria-pressed="true"]{color:#06131f;}}
 
 /* ---------- cards ---------- */
 .grid{display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(324px,1fr));}
