@@ -133,7 +133,7 @@ button.btn.sec{border:1px solid var(--line);}
 .revealed{font-family:ui-monospace,Menlo,monospace;}
 """
 
-EMBLEM = '''<svg viewBox="0 0 200 200" role="img" aria-label="Manish Kumar Panday monogram">
+EMBLEM = '''<svg viewBox="0 0 200 200" role="img" aria-label="Decorative glowing emblem">
 <defs>
 <radialGradient id="em-bg" cx="50%" cy="42%" r="62%"><stop offset="0" stop-color="#0f2a4d"/><stop offset="1" stop-color="#050c18"/></radialGradient>
 <radialGradient id="em-core" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#e6fbff"/><stop offset=".35" stop-color="#7fe0ff" stop-opacity=".9"/><stop offset="1" stop-color="#12b3f3" stop-opacity="0"/></radialGradient>
@@ -145,7 +145,6 @@ EMBLEM = '''<svg viewBox="0 0 200 200" role="img" aria-label="Manish Kumar Panda
 <g class="core-b"><circle cx="100" cy="100" r="66" fill="none" stroke="#7fe0ff" stroke-opacity=".55" stroke-width="2" stroke-dasharray="2 6"/></g>
 <circle class="core-glow" cx="100" cy="100" r="58" fill="url(#em-core)" opacity=".85"/>
 <circle cx="100" cy="100" r="46" fill="#071426" fill-opacity=".72" stroke="#7fe0ff" stroke-opacity=".6" stroke-width="1.5"/>
-<text x="100" y="112" text-anchor="middle" font-family="Inter,system-ui,-apple-system,sans-serif" font-size="34" font-weight="800" letter-spacing="1" fill="#ffffff">MKP</text>
 </svg>'''
 
 ICON = {
@@ -193,7 +192,7 @@ page = f"""<!DOCTYPE html>
     <div>
       <h1>Manish Kumar Panday</h1>
       <p class="role"><b>Flutter developer</b> · Software Engineer at Innopay · Bangalore, India</p>
-      <p class="lede">I build payment apps used by millions, and open-source Flutter packages for the gaps the framework leaves open, from iOS Control Center controls to a rendering engine that animates 100,000 items smoothly.</p>
+      <p class="lede">I ship Flutter payment apps downloaded more than 6 million times, and build the open-source pieces Flutter is still missing, from iOS Control Center controls to a rendering engine that keeps 100,000 animated items smooth.</p>
       <div class="contact-row">{contact_buttons(True)}</div>
     </div>
   </header>
