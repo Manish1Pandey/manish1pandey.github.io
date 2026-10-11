@@ -192,7 +192,7 @@ page = f"""<!DOCTYPE html>
     <div>
       <h1>Manish Kumar Panday</h1>
       <p class="role"><b>Flutter developer</b> · Software Engineer at Innopay · Bangalore, India</p>
-      <p class="lede">I ship Flutter payment apps downloaded more than 6 million times, and build the open-source pieces Flutter is still missing, from iOS Control Center controls to a rendering engine that keeps 100,000 animated items smooth.</p>
+      <p class="lede">I'm a Flutter engineer drawn to the hard parts. At Innopay I build payment apps downloaded more than 6 million times. On my own, I've published 14 open-source packages, written a rendering engine that keeps 100,000 moving items smooth, and created Algoistan, a free course that teaches algorithms from zero.</p>
       <div class="contact-row">{contact_buttons(True)}</div>
     </div>
   </header>
