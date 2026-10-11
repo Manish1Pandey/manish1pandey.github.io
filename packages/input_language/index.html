@@ -426,18 +426,134 @@ pure function <code>resolveTextDirection(text:, keyboard:, policy:, fallback:)</
 <p>The keyboard is only consulted while the field is focused (<code>keyboardOnlyWhileFocused: true</code>). The
 web's weak browser-locale hint never overrides typed text.</p>
 <div class="markdown-heading"><h3 class="heading-element">Bidi detection</h3><a id="user-content-bidi-detection" class="anchor" aria-label="Permalink: Bidi detection" href="#bidi-detection"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><strong>Bidi</strong> is short for <strong>bidirectional text</strong>: text that mixes scripts written right-to-left
+(Hebrew, Arabic, Persian, Urdu and others) with scripts written left-to-right (English and most
+other languages) and with digits. A text field can only lay out its content in one base
+direction, so it has to choose: should <code>שלום world</code> start from the right edge or the left?</p>
+<p>Get it wrong and the cursor jumps to the wrong side, punctuation lands at the wrong end of the
+line, and right-to-left users see their sentence scrambled. The OS keyboard language (above)
+tells you what the user <em>intends</em> to type; Bidi detection tells you what the text <em>actually
+contains</em>, which matters for text that was pasted, loaded from a server, or typed before the
+keyboard was switched.</p>
 <div class="highlight highlight-source-dart"><pre><span class="pl-en">detectTextDirection</span>(<span class="pl-s">'123 - שלום'</span>);          <span class="pl-c">// TextDirection.rtl</span>
 <span class="pl-en">detectTextDirection</span>(<span class="pl-s">'Flutter و دارت'</span>);      <span class="pl-c">// TextDirection.ltr</span>
 <span class="pl-en">detectTextDirection</span>(<span class="pl-s">'٣٤٥ 😀'</span>);              <span class="pl-c">// null (no strong character)</span>
 <span class="pl-en">isRtlLanguageTag</span>(<span class="pl-s">'ur-PK'</span>);                  <span class="pl-c">// true</span>
 <span class="pl-en">isRtlLanguageTag</span>(<span class="pl-s">'pa-Arab'</span>);                <span class="pl-c">// true, 'pa' alone → false</span></pre></div>
+<div class="markdown-heading"><h4 class="heading-element">The rule: the first strong character decides</h4><a id="user-content-the-rule-the-first-strong-character-decides" class="anchor" aria-label="Permalink: The rule: the first strong character decides" href="#the-rule-the-first-strong-character-decides"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Unicode defines how bidirectional text works in the <strong>Unicode Bidirectional Algorithm</strong>
+(<a href="https://www.unicode.org/reports/tr9/" rel="nofollow">UAX #9</a>). Its rule for choosing a paragraph's direction
+is simple: skip everything that has no direction of its own, and use the direction of the
+<strong>first strong character</strong>. Every character falls into one of three groups:</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>What it means</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>Strong left-to-right</strong> (<code>L</code>)</td>
+<td>Letters of left-to-right scripts</td>
+<td>
+<code>A</code>, <code>ж</code>, <code>क</code>, <code>中</code>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Strong right-to-left</strong> (<code>R</code>, <code>AL</code>)</td>
+<td>Letters of right-to-left scripts (<code>AL</code> is the Arabic-letter class)</td>
+<td>
+<code>ש</code>, <code>ب</code>, <code>پ</code>, <code>ܐ</code>
+</td>
+</tr>
+<tr>
+<td><strong>Weak or neutral</strong></td>
+<td>Characters that take their direction from the text around them</td>
+<td>digits <code>1</code> <code>٣</code>, spaces, <code>-</code> <code>.</code> <code>?</code>, emoji, vowel and accent marks</td>
+</tr>
+</tbody>
+</table>
+<p><code>detectTextDirection</code> returns the direction of the first strong character it finds, or <code>null</code>
+when the text has none. Use <code>null</code> to keep whatever direction you had before, for example the
+app's locale or the keyboard's language.</p>
+<div class="markdown-heading"><h4 class="heading-element">Worked examples</h4><a id="user-content-worked-examples" class="anchor" aria-label="Permalink: Worked examples" href="#worked-examples"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<table>
+<thead>
+<tr>
+<th>Text</th>
+<th>Result</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>123 - שלום</code></td>
+<td><code>rtl</code></td>
+<td>
+<code>123</code>, the spaces and <code>-</code> are not strong; the first strong character is Hebrew <code>ש</code>.</td>
+</tr>
+<tr>
+<td><code>Flutter و دارت</code></td>
+<td><code>ltr</code></td>
+<td>
+<code>F</code> is the first strong character, even though the text also contains Arabic.</td>
+</tr>
+<tr>
+<td><code>٣٤٥ 😀</code></td>
+<td><code>null</code></td>
+<td>Arabic-Indic digits and an emoji are not strong, so the text has no direction yet.</td>
+</tr>
+<tr>
+<td><code>سلام!</code></td>
+<td><code>rtl</code></td>
+<td>The first strong character is Arabic <code>س</code>; the <code>!</code> does not count.</td>
+</tr>
+<tr>
+<td><code>(Hello)</code></td>
+<td><code>ltr</code></td>
+<td>The parenthesis is neutral; <code>H</code> decides.</td>
+</tr>
+</tbody>
+</table>
+<p>Two details that trip up simpler implementations:</p>
+<ul>
+<li>
+<strong>Vowel and accent marks are not strong.</strong> Arabic harakat, Hebrew niqqud, and Syriac and Thaana
+vowels sit on top of letters but have no direction of their own (<code>NSM</code>). Text that starts with
+such a mark is still decided by the letter that follows.</li>
+<li>
+<strong>Isolated text is skipped.</strong> Text wrapped in the Unicode isolate controls (<code>LRI</code>, <code>RLI</code> or <code>FSI</code>
+up to the matching <code>PDI</code>) is meant to be laid out on its own, so its letters never decide the
+direction of the surrounding paragraph. A quoted English name inside a Hebrew sentence, wrapped
+in an isolate, does not flip the sentence to left-to-right.</li>
+</ul>
+<div class="markdown-heading"><h4 class="heading-element">When to use which</h4><a id="user-content-when-to-use-which" class="anchor" aria-label="Permalink: When to use which" href="#when-to-use-which"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>
+<strong><code>detectTextDirection(text)</code></strong>: you have the text. Use it for pasted or server-loaded text, chat
+messages, search results, or as the fallback when the platform can't report the keyboard.</li>
+<li>
+<strong><code>isRtlLanguageTag(tag)</code></strong>: you only have a language tag such as <code>ar-EG</code>, <code>he</code>, <code>fa-IR</code> or
+<code>ur-PK</code>, for example from the keyboard or the device locale. The script part of the tag wins
+when present: <code>pa-Arab</code> (Punjabi in Arabic script) is right-to-left, while plain <code>pa</code> (written in
+Gurmukhi) is left-to-right.</li>
+<li>
+<strong><code>AutoDirectionTextField</code></strong> (above) combines both: it follows the keyboard while the field is
+empty and the typed text once there is some, according to the policy you choose.</li>
+</ul>
+<div class="markdown-heading"><h4 class="heading-element">Precision</h4><a id="user-content-precision" class="anchor" aria-label="Permalink: Precision" href="#precision"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><code>detectTextDirection</code> implements UAX #9 rules P2/P3: it returns the direction of the first strong
 character (L, or R/AL) and skips text inside isolates (LRI/RLI/FSI…PDI). It uses a table generated
 from the <strong>Unicode 16.0</strong> character database (<code>tool/generate_bidi_table.py</code>), so combining marks
 (harakat, niqqud, Syriac and Thaana vowels, N'Ko tones), Arabic-Indic digits and punctuation are
 correctly <em>not</em> strong. It covers Hebrew, Arabic (Persian and Urdu letters, Supplement,
 Extended-A/B/C, Presentation Forms), Syriac, Thaana, N'Ko, Samaritan, Mandaic, Adlam and Hanifi
-Rohingya, and the RTL defaults for unassigned code points in those blocks.</p>
+Rohingya, and the RTL defaults for unassigned code points in those blocks. It looks at the first
+paragraph only, the same way a text field applies one direction to all of its content.</p>
 <div class="markdown-heading"><h3 class="heading-element">Switching the keyboard (macOS, Windows)</h3><a id="user-content-switching-the-keyboard-macos-windows" class="anchor" aria-label="Permalink: Switching the keyboard (macOS, Windows)" href="#switching-the-keyboard-macos-windows"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-dart"><pre><span class="pl-k">try</span> {
   <span class="pl-k">final</span> ok <span class="pl-k">=</span> <span class="pl-k">await</span> <span class="pl-c1">KeyboardLanguage</span>.<span class="pl-en">setLanguage</span>(<span class="pl-s">'ar'</span>); <span class="pl-c">// false if no Arabic keyboard is installed</span>
