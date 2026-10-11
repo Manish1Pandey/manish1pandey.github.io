@@ -120,6 +120,9 @@ button.btn.sec{border:1px solid var(--line);}
 @media (max-width:800px){.two{grid-template-columns:1fr;}}
 .panel{border:1px solid var(--line); background:var(--surf); border-radius:18px; padding:24px 26px; box-shadow:var(--sh-s);}
 .panel h3{margin:0 0 8px; font-size:20px; letter-spacing:-.02em;}
+.now{background:linear-gradient(160deg,color-mix(in srgb,var(--brand2) 9%,var(--surf)),var(--surf));}
+.now .tag{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--brand); margin-bottom:6px;}
+.now p{margin:0;}
 .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;}
 .chip{font-size:13.5px; padding:6px 12px; border-radius:999px; border:1px solid var(--line); background:var(--bg); color:var(--ink);}
 
@@ -215,8 +218,6 @@ page = f"""<!DOCTYPE html>
         <li><b>Built the Jenkins CI/CD pipeline from scratch:</b> environment checks, UAT and production gates, build caching, iOS CocoaPods and version handling.</li>
         <li><b>Shipped payment and compliance flows:</b> Aadhaar-OTP KYC, the BBPS bill-payment checkout, a gift-card module, instant settlement, gold SIP and refund screens.</li>
         <li><b>Added product analytics</b> (Google and Meta) and deep linking across Android and iOS.</li>
-        <li><b>Kept both apps current:</b> Flutter upgrades, Android API 35 and 36, and the Gradle Groovy-to-Kotlin DSL migration.</li>
-        <li><b>Top contributor on ePayRent:</b> 602 of its 1,058 commits on main (56%).</li>
       </ul>
     </article>
   </section>
@@ -241,6 +242,16 @@ page = f"""<!DOCTYPE html>
       </ul>
     </article>
     <div class="pk-grid">{pk_cards}</div>
+  </section>
+
+  <section id="building">
+    <h2>Currently building</h2>
+    <p class="sec-sub">A personal project, in progress and not yet public.</p>
+    <article class="panel now">
+      <span class="tag">In progress · personal</span>
+      <h3>GameLM</h3>
+      <p>A behavioural-intelligence SDK for Flutter games: AI opponents that learn from how people play, and analytics that help developers understand their players. It ships with an admin dashboard for following players across several games.</p>
+    </article>
   </section>
 
   <section id="algoistan">

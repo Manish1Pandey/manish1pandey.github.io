@@ -333,6 +333,9 @@ button.btn.sec{border:1px solid var(--line);}
 @media (max-width:800px){.two{grid-template-columns:1fr;}}
 .panel{border:1px solid var(--line); background:var(--surf); border-radius:18px; padding:24px 26px; box-shadow:var(--sh-s);}
 .panel h3{margin:0 0 8px; font-size:20px; letter-spacing:-.02em;}
+.now{background:linear-gradient(160deg,color-mix(in srgb,var(--brand2) 9%,var(--surf)),var(--surf));}
+.now .tag{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--brand); margin-bottom:6px;}
+.now p{margin:0;}
 .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;}
 .chip{font-size:13.5px; padding:6px 12px; border-radius:999px; border:1px solid var(--line); background:var(--bg); color:var(--ink);}
 
@@ -423,8 +426,6 @@ button.btn.sec{border:1px solid var(--line);}
         <li><b>Built the Jenkins CI/CD pipeline from scratch:</b> environment checks, UAT and production gates, build caching, iOS CocoaPods and version handling.</li>
         <li><b>Shipped payment and compliance flows:</b> Aadhaar-OTP KYC, the BBPS bill-payment checkout, a gift-card module, instant settlement, gold SIP and refund screens.</li>
         <li><b>Added product analytics</b> (Google and Meta) and deep linking across Android and iOS.</li>
-        <li><b>Kept both apps current:</b> Flutter upgrades, Android API 35 and 36, and the Gradle Groovy-to-Kotlin DSL migration.</li>
-        <li><b>Top contributor on ePayRent:</b> 602 of its 1,058 commits on main (56%).</li>
       </ul>
     </article>
   </section>
@@ -449,6 +450,16 @@ button.btn.sec{border:1px solid var(--line);}
       </ul>
     </article>
     <div class="pk-grid"><a class="pk-card" href="/packages/flutter_rich_notifications/" data-n="flutter_rich_notifications"><span class="pk-name">flutter_rich_notifications</span><span class="pk-blurb">Push notifications with a full hero image and the full body text, on Android and iOS.</span><span class="pk-foot"><span class="pk-ver">v0.1.3</span><span class="pk-dl"></span></span></a><a class="pk-card" href="/packages/interactive_keyboard_dismiss/" data-n="interactive_keyboard_dismiss"><span class="pk-name">interactive_keyboard_dismiss</span><span class="pk-blurb">The keyboard follows your finger as a list is dragged into it.</span><span class="pk-foot"><span class="pk-ver">v0.1.1</span><span class="pk-dl"></span></span></a><a class="pk-card" href="/packages/flutter_control_center/" data-n="flutter_control_center"><span class="pk-name">flutter_control_center</span><span class="pk-blurb">iOS 18 Control Center, Lock Screen and Action button controls.</span><span class="pk-foot"><span class="pk-ver">v0.1.0</span><span class="pk-dl"></span></span></a><a class="pk-card" href="/packages/wear_os_tiles/" data-n="wear_os_tiles"><span class="pk-name">wear_os_tiles</span><span class="pk-blurb">Wear OS tiles and watch-face complications, described in Dart.</span><span class="pk-foot"><span class="pk-ver">v0.1.0</span><span class="pk-dl"></span></span></a><a class="pk-card" href="/packages/input_language/" data-n="input_language"><span class="pk-name">input_language</span><span class="pk-blurb">Detects the active keyboard language and sets text direction.</span><span class="pk-foot"><span class="pk-ver">v0.1.0</span><span class=pk-live>&#9658; demo</span><span class="pk-dl"></span></span></a><a class="pk-card" href="/packages/mobius_carousel/" data-n="mobius_carousel"><span class="pk-name">mobius_carousel</span><span class="pk-blurb">A drag-driven carousel with tilted cards and a ripple reveal.</span><span class="pk-foot"><span class="pk-ver">v0.3.1</span><span class=pk-live>&#9658; demo</span><span class="pk-dl"></span></span></a><a class="pk-card" href="/packages/scroll_transition/" data-n="scroll_transition"><span class="pk-name">scroll_transition</span><span class="pk-blurb">SwiftUI-style scroll transitions and visual effects.</span><span class="pk-foot"><span class="pk-ver">v0.1.1</span><span class=pk-live>&#9658; demo</span><span class="pk-dl"></span></span></a><a class="pk-card" href="/packages/material_defaults/" data-n="material_defaults"><span class="pk-name">material_defaults</span><span class="pk-blurb">Public access to the Material 3 default styles Flutter keeps private.</span><span class="pk-foot"><span class="pk-ver">v0.1.0</span><span class=pk-live>&#9658; demo</span><span class="pk-dl"></span></span></a><a class="pk-card" href="/packages/middle_click_autoscroll/" data-n="middle_click_autoscroll"><span class="pk-name">middle_click_autoscroll</span><span class="pk-blurb">Browser-style middle-click autoscroll for desktop and web.</span><span class="pk-foot"><span class="pk-ver">v0.1.1</span><span class=pk-live>&#9658; demo</span><span class="pk-dl"></span></span></a><a class="pk-card" href="/packages/universal_spell_check/" data-n="universal_spell_check"><span class="pk-name">universal_spell_check</span><span class="pk-blurb">Spell check for text fields on web, macOS, Windows and Linux.</span><span class="pk-foot"><span class="pk-ver">v0.1.1</span><span class=pk-live>&#9658; demo</span><span class="pk-dl"></span></span></a><a class="pk-card" href="/packages/web_update_guard/" data-n="web_update_guard"><span class="pk-name">web_update_guard</span><span class="pk-blurb">Stops Flutter web users running a stale cached build after a deploy.</span><span class="pk-foot"><span class="pk-ver">v0.1.0</span><span class=pk-live>&#9658; demo</span><span class="pk-dl"></span></span></a><a class="pk-card" href="/packages/native_proxy_resolver/" data-n="native_proxy_resolver"><span class="pk-name">native_proxy_resolver</span><span class="pk-blurb">Resolves the OS proxy per URL, including PAC and WPAD auto-config.</span><span class="pk-foot"><span class="pk-ver">v0.1.0</span><span class="pk-dl"></span></span></a><a class="pk-card" href="/packages/aether_thread/" data-n="aether_thread"><span class="pk-name">aether_thread</span><span class="pk-blurb">Runs heavy work off the UI thread on warm worker isolates, in one call.</span><span class="pk-foot"><span class="pk-ver">v0.1.0</span><span class="pk-dl"></span></span></a></div>
+  </section>
+
+  <section id="building">
+    <h2>Currently building</h2>
+    <p class="sec-sub">A personal project, in progress and not yet public.</p>
+    <article class="panel now">
+      <span class="tag">In progress · personal</span>
+      <h3>GameLM</h3>
+      <p>A behavioural-intelligence SDK for Flutter games: AI opponents that learn from how people play, and analytics that help developers understand their players. It ships with an admin dashboard for following players across several games.</p>
+    </article>
   </section>
 
   <section id="algoistan">
