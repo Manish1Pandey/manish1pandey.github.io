@@ -67,6 +67,7 @@ PAGE_CSS = """
 .more-pk ul{list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:8px;}
 .more-pk a{display:inline-block; font-size:14px; padding:7px 12px; border-radius:9px; border:1px solid var(--line); background:var(--surf); color:var(--ink); text-decoration:none;}
 .more-pk a:hover{border-color:var(--brand); color:var(--brand);}
+.pk-meta .tag#dl{font-family:ui-monospace,Menlo,monospace; font-weight:500;}
 """
 
 def gh(args, inp=None):
@@ -138,7 +139,7 @@ for name, plats, live in cards:
   <header class="pk-head">
     <h1>{e(name)}</h1>
     <p class="lede">{e(desc)}</p>
-    <div class="pk-meta"><span class="tag">v{e(ver)}</span><span class="tag ok">160/160 pub points</span><span class="tag">MIT</span>{''.join('<span class="tag">%s</span>' % p for p in platforms)}</div>
+    <div class="pk-meta"><span class="tag">v{e(ver)}</span><span class="tag ok" id="pts">160/160 pub points</span><span class="tag" id="dl" hidden></span><span class="tag">MIT</span>{''.join('<span class="tag">%s</span>' % p for p in platforms)}</div>
     <div class="pk-actions"><a class="btn pri" href="https://pub.dev/packages/{name}">View on pub.dev &#8594;</a>{demo}<a class="btn sec" href="https://github.com/{OWNER}/{name}">Source on GitHub</a></div>
     <div class="dep"><code>{name}: ^{e(ver)}</code><button class="cp" data-c="{name}: ^{e(ver)}" aria-label="Copy dependency for {name}">Copy</button></div>
   </header>
@@ -149,6 +150,13 @@ for name, plats, live in cards:
 </main>
 {footer}
 {theme_js}
+<script>/* Live pub.dev numbers: 30-day downloads (refreshed by pub.dev about daily) and pub points. */
+fetch('https://pub.dev/api/packages/{name}/score').then(function(r){{return r.ok?r.json():null;}}).then(function(s){{
+  if(!s)return; var d=document.getElementById('dl'), p=document.getElementById('pts'), n=s.downloadCount30Days;
+  if(s.maxPoints)p.textContent=s.grantedPoints+'/'+s.maxPoints+' pub points';
+  d.textContent=n==null?'\u2193 new on pub.dev':'\u2193 '+n.toLocaleString()+' downloads / 30 days';
+  d.title=n==null?'Downloads appear after the first daily count on pub.dev':'Downloads in the last 30 days, from pub.dev'; d.hidden=false;
+}}).catch(function(){{}});</script>
 </body>
 </html>
 """

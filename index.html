@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>flutterdev.in &mdash; open-source Flutter &amp; Dart packages</title>
-<meta name="description" content="Twelve production-ready, open-source Flutter and Dart packages. Seven run live in your browser. Every package scores 160/160 on pub.dev.">
+<meta name="description" content="Fourteen production-ready, open-source Flutter and Dart packages. Eight run live in your browser. Every package scores 160/160 on pub.dev.">
 <meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme:light)">
 <meta name="theme-color" content="#060c14" media="(prefers-color-scheme:dark)">
 <meta property="og:title" content="flutterdev.in &mdash; open-source Flutter &amp; Dart packages">
-<meta property="og:description" content="Twelve production-ready Flutter packages. Seven run live in your browser.">
+<meta property="og:description" content="Fourteen production-ready Flutter packages. Eight run live in your browser.">
 <meta property="og:url" content="https://flutterdev.in/">
 <link rel="canonical" href="https://flutterdev.in/">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"flutterdev.in","url":"https://flutterdev.in/","inLanguage":"en","author":{"@type":"Person","name":"Manish Kumar Panday"}}</script>
@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://flutterdev.in/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="flutterdev.in — Flutter packages, built for production. 13 packages, 7 live demos, 160/160 pub points.">
+<meta property="og:image:alt" content="flutterdev.in — Flutter packages, built for production. 14 packages, 8 live demos, 160/160 pub points.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='58 16 226 266'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%230468d7'/><stop offset='1' stop-color='%2312b3f3'/></linearGradient></defs><path d='M196 24 66 154l40 40L276 24z' fill='url(%23g)'/><path d='M196 140 130 206l40 40 66-66z' fill='url(%23g)' opacity='.82'/><path d='M106 194 66 234l40 40h84l-44-44z' fill='url(%23g)' opacity='.6'/></svg>">
 <style>
@@ -220,6 +220,8 @@ section{padding:clamp(56px,8vh,88px) 0 0;}
 .c-foot a:hover{color:var(--brand);}
 .c-foot a.demo{color:var(--brand);}
 .pts{margin-left:auto; font:11.5px ui-monospace,Menlo,monospace; color:var(--ok);}
+.dl{margin-left:auto; font:11.5px ui-monospace,Menlo,monospace; color:var(--mute); white-space:nowrap;}
+.dl + .pts{margin-left:0;}
 .empty{display:none; text-align:center; padding:58px 20px; color:var(--mute);}
 .empty b{display:block; font-size:17px; color:var(--ink); margin-bottom:5px;}
 
@@ -300,16 +302,17 @@ footer a:hover{color:var(--brand);}
 <header class="hero">
   <div class="wrap hero-in">
     <div>
-      <span class="pill"><i></i> 13 packages on pub.dev</span>
+      <span class="pill"><i></i> 14 packages on pub.dev</span>
       <h1>Flutter packages,<br><span class="grad">built for production.</span></h1>
       <p class="sub">Open-source Flutter and Dart packages for the gaps the framework leaves open &mdash; notification extensions, watch tiles, OS proxy resolution, scroll transitions. Each one solved a real problem in a shipped app.</p>
       <div class="cta-row">
         <a class="btn pri" href="#packages">Browse packages &#8594;</a>
-        <a class="btn sec" href="/demos/">&#9658; Try 7 live demos</a>
+        <a class="btn sec" href="/demos/">&#9658; Try 8 live demos</a>
       </div>
       <div class="stats">
-        <div><b>13</b><span>published packages</span></div>
-        <div class="b1"><b>7</b><span>run in your browser</span></div>
+        <div><b>14</b><span>published packages</span></div>
+        <div class="b1"><b>8</b><span>run in your browser</span></div>
+        <div><b id="dl-total">&mdash;</b><span>downloads, last 30 days</span></div>
         <div><b>160/160</b><span>pub points, every one</span></div>
         <div><b>6</b><span>platforms supported</span></div>
       </div>
@@ -497,13 +500,24 @@ footer a:hover{color:var(--brand);}
           <div class="dep"><code>aether_thread: ^0.1.0</code><button class="cp" data-c="aether_thread: ^0.1.0" aria-label="Copy dependency for aether_thread">Copy</button></div>
           <div class="c-foot"><a href="https://pub.dev/packages/aether_thread">pub.dev</a><a href="https://github.com/Manish1Pandey/aether_thread">Source</a><span class="pts">160/160</span></div>
         </article>
+        <article class="card" data-n="morphos_ui" data-b="animates thousands of ui items at full frame rate, on one spring-driven surface." data-p="android ios macos windows linux web" data-live="1" style="--i:13">
+          <div class="c-top">
+            <h3><a href="/packages/morphos_ui/">morphos_ui</a></h3>
+            <span class="ver">0.1.0</span>
+          </div>
+          <a class="live" href="/demos/morphos_ui/">&#9658; Live demo</a>
+          <p class="blurb">Animates thousands of UI items at full frame rate, on one spring-driven surface.</p>
+          <div class="pls"><span class="pl">Android</span><span class="pl">iOS</span><span class="pl">macOS</span><span class="pl">Windows</span><span class="pl">Linux</span><span class="pl">Web</span></div>
+          <div class="dep"><code>morphos_ui: ^0.1.0</code><button class="cp" data-c="morphos_ui: ^0.1.0" aria-label="Copy dependency for morphos_ui">Copy</button></div>
+          <div class="c-foot"><a class="demo" href="/demos/morphos_ui/">Run demo &#8594;</a><a href="https://pub.dev/packages/morphos_ui">pub.dev</a><a href="https://github.com/Manish1Pandey/morphos_ui">Source</a><span class="pts">160/160</span></div>
+        </article>
     </div>
     <p class="empty" id="empty"><b>No matching package</b>Try a different search term, or clear the filter.</p>
   </section>
 
   <div class="band">
     <div>
-      <h2>Seven of them run right here</h2>
+      <h2>Eight of them run right here</h2>
       <p>No install, no clone, no emulator. The demos are real Flutter web builds &mdash; open one and interact with the package in this tab.</p>
     </div>
     <a class="btn pri" href="/demos/">Open the demos &#8594;</a>
@@ -582,6 +596,31 @@ footer a:hover{color:var(--brand);}
       try{ document.execCommand('copy'); }catch(err){}
       document.body.removeChild(ta); done();
     }
+  });
+})();
+</script>
+<script>
+/* Live pub.dev numbers on every card: 30-day downloads (pub.dev refreshes
+   these about once a day) and pub points. Fetched on each visit, so the page
+   never needs a redeploy to stay current. */
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.card[data-n]')),
+      totalEl=document.getElementById('dl-total'), total=0, pending=cards.length;
+  function fmt(n){return n>=1e6?(n/1e6).toFixed(1).replace(/\.0$/,'')+'M':n>=1e4?Math.round(n/1e3)+'k':n>=1e3?(n/1e3).toFixed(1).replace(/\.0$/,'')+'k':String(n);}
+  function done(){ if(--pending===0&&totalEl&&total>0) totalEl.textContent=fmt(total); }
+  cards.forEach(function(c){
+    var n=c.getAttribute('data-n'), foot=c.querySelector('.c-foot'), pts=c.querySelector('.pts');
+    if(!foot){ done(); return; }
+    var d=document.createElement('span'); d.className='dl'; d.textContent='\u2193 \u2026';
+    foot.insertBefore(d,pts);
+    fetch('https://pub.dev/api/packages/'+n+'/score').then(function(r){return r.ok?r.json():null;}).then(function(s){
+      if(!s){ d.remove(); return; }
+      var dl=s.downloadCount30Days;
+      if(dl==null){ d.textContent='\u2193 new'; d.title='New on pub.dev: downloads appear after its first daily count'; }
+      else { total+=dl; d.textContent='\u2193 '+fmt(dl); d.title=dl.toLocaleString()+' downloads in the last 30 days, from pub.dev'; }
+      d.setAttribute('aria-label',d.title);
+      if(pts&&s.maxPoints) pts.textContent=s.grantedPoints+'/'+s.maxPoints;
+    }).catch(function(){ d.remove(); }).then(done);
   });
 })();
 </script>
