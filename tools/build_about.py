@@ -147,6 +147,15 @@ EMBLEM = '''<svg viewBox="0 0 200 200" role="img" aria-label="Decorative glowing
 <circle cx="100" cy="100" r="46" fill="#071426" fill-opacity=".72" stroke="#7fe0ff" stroke-opacity=".6" stroke-width="1.5"/>
 </svg>'''
 
+# Experience highlights: hidden for now. Set to True to show them again.
+SHOW_HIGHLIGHTS = False
+HIGHLIGHTS = '''
+      <ul>
+        <li><b>Built the Jenkins CI/CD pipeline from scratch:</b> environment checks, UAT and production gates, build caching, iOS CocoaPods and version handling.</li>
+        <li><b>Shipped payment and compliance flows:</b> Aadhaar-OTP KYC, the BBPS bill-payment checkout, a gift-card module, instant settlement, gold SIP and refund screens.</li>
+        <li><b>Added product analytics</b> (Google and Meta) and deep linking across Android and iOS.</li>
+      </ul>''' if SHOW_HIGHLIGHTS else ''
+
 ICON = {
     'mail': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
     'phone': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>',
@@ -212,12 +221,7 @@ page = f"""<!DOCTYPE html>
       <div class="apps">
         <a class="app" href="https://play.google.com/store/apps/details?id=com.innopay.payment.user"><b>Innopay: Recharge &amp; Bills</b><span>5M+ downloads · 4.8&#9733; · Google Play</span></a>
         <a class="app" href="https://play.google.com/store/apps/details?id=com.innopay.innopay"><b>ePayRent</b><span>1M+ downloads · Google Play</span></a>
-      </div>
-      <ul>
-        <li><b>Built the Jenkins CI/CD pipeline from scratch:</b> environment checks, UAT and production gates, build caching, iOS CocoaPods and version handling.</li>
-        <li><b>Shipped payment and compliance flows:</b> Aadhaar-OTP KYC, the BBPS bill-payment checkout, a gift-card module, instant settlement, gold SIP and refund screens.</li>
-        <li><b>Added product analytics</b> (Google and Meta) and deep linking across Android and iOS.</li>
-      </ul>
+      </div>{HIGHLIGHTS}
     </article>
   </section>
 
