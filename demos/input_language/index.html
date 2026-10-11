@@ -61,6 +61,8 @@ header{border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg
  :root:not([data-t="dark"]) .i-moon{display:none;}}
 :root[data-t="light"] .i-sun{display:block;}:root[data-t="light"] .i-moon{display:none;}
 .how{margin:9px 0 0;color:var(--mute);font-size:13.5px;max-width:92ch;}
+.how a{color:var(--brand);font-weight:600;text-decoration:none;} .how a:hover{text-decoration:underline;}
+.how code{font:12.5px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--surf2);padding:1px 5px;border-radius:5px;color:var(--ink);}
 .frame{flex:1;min-height:0;}
 iframe{width:100%;height:100%;border:0;display:block;background:var(--surf);}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:5px;}
@@ -91,7 +93,7 @@ iframe{width:100%;height:100%;border:0;display:block;background:var(--surf);}
         </button>
       </span>
     </div>
-    <p class="how">Web browsers do not expose the active keyboard, so the package falls back to the browser locale and to text-based direction detection — that fallback is what you see here. Type Hebrew or Arabic into the fields and the direction flips as you type.</p>
+    <p class="how">Web browsers do not expose the active keyboard, so on the web the package falls back to the browser locale and to <b>Bidi (bidirectional text) detection</b>: it reads the text itself and picks left-to-right or right-to-left from the first strong letter, skipping digits, spaces, punctuation and emoji. That fallback is what you see here. Type Hebrew or Arabic into the fields and the direction flips as you type; start with digits, as in <code>123 - שלום</code>, and it still turns right-to-left at the first Hebrew letter. <a href="/packages/input_language/#user-content-bidi-detection">How Bidi detection works &#8594;</a></p>
   </div>
 </header>
 <div class="frame"><iframe src="app/" title="input_language example app"></iframe></div>
