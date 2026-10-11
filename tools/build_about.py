@@ -18,7 +18,6 @@ theme_js = re.search(r"<script>\(function\(\)\{var r=document\.documentElement.*
 e = lambda s: html.escape(s, quote=True)
 
 URL = 'https://flutterdev.in/about/'
-PHOTO = 'https://flutterdev.in/about/manish.jpg'
 DESC = ('Manish Kumar Panday, Flutter developer in Bangalore. Software Engineer at Innopay, building payment apps '
         'with 6M+ downloads, author of 14 open-source Flutter packages and Algoistan.')
 LINKEDIN = 'https://www.linkedin.com/in/manish-flutter'
@@ -27,7 +26,7 @@ GITHUB = 'https://github.com/Manish1Pandey'
 EMAIL_REV = 'manish.pandey141097@gmail.com'[::-1]
 PHONE_REV = '+918317028326'[::-1]
 
-person = {'@context': 'https://schema.org', '@type': 'Person', 'name': 'Manish Kumar Panday', 'url': URL, 'image': PHOTO,
+person = {'@context': 'https://schema.org', '@type': 'Person', 'name': 'Manish Kumar Panday', 'url': URL,
           'jobTitle': 'Software Engineer (Flutter)', 'worksFor': {'@type': 'Organization', 'name': 'Innopay'},
           'address': {'@type': 'PostalAddress', 'addressLocality': 'Bangalore', 'addressCountry': 'IN'},
           'sameAs': [GITHUB, LINKEDIN, 'https://algoistan.flutterdev.in/'],
@@ -54,9 +53,14 @@ CSS = """
 
 /* hero */
 .pf-hero{display:grid; grid-template-columns:auto 1fr; gap:34px; align-items:center;}
-.avatar{width:168px; height:168px; border-radius:50%; padding:5px; flex:none;
-  background:linear-gradient(145deg,var(--brand),var(--brand2)); box-shadow:var(--sh-l);}
-.avatar img{width:100%; height:100%; border-radius:50%; display:block; object-fit:cover; border:4px solid var(--bg);}
+.avatar{width:168px; height:168px; border-radius:50%; flex:none; filter:drop-shadow(0 18px 40px rgba(4,104,215,.35));}
+.avatar svg{width:100%; height:100%; display:block;}
+.core-a{transform-origin:100px 100px; animation:spin 22s linear infinite;}
+.core-b{transform-origin:100px 100px; animation:spin 34s linear infinite reverse;}
+.core-glow{transform-origin:100px 100px; animation:pulse 3.6s ease-in-out infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes pulse{0%,100%{opacity:.75; transform:scale(.96);} 50%{opacity:1; transform:scale(1.04);}}
+@media (prefers-reduced-motion:reduce){.core-a,.core-b,.core-glow{animation:none;}}
 .pf-hero h1{font-size:clamp(34px,5.4vw,54px); letter-spacing:-.035em; line-height:1.05; margin:0 0 10px;}
 .role{font-size:18px; color:var(--mute); margin:0 0 18px;}
 .role b{color:var(--ink); font-weight:650;}
@@ -126,6 +130,21 @@ button.btn.sec{border:1px solid var(--line);}
 .revealed{font-family:ui-monospace,Menlo,monospace;}
 """
 
+EMBLEM = '''<svg viewBox="0 0 200 200" role="img" aria-label="Manish Kumar Panday monogram">
+<defs>
+<radialGradient id="em-bg" cx="50%" cy="42%" r="62%"><stop offset="0" stop-color="#0f2a4d"/><stop offset="1" stop-color="#050c18"/></radialGradient>
+<radialGradient id="em-core" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#e6fbff"/><stop offset=".35" stop-color="#7fe0ff" stop-opacity=".9"/><stop offset="1" stop-color="#12b3f3" stop-opacity="0"/></radialGradient>
+<linearGradient id="em-ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12b3f3"/><stop offset="1" stop-color="#0468d7"/></linearGradient>
+</defs>
+<circle cx="100" cy="100" r="98" fill="url(#em-bg)"/>
+<circle cx="100" cy="100" r="95" fill="none" stroke="url(#em-ring)" stroke-width="3"/>
+<g class="core-a"><circle cx="100" cy="100" r="80" fill="none" stroke="#12b3f3" stroke-opacity=".85" stroke-width="7" stroke-dasharray="30 11.9"/></g>
+<g class="core-b"><circle cx="100" cy="100" r="66" fill="none" stroke="#7fe0ff" stroke-opacity=".55" stroke-width="2" stroke-dasharray="2 6"/></g>
+<circle class="core-glow" cx="100" cy="100" r="58" fill="url(#em-core)" opacity=".85"/>
+<circle cx="100" cy="100" r="46" fill="#071426" fill-opacity=".72" stroke="#7fe0ff" stroke-opacity=".6" stroke-width="1.5"/>
+<text x="100" y="112" text-anchor="middle" font-family="Inter,system-ui,-apple-system,sans-serif" font-size="34" font-weight="800" letter-spacing="1" fill="#ffffff">MKP</text>
+</svg>'''
+
 ICON = {
     'mail': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
     'phone': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>',
@@ -167,7 +186,7 @@ page = f"""<!DOCTYPE html>
 <main class="wrap pf">
 
   <header class="pf-hero">
-    <div class="avatar"><img src="/about/manish.jpg" width="160" height="160" alt="Portrait of Manish Kumar Panday"></div>
+    <div class="avatar">{EMBLEM}</div>
     <div>
       <h1>Manish Kumar Panday</h1>
       <p class="role"><b>Flutter developer</b> · Software Engineer at Innopay · Bangalore, India</p>
