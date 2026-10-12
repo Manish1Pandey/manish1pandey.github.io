@@ -6,9 +6,16 @@
   var de = document.documentElement, path = location.pathname.replace(/index\.html$/, '');
   de.classList.add('app'); if (path === '/learn/') de.classList.add('learn'); else if (path !== '/') de.classList.add('inner');
   // links to the course stay inside the app: they open the Learn screen instead of a separate browser sheet
+  // Never leave the app in place (that shows the browser's "outside this app" bar):
+  //  • links to the course open the Learn screen inside the app;
+  //  • any other website (pub.dev, GitHub, LinkedIn…) opens in the phone's browser, like a native app would.
   addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[href^="https://dartiscool.flutterdev.in"]'); if (!a) return;
-    e.preventDefault(); var u = new URL(a.href); location.href = '/learn/?to=' + encodeURIComponent(u.pathname + u.search + u.hash);
+    var a = e.target.closest && e.target.closest('a[href]'); if (!a || e.defaultPrevented) return;
+    var u; try { u = new URL(a.href, location.href); } catch (err) { return; }
+    if (!/^https?:$/.test(u.protocol) || u.origin === location.origin) return;   // mailto:, tel:, and this site's own pages behave normally
+    e.preventDefault();
+    if (u.hostname === 'dartiscool.flutterdev.in') location.href = '/learn/?to=' + encodeURIComponent(u.pathname + u.search + u.hash);
+    else window.open(u.href, '_blank', 'noopener');
   });
   var vp = document.querySelector('meta[name="viewport"]'); if (vp && !/viewport-fit/.test(vp.content)) vp.content += ',viewport-fit=cover';
   addEventListener('pagereveal', function (e) {
