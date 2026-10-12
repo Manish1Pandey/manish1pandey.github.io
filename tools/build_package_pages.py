@@ -173,3 +173,7 @@ add = ''.join('\n  <url><loc>%s</loc><lastmod>%s</lastmod><priority>0.8</priorit
 sm = sm.replace('\n</urlset>', add + '\n</urlset>')
 open(sm_path, 'w', encoding='utf8').write(sm)
 print('sitemap: %d package pages listed' % len(sitemap_urls))
+
+# keep every generated page installable (manifest, icons, install banner, offline)
+import subprocess as _sp, sys as _sys, os as _os
+_sp.run([_sys.executable, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "pwa.py")])

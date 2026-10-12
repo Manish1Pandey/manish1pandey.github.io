@@ -68,3 +68,7 @@ sm = re.sub(r'\s*<url><loc>https://flutterdev\.in/articles/[^<]*</loc>.*?</url>'
 add = ''.join('\n  <url><loc>%s</loc><lastmod>%s</lastmod><priority>0.7</priority></url>' % (u, m['date']) for m, u in arts) + '\n  <url><loc>%sarticles/</loc><priority>0.6</priority></url>' % SITE
 open(sm_p, 'w', encoding='utf8').write(sm.replace('\n</urlset>', add + '\n</urlset>'))
 print('articles index + sitemap updated (%d articles)' % len(arts))
+
+# keep every generated page installable (manifest, icons, install banner, offline)
+import subprocess as _sp, sys as _sys, os as _os
+_sp.run([_sys.executable, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "pwa.py")])

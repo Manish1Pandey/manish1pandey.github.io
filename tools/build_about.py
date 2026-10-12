@@ -316,3 +316,7 @@ document.querySelectorAll('[data-rev]').forEach(function(b){{
 os.makedirs(os.path.join(ROOT, 'about'), exist_ok=True)
 open(os.path.join(ROOT, 'about', 'index.html'), 'w', encoding='utf8').write(page)
 print('built about/ (%d packages)' % n_packages)
+
+# keep every generated page installable (manifest, icons, install banner, offline)
+import subprocess as _sp, sys as _sys, os as _os
+_sp.run([_sys.executable, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "pwa.py")])
