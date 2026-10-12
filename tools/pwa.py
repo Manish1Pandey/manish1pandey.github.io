@@ -4,7 +4,9 @@ Idempotent — run after any build_*.py:  python3 tools/pwa.py"""
 import glob, os, re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HEAD = ('<!-- pwa --><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">'
-        '<meta name="apple-mobile-web-app-title" content="flutterdev.in"><meta name="mobile-web-app-capable" content="yes"><!-- /pwa -->')
+        '<meta name="apple-mobile-web-app-title" content="flutterdev.in"><meta name="mobile-web-app-capable" content="yes">'
+        '<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black">'
+        '<link rel="stylesheet" href="/app.css"><script src="/app.js"></script><!-- /pwa -->')
 BODY = ('<!-- pwa --><script src="/install.js" data-app="flutterdev.in" data-icon="/icons/icon-192.png" defer></script>'
         '<script>if(\'serviceWorker\' in navigator)addEventListener(\'load\',function(){navigator.serviceWorker.register(\'/sw.js\')});</script><!-- /pwa -->')
 n = 0

@@ -1,0 +1,41 @@
+/* ===== App mode: only when opened as the installed app (display-mode: standalone). The website is unchanged. ===== */
+@media (display-mode: standalone) {
+  @view-transition { navigation: auto; }                          /* screens slide like a native app */
+  html { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; }
+  body { -webkit-touch-callout: none; }                           /* no link/image preview pop-ups on long-press */
+  body :is(nav, header, footer, button, label, h1, h2, h3, .btn, [role="button"]) { -webkit-user-select: none; user-select: none; }
+  :is(button, .btn, [role="button"], a[class]) { transition: transform .12s ease, filter .12s ease; }
+  :is(button, .btn, [role="button"], a[class]):active { transform: scale(.97); filter: brightness(1.08); }
+  html::before { content: ""; position: fixed; inset: 0 0 auto 0; height: env(safe-area-inset-top); background: var(--app-bar, #0a1110); z-index: 2147483600; }   /* status-bar / notch strip */
+  body { padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); }
+}
+@keyframes app-in { from { transform: translateX(30%); opacity: .35; } }
+@keyframes app-out { to { transform: translateX(-14%); opacity: 0; } }
+@keyframes app-in-back { from { transform: translateX(-30%); opacity: .35; } }
+@keyframes app-out-back { to { transform: translateX(14%); opacity: 0; } }
+@media (display-mode: standalone) and (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) { animation: 220ms cubic-bezier(.2, .8, .2, 1) both app-out; }
+  ::view-transition-new(root) { animation: 280ms cubic-bezier(.2, .8, .2, 1) both app-in; }
+  html:active-view-transition-type(back)::view-transition-old(root) { animation-name: app-out-back; }
+  html:active-view-transition-type(back)::view-transition-new(root) { animation-name: app-in-back; }
+}
+/* flutterdev.in app layout: top app bar (back + title) on inner pages, bottom tab bar everywhere, no web chrome */
+@media (display-mode: standalone) {
+  :root { --app-bar: var(--bg, #060c14); }
+  body > nav { position: sticky; top: env(safe-area-inset-top); z-index: 50; }
+  .crumbs, .crumb, body > footer { display: none !important; }
+  html.app.inner body > nav .mark, html.app body > nav .nav-links > a:not(.cta) { display: none !important; }
+  html.app.inner body > nav .nav-links { display: none !important; }
+  .app-back { display: none; }
+  html.app.inner .app-back { display: inline-flex; align-items: center; gap: 4px; border: 0; background: none; color: inherit; font: 600 17px/1 inherit; padding: 8px 6px 8px 0; cursor: pointer; }
+  html.app.inner .app-back svg { width: 26px; height: 26px; }
+  .app-title { display: none; }
+  html.app.inner .app-title { display: block; flex: 1; min-width: 0; font: 650 17px/1.2 inherit; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .app-tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: grid; grid-template-columns: repeat(5, 1fr);
+    padding: 6px 6px calc(6px + env(safe-area-inset-bottom)); background: color-mix(in oklab, var(--bg, #060c14) 88%, transparent);
+    backdrop-filter: saturate(1.4) blur(16px); -webkit-backdrop-filter: saturate(1.4) blur(16px); border-top: 1px solid var(--line, rgba(255,255,255,.1)); }
+  .app-tabs a { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px 0 4px; border-radius: 12px; color: var(--mute, #8fa5bd); text-decoration: none; font: 600 10.5px/1 inherit; }
+  .app-tabs a svg { width: 24px; height: 24px; }
+  .app-tabs a.on { color: var(--brand, #2b8cff); }
+  body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+}

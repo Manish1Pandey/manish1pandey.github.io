@@ -132,7 +132,8 @@ footer a:hover{color:var(--brand);}
 @keyframes ag-logo{0%,100%{filter:drop-shadow(0 0 3px rgba(255,159,67,.3));} 30%{filter:drop-shadow(0 0 8px rgba(255,159,67,.75));}}
 @media (prefers-reduced-motion:reduce){.nav-links a.dartiscool::after,.nav-links a.dartiscool .ist,.nav-links a.dartiscool .ag-logo{animation:none;}}
 </style>
-<!-- pwa --><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="flutterdev.in"><meta name="mobile-web-app-capable" content="yes"><!-- /pwa -->
+
+<!-- pwa --><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="flutterdev.in"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="stylesheet" href="/app.css"><script src="/app.js"></script><!-- /pwa -->
 </head>
 <body>
 <nav>
@@ -234,5 +235,6 @@ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es
  es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},
  {rootMargin:'0px 0px -6% 0px',threshold:.06});c.forEach(function(x){io.observe(x);});}
 else c.forEach(function(x){x.classList.add('in');});})();</script>
+
 <!-- pwa --><script src="/install.js" data-app="flutterdev.in" data-icon="/icons/icon-192.png" defer></script><script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js')});</script><!-- /pwa -->
 </body></html>
