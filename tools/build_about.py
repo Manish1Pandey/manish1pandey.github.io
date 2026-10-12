@@ -19,7 +19,7 @@ e = lambda s: html.escape(s, quote=True)
 
 URL = 'https://flutterdev.in/about/'
 DESC = ('Manish Kumar Panday, Flutter developer in Bangalore. Software Engineer at Innopay, building payment apps '
-        'with 6M+ downloads, author of 14 open-source Flutter packages and Algoistan.')
+        'with 6M+ downloads, author of 14 open-source Flutter packages and DartIsCool.')
 LINKEDIN = 'https://www.linkedin.com/in/manish-flutter'
 GITHUB = 'https://github.com/Manish1Pandey'
 # Contact details are stored reversed and assembled on click, so simple scrapers miss them.
@@ -29,7 +29,7 @@ PHONE_REV = '+918317028326'[::-1]
 person = {'@context': 'https://schema.org', '@type': 'Person', 'name': 'Manish Kumar Panday', 'url': URL,
           'jobTitle': 'Software Engineer (Flutter)', 'worksFor': {'@type': 'Organization', 'name': 'Innopay'},
           'address': {'@type': 'PostalAddress', 'addressLocality': 'Bangalore', 'addressCountry': 'IN'},
-          'sameAs': [GITHUB, LINKEDIN, 'https://algoistan.flutterdev.in/'],
+          'sameAs': [GITHUB, LINKEDIN, 'https://dartiscool.flutterdev.in/'],
           'knowsAbout': ['Flutter', 'Dart', 'Mobile app development', 'Payments', 'CI/CD', 'Data structures and algorithms']}
 
 # Packages straight from the home page cards: name, version, one-line blurb, live demo flag.
@@ -115,7 +115,7 @@ button.btn.sec{border:1px solid var(--line);}
 .pk-live{color:var(--brand); font-family:inherit;}
 .pk-dl{margin-left:auto;}
 
-/* algoistan + skills */
+/* dartiscool + skills */
 .two{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
 @media (max-width:800px){.two{grid-template-columns:1fr;}}
 .panel{border:1px solid var(--line); background:var(--surf); border-radius:18px; padding:24px 26px; box-shadow:var(--sh-s);}
@@ -201,7 +201,7 @@ page = f"""<!DOCTYPE html>
     <div>
       <h1>Manish Kumar Panday</h1>
       <p class="role"><b>Flutter developer</b> · Software Engineer at Innopay · Bangalore, India</p>
-      <p class="lede">I'm a Flutter engineer drawn to the hard parts. At Innopay, I build payment apps downloaded more than 6 million times. On my own, I've published 14 open-source packages, written a rendering engine that keeps 100,000 moving items smooth, and created Algoistan, a free course that teaches algorithms from scratch.</p>
+      <p class="lede">I'm a Flutter engineer drawn to the hard parts. At Innopay, I build payment apps downloaded more than 6 million times. On my own, I've published 14 open-source packages, written a rendering engine that keeps 100,000 moving items smooth, and created DartIsCool, a free course that teaches algorithms from scratch.</p>
       <div class="contact-row">{contact_buttons(True)}</div>
     </div>
   </header>
@@ -257,12 +257,12 @@ page = f"""<!DOCTYPE html>
     </article>
   </section>
 
-  <section id="algoistan">
+  <section id="dartiscool">
     <div class="two">
       <div class="panel">
-        <h3>Algoistan</h3>
+        <h3>DartIsCool</h3>
         <p>A free course that teaches Dart from your first line of code to every classic algorithm: 85 animated lessons, including Flutter interview prep and a problem-solving level. Every code sample is tested.</p>
-        <a class="btn sec" href="https://algoistan.flutterdev.in/">Open Algoistan &#8594;</a>
+        <a class="btn sec" href="https://dartiscool.flutterdev.in/">Open DartIsCool &#8594;</a>
       </div>
       <div class="panel">
         <h3>What I work with</h3>

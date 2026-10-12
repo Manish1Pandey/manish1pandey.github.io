@@ -4,7 +4,7 @@ description: Lazy lists that build 5,000 items, popUntil typos that empty the st
 date: 2026-10-11
 ---
 
-I've been building Algoistan, a free animated course that explains how Flutter works inside. My rule for the Flutter section was simple: no claim goes on a page unless a `flutter test` proves it. 317 tests later, four of my "facts" turned out to be wrong or incomplete.
+I've been building DartIsCool, a free animated course that explains how Flutter works inside. My rule for the Flutter section was simple: no claim goes on a page unless a `flutter test` proves it. 317 tests later, four of my "facts" turned out to be wrong or incomplete.
 
 ### 1. Without `itemExtent`, one jump can build thousands of list items
 
@@ -51,8 +51,8 @@ Once your code actually uses `apiKey`, the value is compiled into the release bi
 
 Each of these comes with an animation you can drive with your own input — keys and State, Row's flex layout, a frame timeline, lazy list building, the Navigator stack, deep links — in the six lessons of Level 12:
 
-https://algoistan.flutterdev.in/flutter/f01-widgets-elements.html
+https://dartiscool.flutterdev.in/flutter/f01-widgets-elements.html
 
-The same site also has a problem-solving level — about 90 classic interview problems grouped by pattern, from Two Sum to N-Queens, each animated and solved in tested Dart: https://algoistan.flutterdev.in/problems/p01-arrays-hashing.html
+The same site also has a problem-solving level — about 90 classic interview problems grouped by pattern, from Two Sum to N-Queens, each animated and solved in tested Dart: https://dartiscool.flutterdev.in/problems/p01-arrays-hashing.html
 
 The site is free, needs no sign-up and works offline. Feedback and corrections welcome in the comments.

@@ -67,32 +67,32 @@ iframe{width:100%;height:100%;border:0;display:block;background:var(--surf);}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important;}}
 @media (max-width:640px){.links a{display:none;} .how{font-size:13px;}}
 
-/* Algoistan button (same as the home page) */
+/* DartIsCool button (same as the home page) */
 
-.links a.algoistan{display:inline-flex; align-items:center; gap:8px; padding:5px 13px 5px 6px; margin-right:6px;
+.links a.dartiscool{display:inline-flex; align-items:center; gap:8px; padding:5px 13px 5px 6px; margin-right:6px;
   font-weight:800; letter-spacing:.01em; color:#e2e9e6; border-radius:10px;
   background:linear-gradient(180deg,#1d2a28,#0f1817); border:1px solid rgba(143,248,229,.22);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 2px 8px -3px rgba(0,0,0,.45); transition:transform .18s,box-shadow .18s,border-color .18s;}
-.links a.algoistan:hover{color:#e2e9e6; background:linear-gradient(180deg,#22322f,#111b1a); border-color:rgba(143,248,229,.5);
+.links a.dartiscool:hover{color:#e2e9e6; background:linear-gradient(180deg,#22322f,#111b1a); border-color:rgba(143,248,229,.5);
   transform:translateY(-1px); box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 6px 16px -6px rgba(111,219,201,.45);}
-.links a.algoistan .ag-logo{width:24px; height:24px; flex:none;}
-.links a.algoistan .ist{color:#ffb877;}
+.links a.dartiscool .ag-logo{width:24px; height:24px; flex:none;}
+.links a.dartiscool .ist{color:#ffb877;}
 /* shine: a light sweep crosses the badge every few seconds, and the saffron glows softly */
-.links a.algoistan{position:relative; overflow:hidden; isolation:isolate;}
-.links a.algoistan::after{content:""; position:absolute; inset:-2px auto -2px -60%; width:55%; z-index:1; pointer-events:none; mix-blend-mode:screen;
+.links a.dartiscool{position:relative; overflow:hidden; isolation:isolate;}
+.links a.dartiscool::after{content:""; position:absolute; inset:-2px auto -2px -60%; width:55%; z-index:1; pointer-events:none; mix-blend-mode:screen;
   background:linear-gradient(105deg,transparent 0%,rgba(255,214,170,.18) 28%,rgba(255,250,240,.85) 50%,rgba(255,214,170,.18) 72%,transparent 100%);
   transform:skewX(-18deg); animation:ag-shine 4.2s cubic-bezier(.4,0,.2,1) 1.2s infinite;}
-.links a.algoistan:hover::after{animation-duration:1.6s;}
-.links a.algoistan .ist{text-shadow:0 0 10px rgba(255,159,67,.55); animation:ag-glow 4.2s ease-in-out 1.2s infinite;}
-.links a.algoistan .ag-logo{filter:drop-shadow(0 0 4px rgba(255,159,67,.35)); animation:ag-logo 4.2s ease-in-out 1.2s infinite;}
+.links a.dartiscool:hover::after{animation-duration:1.6s;}
+.links a.dartiscool .ist{text-shadow:0 0 10px rgba(255,159,67,.55); animation:ag-glow 4.2s ease-in-out 1.2s infinite;}
+.links a.dartiscool .ag-logo{filter:drop-shadow(0 0 4px rgba(255,159,67,.35)); animation:ag-logo 4.2s ease-in-out 1.2s infinite;}
 @keyframes ag-shine{0%{left:-60%;} 38%,100%{left:125%;}}
 @keyframes ag-glow{0%,100%{text-shadow:0 0 6px rgba(255,159,67,.35);} 30%{text-shadow:0 0 14px rgba(255,159,67,.85);}}
 @keyframes ag-logo{0%,100%{filter:drop-shadow(0 0 3px rgba(255,159,67,.3));} 30%{filter:drop-shadow(0 0 8px rgba(255,159,67,.75));}}
-@media (prefers-reduced-motion:reduce){.links a.algoistan::after,.links a.algoistan .ist,.links a.algoistan .ag-logo{animation:none;}}
-.links a.algoistan{display:inline-flex; padding:3px 10px 3px 4px; margin-right:2px; font-size:13px; border-radius:9px;}
-.links a.algoistan .ag-logo{width:20px; height:20px;}
-/* algoistan-icon-only: phones show just the logo so the bar fits */
-@media (max-width:640px){.links a.algoistan{padding:3px; margin-right:0;} .links a.algoistan > span{display:none;}}
+@media (prefers-reduced-motion:reduce){.links a.dartiscool::after,.links a.dartiscool .ist,.links a.dartiscool .ag-logo{animation:none;}}
+.links a.dartiscool{display:inline-flex; padding:3px 10px 3px 4px; margin-right:2px; font-size:13px; border-radius:9px;}
+.links a.dartiscool .ag-logo{width:20px; height:20px;}
+/* dartiscool-icon-only: phones show just the logo so the bar fits */
+@media (max-width:640px){.links a.dartiscool{padding:3px; margin-right:0;} .links a.dartiscool > span{display:none;}}
 </style>
 </head>
 <body>
@@ -109,7 +109,7 @@ iframe{width:100%;height:100%;border:0;display:block;background:var(--surf);}
       <a class="pkg" href="https://pub.dev/packages/middle_click_autoscroll">middle_click_autoscroll</a>
       <span class="tag">&#9658; Live demo</span>
       <span class="links">
-        <a class="algoistan" aria-label="Algoistan: learn data structures and algorithms in Dart" href="https://algoistan.flutterdev.in/" title="Algoistan · the land of algorithms: learn data structures and algorithms in Dart, from zero"><svg viewBox="0 0 64 64" class="ag-logo" aria-hidden="true" focusable="false"><defs><linearGradient id="ag-saffron" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd09a"/><stop offset=".55" stop-color="#ff9f43"/><stop offset="1" stop-color="#e3741a"/></linearGradient><linearGradient id="ag-saffron2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb877"/><stop offset="1" stop-color="#c85f12"/></linearGradient><linearGradient id="ag-teal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8ff8e5"/><stop offset="1" stop-color="#1fa894"/></linearGradient><radialGradient id="ag-bg" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#1d2a28"/><stop offset="1" stop-color="#0a1110"/></radialGradient></defs><rect x="1" y="1" width="62" height="62" rx="16" fill="url(#ag-bg)"/><rect x="1.5" y="1.5" width="61" height="61" rx="15.5" fill="none" stroke="#ffffff" stroke-opacity=".08"/><path d="M43.6 12.2 A23 23 0 1 1 20.4 12.2" fill="none" stroke="url(#ag-teal)" stroke-width="3" stroke-linecap="round"/><circle cx="43.6" cy="12.2" r="2.6" fill="#0a1110" stroke="#8ff8e5" stroke-width="1.8"/><circle cx="20.4" cy="12.2" r="2.6" fill="#0a1110" stroke="#8ff8e5" stroke-width="1.8"/><path d="M32 14 C38.5 23 38.5 34 32 45 C25.5 34 25.5 23 32 14 Z" fill="url(#ag-saffron)"/><path d="M32 45 C23 42.5 16.5 35.5 15.5 26 C24 28 30 35 32 45 Z" fill="url(#ag-saffron2)" opacity=".92"/><path d="M32 45 C41 42.5 47.5 35.5 48.5 26 C40 28 34 35 32 45 Z" fill="url(#ag-saffron2)" opacity=".92"/><path d="M32 45 V51.5 M24 47.5 L20 51.5 M40 47.5 L44 51.5" stroke="url(#ag-teal)" stroke-width="2" stroke-linecap="round"/><circle cx="32" cy="52.5" r="2.4" fill="#8ff8e5"/><circle cx="19.3" cy="52.2" r="2" fill="#8ff8e5"/><circle cx="44.7" cy="52.2" r="2" fill="#8ff8e5"/><path d="M32 20 V40" stroke="#fff3e3" stroke-opacity=".55" stroke-width="1.2" stroke-linecap="round"/></svg><span>Algo<span class="ist">istan</span></span></a>
+        <a class="dartiscool" aria-label="DartIsCool: learn data structures and algorithms in Dart" href="https://dartiscool.flutterdev.in/" title="DartIsCool: learn Dart, Flutter, data structures and algorithms, from zero"><svg viewBox="0 0 64 64" class="ag-logo" aria-hidden="true" focusable="false"><defs><linearGradient id="dc-saffron" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd09a"/><stop offset=".55" stop-color="#ff9f43"/><stop offset="1" stop-color="#e3741a"/></linearGradient><linearGradient id="dc-teal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8ff8e5"/><stop offset="1" stop-color="#1fa894"/></linearGradient><radialGradient id="dc-bg" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#1d2a28"/><stop offset="1" stop-color="#0a1110"/></radialGradient></defs><rect x="1" y="1" width="62" height="62" rx="16" fill="url(#dc-bg)"/><rect x="1.5" y="1.5" width="61" height="61" rx="15.5" fill="none" stroke="#ffffff" stroke-opacity=".08"/><path d="M19 13 H31 C43.5 13 51 21.5 51 32 C51 42.5 43.5 51 31 51 H19 Z" fill="none" stroke="url(#dc-teal)" stroke-width="5" stroke-linejoin="round"/><path d="M12 27.5 H50 V31.5 C50 35.8 47 38.5 42.8 38.5 C38.5 38.5 35.6 35.8 35.2 32 H28.8 C28.4 35.8 25.5 38.5 21.2 38.5 C17 38.5 14 35.8 14 31.5 Z" fill="url(#dc-saffron)"/><path d="M18 30 L22.5 34.5 M38.8 30 L43.3 34.5" stroke="#fff6ea" stroke-opacity=".8" stroke-width="1.6" stroke-linecap="round"/></svg><span>Dart<span class="ist">IsCool</span></span></a>
         <a href="/demos/">All demos</a>
         <a href="https://pub.dev/packages/middle_click_autoscroll">pub.dev</a>
         <a href="https://github.com/Manish1Pandey/middle_click_autoscroll">Source</a>
