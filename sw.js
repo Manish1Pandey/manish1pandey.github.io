@@ -1,7 +1,7 @@
 // flutterdev.in offline support: pages are network-first (always fresh online, last copy offline);
 // small files are served from cache and refreshed in the background. The Flutter demos (large) are never cached.
-const CACHE = 'flutterdev-v3';
-const CORE = ['/', '/learn/', '/demos/', '/articles/', '/about/', '/manifest.webmanifest', '/icons/icon-192.png', '/install.js', '/app.css', '/app.js'];
+const CACHE = 'flutterdev-v4';
+const CORE = ['/', '/learn/', '/demos/', '/articles/', '/about/', '/manifest.webmanifest', '/icons/icon-192.png', '/install.js', '/app.css', '/app.js', '/exit-confirm.js'];
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(CACHE).then((c) => Promise.all(CORE.map((u) => c.add(u).catch(() => null))))); self.skipWaiting(); });
 self.addEventListener('activate', (e) => e.waitUntil((async () => {
   for (const k of await caches.keys()) if (k !== CACHE) await caches.delete(k);
