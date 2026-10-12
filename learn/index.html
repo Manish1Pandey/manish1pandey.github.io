@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Learn · DartIsCool</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://dartiscool.flutterdev.in/">
+<meta name="theme-color" content="#0a1110">
+<style>
+  html, body { margin: 0; height: 100%; background: #0a1110; overflow: hidden; }
+  #course { position: fixed; left: 0; top: env(safe-area-inset-top); display: block; width: 100%; height: calc(100dvh - 66px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); border: 0; background: #0a1110; }
+  .loading { position: fixed; inset: 0; display: grid; place-items: center; color: #8fa7a2; font: 15px -apple-system, "Segoe UI", Roboto, sans-serif; }
+</style>
+<!-- pwa --><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="flutterdev.in"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="stylesheet" href="/app.css"><script src="/app.js"></script><!-- /pwa -->
+</head>
+<body>
+<!-- The Learn screen of the installed flutterdev.in app: shows the DartIsCool course inside the app, so it never opens in a
+     separate browser sheet. Opened in a normal browser tab, it simply goes to the course's own address. -->
+<div class="loading">Opening DartIsCool…</div>
+<script>
+(function () {
+  var COURSE = 'https://dartiscool.flutterdev.in/';
+  var to = new URLSearchParams(location.search).get('to') || '';
+  var target = COURSE + to.replace(/^\/+/, '');
+  if (!(matchMedia('(display-mode: standalone)').matches || navigator.standalone === true)) { location.replace(target); return; }
+  var f = document.createElement('iframe');
+  f.id = 'course'; f.title = 'DartIsCool course'; f.src = target; f.allow = 'clipboard-write; fullscreen';
+  document.body.appendChild(f);
+})();
+</script>
+<!-- pwa --><script src="/install.js" data-app="flutterdev.in" data-icon="/icons/icon-192.png" defer></script><script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js')});</script><!-- /pwa -->
+</body>
+</html>

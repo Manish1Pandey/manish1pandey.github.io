@@ -4,7 +4,12 @@
   'use strict';
   if (!(matchMedia('(display-mode: standalone)').matches || navigator.standalone === true)) return;
   var de = document.documentElement, path = location.pathname.replace(/index\.html$/, '');
-  de.classList.add('app'); if (path !== '/') de.classList.add('inner');
+  de.classList.add('app'); if (path === '/learn/') de.classList.add('learn'); else if (path !== '/') de.classList.add('inner');
+  // links to the course stay inside the app: they open the Learn screen instead of a separate browser sheet
+  addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="https://dartiscool.flutterdev.in"]'); if (!a) return;
+    e.preventDefault(); var u = new URL(a.href); location.href = '/learn/?to=' + encodeURIComponent(u.pathname + u.search + u.hash);
+  });
   var vp = document.querySelector('meta[name="viewport"]'); if (vp && !/viewport-fit/.test(vp.content)) vp.content += ',viewport-fit=cover';
   addEventListener('pagereveal', function (e) {
     var a = window.navigation && navigation.activation;
@@ -16,6 +21,7 @@
     pkg: '<path d="M21 8 12 3 3 8v8l9 5 9-5zM3 8l9 5 9-5M12 13v8"/>',
     play: '<rect x="3" y="4" width="18" height="16" rx="3"/><path d="m10 9 5 3-5 3z"/>',
     art: '<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/>',
+    learn: '<path d="M2 9 12 4l10 5-10 5z"/><path d="M6 11v5c2 2 4 3 6 3s4-1 6-3v-5M22 9v6"/>',
     me: '<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>'
   };
   function icon(d) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + '</svg>'; }
@@ -30,7 +36,7 @@
       title.textContent = SECTIONS[path] || (h1 ? h1.innerText.replace(/\s+/g, ' ').trim() : document.title.split(/\s[—·|]\s/)[0]);
       nav.prepend(title); nav.prepend(back);
     }
-    var tabs = [['/', 'Home', 'home'], ['/#packages', 'Packages', 'pkg'], ['/demos/', 'Demos', 'play'], ['/articles/', 'Articles', 'art'], ['/about/', 'About', 'me']];
+    var tabs = [['/', 'Home', 'home'], ['/#packages', 'Packages', 'pkg'], ['/learn/', 'Learn', 'learn'], ['/demos/', 'Demos', 'play'], ['/about/', 'About', 'me']];
     var bar = document.createElement('div'); bar.className = 'app-tabs'; bar.setAttribute('role', 'navigation'); bar.setAttribute('aria-label', 'App');
     tabs.forEach(function (t) {
       var a = document.createElement('a'); a.href = t[0]; a.innerHTML = icon(I[t[2]]) + t[1];

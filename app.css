@@ -24,17 +24,19 @@
   :root { --app-bar: var(--bg, #060c14); }
   body > nav { position: sticky; top: env(safe-area-inset-top); z-index: 50; }
   .crumbs, .crumb, body > footer { display: none !important; }
-  html.app.inner body > nav .mark, html.app body > nav .nav-links > a:not(.cta) { display: none !important; }
+  html.app.inner body > nav .mark, html.app body > nav .nav-links > a:not(.cta):not([href="/articles/"]) { display: none !important; }
+  html.app.learn body > nav { display: none !important; }   /* the course brings its own top bar */
+  html.app.learn body { padding: 0; }
   html.app.inner body > nav .nav-links { display: none !important; }
   .app-back { display: none; }
-  html.app.inner .app-back { display: inline-flex; align-items: center; gap: 4px; border: 0; background: none; color: inherit; font: 600 17px/1 inherit; padding: 8px 6px 8px 0; cursor: pointer; }
+  html.app.inner .app-back { display: inline-flex; align-items: center; gap: 4px; border: 0; background: none; color: inherit; font: 600 17px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 8px 6px 8px 0; cursor: pointer; }
   html.app.inner .app-back svg { width: 26px; height: 26px; }
   .app-title { display: none; }
-  html.app.inner .app-title { display: block; flex: 1; min-width: 0; font: 650 17px/1.2 inherit; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  html.app.inner .app-title { display: block; flex: 1; min-width: 0; font: 650 17px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .app-tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: grid; grid-template-columns: repeat(5, 1fr);
     padding: 6px 6px calc(6px + env(safe-area-inset-bottom)); background: color-mix(in oklab, var(--bg, #060c14) 88%, transparent);
     backdrop-filter: saturate(1.4) blur(16px); -webkit-backdrop-filter: saturate(1.4) blur(16px); border-top: 1px solid var(--line, rgba(255,255,255,.1)); }
-  .app-tabs a { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px 0 4px; border-radius: 12px; color: var(--mute, #8fa5bd); text-decoration: none; font: 600 10.5px/1 inherit; }
+  .app-tabs a { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px 0 4px; border-radius: 12px; color: var(--mute, #8fa5bd); text-decoration: none; font: 600 10.5px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
   .app-tabs a svg { width: 24px; height: 24px; }
   .app-tabs a.on { color: var(--brand, #2b8cff); }
   body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
