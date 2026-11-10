@@ -86,6 +86,10 @@ nav{position:sticky; top:0; z-index:40; background:color-mix(in srgb,var(--bg) 8
 .nav-links a.dartiscool .ag-logo{width:24px; height:24px; flex:none;}
 .nav-links a.dartiscool .ist{color:#ffb877;}
 footer a.ag-foot .ist{color:#b45309;}
+footer a.zm-foot .ist{color:#0a5cc2;} footer a.dl-foot .ist{color:#6d4fd8;}
+:root[data-t="dark"] footer a.zm-foot .ist{color:#86c8ff;} :root[data-t="dark"] footer a.dl-foot .ist{color:#b9a8ff;}
+@media (prefers-color-scheme:dark){:root:not([data-t="light"]) footer a.zm-foot .ist{color:#86c8ff;} :root:not([data-t="light"]) footer a.dl-foot .ist{color:#b9a8ff;}}
+
 :root[data-t="dark"] footer a.ag-foot .ist{color:#ffb877;}
 @media (prefers-color-scheme:dark){:root:not([data-t="light"]) footer a.ag-foot .ist{color:#ffb877;}}
 /* shine: a light sweep crosses the badge every few seconds, and the saffron glows softly */
@@ -721,6 +725,8 @@ capabilities, the auto-direction field with each policy, the builder, and the bi
   <span class="f-mark"><b>flutterdev.in</b> &middot; open source, MIT</span>
   <span class="f-right">
     <a class="ag-foot" href="https://dartiscool.flutterdev.in/" title="Learn data structures and algorithms in Dart">Dart<span class="ist">IsCool</span></a>
+    <a class="zm-foot" href="https://zerotomodel.flutterdev.in/" title="Learn AI engineering from zero">Zero<span class="ist">To</span>Model</a>
+    <a class="dl-foot" href="https://dartlog.flutterdev.in/" title="Record every network request of your Flutter app">Dart<span class="ist">Log</span></a>
     <a href="/demos/">Demos</a>
     <a href="https://github.com/Manish1Pandey">GitHub</a>
     <a href="/articles/">Articles</a>
