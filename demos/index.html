@@ -130,6 +130,13 @@ footer a:hover{color:var(--brand);}
 @keyframes ag-shine{0%{left:-60%;} 38%,100%{left:125%;}}
 @keyframes ag-glow{0%,100%{text-shadow:0 0 6px rgba(255,159,67,.35);} 30%{text-shadow:0 0 14px rgba(255,159,67,.85);}}
 @keyframes ag-logo{0%,100%{filter:drop-shadow(0 0 3px rgba(255,159,67,.3));} 30%{filter:drop-shadow(0 0 8px rgba(255,159,67,.75));}}
+.nav-links a.dartlog .ist{color:#b9a8ff; animation-name:dl-glow;}
+.nav-links a.dartlog .ag-logo{animation-name:dl-logo;}
+.nav-links a.dartlog:hover{border-color:rgba(185,168,255,.55); box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 6px 16px -6px rgba(139,108,255,.5);}
+@keyframes dl-glow{0%,100%{text-shadow:0 0 6px rgba(139,108,255,.35);} 30%{text-shadow:0 0 14px rgba(139,108,255,.85);}}
+@keyframes dl-logo{0%,100%{filter:drop-shadow(0 0 3px rgba(139,108,255,.3));} 30%{filter:drop-shadow(0 0 8px rgba(139,108,255,.75));}}
+@media (max-width:560px){.nav-in{gap:10px;} .nav-links{gap:6px;} .nav-links a.dartiscool{margin-right:0;} .nav-links a.dartlog{padding:5px 6px;} .nav-links a.dartlog>span{display:none;}}
+@media (max-width:380px){.mark>span:not(.glyph){display:none;}}
 @media (prefers-reduced-motion:reduce){.nav-links a.dartiscool::after,.nav-links a.dartiscool .ist,.nav-links a.dartiscool .ag-logo{animation:none;}}
 </style>
 
@@ -139,7 +146,7 @@ footer a:hover{color:var(--brand);}
 <body>
 <nav>
   <div class="wrap nav-in">
-    <a class="mark" href="/">
+    <a class="mark" href="/" aria-label="flutterdev.in home">
       <span class="glyph">
         <svg viewBox="58 16 226 266" aria-hidden="true">
           <defs>
@@ -159,6 +166,7 @@ footer a:hover{color:var(--brand);}
     </a>
     <div class="nav-links">
       <a class="cta dartiscool" href="https://dartiscool.flutterdev.in/" title="DartIsCool: learn Dart, Flutter, data structures and algorithms, from zero"><svg viewBox="0 0 64 64" class="ag-logo" aria-hidden="true" focusable="false"><defs><linearGradient id="dc-saffron" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd09a"/><stop offset=".55" stop-color="#ff9f43"/><stop offset="1" stop-color="#e3741a"/></linearGradient><linearGradient id="dc-teal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8ff8e5"/><stop offset="1" stop-color="#1fa894"/></linearGradient><radialGradient id="dc-bg" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#1d2a28"/><stop offset="1" stop-color="#0a1110"/></radialGradient></defs><rect x="1" y="1" width="62" height="62" rx="16" fill="url(#dc-bg)"/><rect x="1.5" y="1.5" width="61" height="61" rx="15.5" fill="none" stroke="#ffffff" stroke-opacity=".08"/><path d="M19 13 H31 C43.5 13 51 21.5 51 32 C51 42.5 43.5 51 31 51 H19 Z" fill="none" stroke="url(#dc-teal)" stroke-width="5" stroke-linejoin="round"/><path d="M12 27.5 H50 V31.5 C50 35.8 47 38.5 42.8 38.5 C38.5 38.5 35.6 35.8 35.2 32 H28.8 C28.4 35.8 25.5 38.5 21.2 38.5 C17 38.5 14 35.8 14 31.5 Z" fill="url(#dc-saffron)"/><path d="M18 30 L22.5 34.5 M38.8 30 L43.3 34.5" stroke="#fff6ea" stroke-opacity=".8" stroke-width="1.6" stroke-linecap="round"/></svg><span>Dart<span class="ist">IsCool</span></span></a>
+      <a class="cta dartiscool dartlog" href="https://dartlog.flutterdev.in/" aria-label="DartLog" title="DartLog: record every network request of your Flutter app"><svg viewBox="0 0 64 64" class="ag-logo" aria-hidden="true" focusable="false"><defs><linearGradient id="dl-ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ee0c8"/><stop offset="1" stop-color="#8b6cff"/></linearGradient><radialGradient id="dl-bg" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#1a2130"/><stop offset="1" stop-color="#0a0d14"/></radialGradient></defs><rect x="1" y="1" width="62" height="62" rx="16" fill="url(#dl-bg)"/><rect x="7" y="7" width="50" height="50" rx="13" fill="none" stroke="url(#dl-ring)" stroke-width="4.5"/><path d="M16 33.5h7l5.5-14 7 24.5 4.5-10.5h3.5" fill="none" stroke="url(#dl-ring)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="47" cy="33.5" r="4" fill="#8b6cff"/></svg><span>Dart<span class="ist">Log</span></span></a>
       <a href="/#packages">Packages</a>
       <a href="/demos/">Demos</a>
       <a href="/articles/">Articles</a>
