@@ -331,7 +331,7 @@ footer a:hover{color:var(--brand);}
       <div class="stats">
         <div><b>14</b><span>published packages</span></div>
         <div class="b1"><b>8</b><span>run in your browser</span></div>
-        <div><b id="dl-total">&mdash;</b><span>downloads, last 30 days</span></div>
+        <div><b id="dl-total" data-total="6284" title="6,284 downloads since the first release of each package, from pub.dev (counted to the week of 9 Nov 2026)">6.2k+</b><span>downloads in total</span></div>
         <div><b>160/160</b><span>pub points, every one</span></div>
         <div><b>6</b><span>platforms supported</span></div>
       </div>
@@ -626,7 +626,10 @@ footer a:hover{color:var(--brand);}
   var cards=[].slice.call(document.querySelectorAll('.card[data-n]')),
       totalEl=document.getElementById('dl-total'), total=0, pending=cards.length;
   function fmt(n){return n>=1e6?(n/1e6).toFixed(1).replace(/\.0$/,'')+'M':n>=1e4?Math.round(n/1e3)+'k':n>=1e3?(n/1e3).toFixed(1).replace(/\.0$/,'')+'k':String(n);}
-  function done(){ if(--pending===0&&totalEl&&total>0) totalEl.textContent=fmt(total); }
+  /* the headline shows all-time downloads, written in by tools/update_downloads.py; the live 30-day sum goes in its hover text */
+  function done(){ if(--pending!==0||!totalEl||total<=0) return;
+    if(totalEl.hasAttribute('data-total')) totalEl.title=totalEl.title.replace(/ \(\d[\d,]* in the last 30 days\)$/,'')+' ('+total.toLocaleString()+' in the last 30 days)';
+    else totalEl.textContent=fmt(total); }
   cards.forEach(function(c){
     var n=c.getAttribute('data-n'), foot=c.querySelector('.c-foot'), pts=c.querySelector('.pts');
     if(!foot){ done(); return; }
