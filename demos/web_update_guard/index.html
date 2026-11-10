@@ -60,6 +60,11 @@ header{border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg
 @media (prefers-color-scheme:light){:root:not([data-t="dark"]) .i-sun{display:block;}
  :root:not([data-t="dark"]) .i-moon{display:none;}}
 :root[data-t="light"] .i-sun{display:block;}:root[data-t="light"] .i-moon{display:none;}
+.sim{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:10px 0 0;}
+#wug-sim{font:650 13px inherit;font-family:inherit;color:#fff;background:linear-gradient(145deg,var(--brand),var(--brand2));border:0;border-radius:9px;padding:8px 14px;cursor:pointer;transition:transform .15s,filter .15s;}
+:root[data-t="dark"] #wug-sim,:root:not([data-t="light"]) #wug-sim{color:#06131f;}
+#wug-sim:hover{filter:brightness(1.08);transform:translateY(-1px);} #wug-sim:disabled{opacity:.6;cursor:default;transform:none;}
+#wug-sim-st{font-size:13px;color:var(--mute);}
 .how{margin:9px 0 0;color:var(--mute);font-size:13.5px;max-width:92ch;}
 .frame{flex:1;min-height:0;}
 iframe{width:100%;height:100%;border:0;display:block;background:var(--surf);}
@@ -136,6 +141,7 @@ iframe{width:100%;height:100%;border:0;display:block;background:var(--surf);}
        Press <strong>Simulate a new deploy</strong>, then <strong>Check now</strong> inside the app: a demo service worker
        serves the app a <code>version.json</code> with a different build ID, exactly as a redeploy would, and the guard reacts.
        “Purge caches &amp; reload” clears the simulation too, so the app comes back up to date.</p>
+    <div class="sim"><button type="button" id="wug-sim">&#9650; Simulate a new deploy</button><span id="wug-sim-st" role="status" aria-live="polite"></span></div>
   </div>
 </header>
 <div class="frame"><iframe src="app/" title="web_update_guard example app"></iframe></div>
@@ -145,5 +151,29 @@ function f(){var c=r.getAttribute('data-t');if(!c)c=matchMedia('(prefers-color-s
 var n=c==='dark'?'light':'dark';r.setAttribute('data-t',n);try{localStorage.setItem('t',n);}catch(e){}}
 document.getElementById('tt').addEventListener('click',function(){
 if(document.startViewTransition&&!matchMedia('(prefers-reduced-motion:reduce)').matches)document.startViewTransition(f);else f();});})();</script>
+<script>
+/* "Simulate a new deploy": starts the demo service worker (sw.js, scope = this demo only) and tells it
+   to serve the app a version.json with a new build ID. Then "Check now" in the app sees the update. */
+(function(){
+  var b=document.getElementById('wug-sim'), st=document.getElementById('wug-sim-st');
+  if(!b) return;
+  if(!('serviceWorker' in navigator)){ b.disabled=true; st.textContent='This browser can\u2019t run the simulation.'; return; }
+  function active(reg){
+    return new Promise(function(res){
+      if(reg.active) return res(reg.active);
+      var w=reg.installing||reg.waiting; if(!w) return res(null);
+      w.addEventListener('statechange',function(){ if(w.state==='activated') res(w); });
+    });
+  }
+  b.addEventListener('click',function(){
+    b.disabled=true; st.textContent='Deploying\u2026';
+    navigator.serviceWorker.register('sw.js',{scope:'./'}).then(active).then(function(w){
+      if(!w) throw new Error('no worker');
+      w.postMessage({type:'deploy'});
+      setTimeout(function(){ st.innerHTML='New build deployed. Now press <strong>Check now</strong> in the app.'; b.disabled=false; },400);
+    }).catch(function(){ st.textContent='The simulation couldn\u2019t start here (needs https).'; b.disabled=false; });
+  });
+})();
+</script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4321e47ebde948179272a962602c33a0"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>
