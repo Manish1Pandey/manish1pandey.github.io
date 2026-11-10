@@ -310,6 +310,7 @@ document.querySelectorAll('[data-rev]').forEach(function(b){{
   }});
 }})();
 </script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "4321e47ebde948179272a962602c33a0"}}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
 """

@@ -157,6 +157,7 @@ fetch('https://pub.dev/api/packages/{name}/score').then(function(r){{return r.ok
   d.textContent=n==null?'\u2193 new on pub.dev':'\u2193 '+n.toLocaleString()+' downloads / 30 days';
   d.title=n==null?'Downloads appear after the first daily count on pub.dev':'Downloads in the last 30 days, from pub.dev'; d.hidden=false;
 }}).catch(function(){{}});</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "4321e47ebde948179272a962602c33a0"}}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
 """

@@ -145,4 +145,5 @@ function f(){var c=r.getAttribute('data-t');if(!c)c=matchMedia('(prefers-color-s
 var n=c==='dark'?'light':'dark';r.setAttribute('data-t',n);try{localStorage.setItem('t',n);}catch(e){}}
 document.getElementById('tt').addEventListener('click',function(){
 if(document.startViewTransition&&!matchMedia('(prefers-reduced-motion:reduce)').matches)document.startViewTransition(f);else f();});})();</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4321e47ebde948179272a962602c33a0"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>
