@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://flutterdev.in/og.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"flutter_rich_notifications","description":"Push notifications with a full hero image AND full multi-line body, for Android (custom RemoteViews) and iOS (Notification Content Extension).","url":"https://flutterdev.in/packages/flutter_rich_notifications/","codeRepository":"https://github.com/Manish1Pandey/flutter_rich_notifications","programmingLanguage":"Dart","runtimePlatform":"Flutter","version":"0.1.3","license":"https://opensource.org/licenses/MIT","author":{"@type":"Person","name":"Manish Kumar Panday","url":"https://flutterdev.in/"},"targetProduct":{"@type":"SoftwareApplication","name":"flutter_rich_notifications","operatingSystem":"Android, iOS","applicationCategory":"DeveloperApplication"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"flutterdev.in","item":"https://flutterdev.in/"},{"@type":"ListItem","position":2,"name":"Packages","item":"https://flutterdev.in/#packages"},{"@type":"ListItem","position":3,"name":"flutter_rich_notifications","item":"https://flutterdev.in/packages/flutter_rich_notifications/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"flutter_rich_notifications","description":"Push notifications with a full hero image AND full multi-line body, for Android (custom RemoteViews) and iOS (Notification Content Extension).","url":"https://flutterdev.in/packages/flutter_rich_notifications/","codeRepository":"https://github.com/Manish1Pandey/flutter_rich_notifications","programmingLanguage":"Dart","runtimePlatform":"Flutter","version":"0.1.5","license":"https://opensource.org/licenses/MIT","author":{"@type":"Person","name":"Manish Kumar Panday","url":"https://flutterdev.in/"},"targetProduct":{"@type":"SoftwareApplication","name":"flutter_rich_notifications","operatingSystem":"Android, iOS","applicationCategory":"DeveloperApplication"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"flutterdev.in","item":"https://flutterdev.in/"},{"@type":"ListItem","position":2,"name":"Packages","item":"https://flutterdev.in/#packages"},{"@type":"ListItem","position":3,"name":"flutter_rich_notifications","item":"https://flutterdev.in/packages/flutter_rich_notifications/"}]}</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='58 16 226 266'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%230468d7'/><stop offset='1' stop-color='%2312b3f3'/></linearGradient></defs><path d='M196 24 66 154l40 40L276 24z' fill='url(%23g)'/><path d='M196 140 130 206l40 40 66-66z' fill='url(%23g)' opacity='.82'/><path d='M106 194 66 234l40 40h84l-44-44z' fill='url(%23g)' opacity='.6'/></svg>">
 <style>
 :root{
@@ -324,7 +324,6 @@ footer a:hover{color:var(--brand);}
 .pk-meta .tag#dl{font-family:ui-monospace,Menlo,monospace; font-weight:500;}
 </style>
 
-
 <!-- pwa --><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="flutterdev.in"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="stylesheet" href="/app.css"><script src="/app.js"></script><!-- /pwa -->
 </head>
 <body>
@@ -369,9 +368,9 @@ footer a:hover{color:var(--brand);}
   <header class="pk-head">
     <h1>flutter_rich_notifications</h1>
     <p class="lede">Push notifications with a full hero image AND full multi-line body, for Android (custom RemoteViews) and iOS (Notification Content Extension).</p>
-    <div class="pk-meta"><span class="tag">v0.1.3</span><span class="tag ok" id="pts">160/160 pub points</span><span class="tag" id="dl" hidden></span><span class="tag">MIT</span><span class="tag">Android</span><span class="tag">iOS</span></div>
+    <div class="pk-meta"><span class="tag">v0.1.5</span><span class="tag ok" id="pts">160/160 pub points</span><span class="tag" id="dl" hidden></span><span class="tag">MIT</span><span class="tag">Android</span><span class="tag">iOS</span></div>
     <div class="pk-actions"><a class="btn pri" href="https://pub.dev/packages/flutter_rich_notifications">View on pub.dev &#8594;</a><a class="btn sec" href="https://github.com/Manish1Pandey/flutter_rich_notifications">Source on GitHub</a></div>
-    <div class="dep"><code>flutter_rich_notifications: ^0.1.3</code><button class="cp" data-c="flutter_rich_notifications: ^0.1.3" aria-label="Copy dependency for flutter_rich_notifications">Copy</button></div>
+    <div class="dep"><code>flutter_rich_notifications: ^0.1.5</code><button class="cp" data-c="flutter_rich_notifications: ^0.1.5" aria-label="Copy dependency for flutter_rich_notifications">Copy</button></div>
   </header>
   <article class="md">
 <p>Display Android and iOS push notifications with a <strong>full hero image AND full multi-line body text</strong> — bypassing the body-line limits that stock <code>BigPictureStyle</code> (Android) and standard alert layouts (iOS) impose.</p>
@@ -601,20 +600,20 @@ hero image:</p>
 <p>The NCE ships with a polished default — hero image (200pt rounded), title in semibold, body in regular with comfortable line spacing, semantic colors that adapt to light/dark mode.</p>
 <p>To tweak it, open the <code>NotificationViewController.swift</code> you copied into your NCE target and edit the "Design knobs" block at the top of the class:</p>
 <div class="highlight highlight-source-swift"><pre>// Image-related knobs
-<span class="pl-k">var</span> <span class="pl-s1">imagePosition</span><span class="pl-kos">:</span> <span class="pl-smi">ImagePosition</span> <span class="pl-c1">=</span> <span class="pl-kos">.</span>top         // .top, .bottom, or .none
+<span class="pl-k">var</span> <span class="pl-s1">imagePosition</span><span class="pl-kos">:</span> <span class="pl-smi">ImagePosition</span> <span class="pl-c1">=</span> <span class="pl-kos">.</span><span class="pl-s1">top</span>         // .top, .bottom, or .none
 <span class="pl-k">var</span> <span class="pl-s1">imageHeight</span><span class="pl-kos">:</span> <span class="pl-smi">CGFloat</span> <span class="pl-c1">=</span> <span class="pl-c1">200</span>
 <span class="pl-k">var</span> <span class="pl-s1">imageCornerRadius</span><span class="pl-kos">:</span> <span class="pl-smi">CGFloat</span> <span class="pl-c1">=</span> <span class="pl-c1">12</span>
 
 // Typography
-<span class="pl-k">var</span> <span class="pl-s1">titleFont</span><span class="pl-kos">:</span> <span class="pl-smi">UIFont</span> <span class="pl-c1">=</span> <span class="pl-kos">.</span>systemFont<span class="pl-kos">(</span>ofSize<span class="pl-kos">:</span> <span class="pl-c1">17</span><span class="pl-kos">,</span> weight<span class="pl-kos">:</span> <span class="pl-kos">.</span>semibold<span class="pl-kos">)</span>
-<span class="pl-k">var</span> <span class="pl-s1">bodyFont</span><span class="pl-kos">:</span> <span class="pl-smi">UIFont</span> <span class="pl-c1">=</span> <span class="pl-kos">.</span>systemFont<span class="pl-kos">(</span>ofSize<span class="pl-kos">:</span> <span class="pl-c1">14</span><span class="pl-kos">,</span> weight<span class="pl-kos">:</span> <span class="pl-kos">.</span>regular<span class="pl-kos">)</span>
+<span class="pl-k">var</span> <span class="pl-s1">titleFont</span><span class="pl-kos">:</span> <span class="pl-smi">UIFont</span> <span class="pl-c1">=</span> <span class="pl-kos">.</span><span class="pl-en">systemFont</span><span class="pl-kos">(</span><span class="pl-s1">ofSize</span><span class="pl-kos">:</span> <span class="pl-c1">17</span><span class="pl-kos">,</span> <span class="pl-s1">weight</span><span class="pl-kos">:</span> <span class="pl-kos">.</span><span class="pl-s1">semibold</span><span class="pl-kos">)</span>
+<span class="pl-k">var</span> <span class="pl-s1">bodyFont</span><span class="pl-kos">:</span> <span class="pl-smi">UIFont</span> <span class="pl-c1">=</span> <span class="pl-kos">.</span><span class="pl-en">systemFont</span><span class="pl-kos">(</span><span class="pl-s1">ofSize</span><span class="pl-kos">:</span> <span class="pl-c1">14</span><span class="pl-kos">,</span> <span class="pl-s1">weight</span><span class="pl-kos">:</span> <span class="pl-kos">.</span><span class="pl-s1">regular</span><span class="pl-kos">)</span>
 <span class="pl-k">var</span> <span class="pl-s1">bodyLineSpacing</span><span class="pl-kos">:</span> <span class="pl-smi">CGFloat</span> <span class="pl-c1">=</span> <span class="pl-c1">3</span>
 
 // Colors (defaults adapt to dark mode)
-<span class="pl-k">var</span> <span class="pl-s1">titleColor</span><span class="pl-kos">:</span> <span class="pl-smi">UIColor</span> <span class="pl-c1">=</span> <span class="pl-kos">.</span>resolveLabel<span class="pl-kos">(</span><span class="pl-kos">)</span>
-<span class="pl-k">var</span> <span class="pl-s1">bodyColor</span><span class="pl-kos">:</span> <span class="pl-smi">UIColor</span> <span class="pl-c1">=</span> <span class="pl-kos">.</span>resolveSecondaryLabel<span class="pl-kos">(</span><span class="pl-kos">)</span>
-<span class="pl-k">var</span> <span class="pl-s1">cardBackgroundColor</span><span class="pl-kos">:</span> <span class="pl-smi">UIColor</span> <span class="pl-c1">=</span> <span class="pl-kos">.</span>clear
-<span class="pl-k">var</span> <span class="pl-s1">accentColor</span><span class="pl-kos">:</span> <span class="pl-smi">UIColor</span><span class="pl-c1"><span class="pl-c1">?</span></span> <span class="pl-c1">=</span> <span class="pl-smi">nil</span>   // set to a brand UIColor to show a left stripe
+<span class="pl-k">var</span> <span class="pl-s1">titleColor</span><span class="pl-kos">:</span> <span class="pl-smi">UIColor</span> <span class="pl-c1">=</span> <span class="pl-kos">.</span><span class="pl-en">resolveLabel</span><span class="pl-kos">(</span><span class="pl-kos">)</span>
+<span class="pl-k">var</span> <span class="pl-s1">bodyColor</span><span class="pl-kos">:</span> <span class="pl-smi">UIColor</span> <span class="pl-c1">=</span> <span class="pl-kos">.</span><span class="pl-en">resolveSecondaryLabel</span><span class="pl-kos">(</span><span class="pl-kos">)</span>
+<span class="pl-k">var</span> <span class="pl-s1">cardBackgroundColor</span><span class="pl-kos">:</span> <span class="pl-smi">UIColor</span> <span class="pl-c1">=</span> <span class="pl-kos">.</span><span class="pl-s1">clear</span>
+<span class="pl-k">var</span> <span class="pl-s1">accentColor</span><span class="pl-kos">:</span> <span class="pl-smi">UIColor</span><span class="pl-c1"><span class="pl-c1">?</span></span> <span class="pl-c1">=</span> <span class="pl-c1">nil</span>   // set to a brand UIColor to show a left stripe
 
 // Spacing
 <span class="pl-k">var</span> <span class="pl-s1">horizontalPadding</span><span class="pl-kos">:</span> <span class="pl-smi">CGFloat</span> <span class="pl-c1">=</span> <span class="pl-c1">16</span>
@@ -622,16 +621,16 @@ hero image:</p>
 <span class="pl-k">var</span> <span class="pl-s1">titleBodySpacing</span><span class="pl-kos">:</span> <span class="pl-smi">CGFloat</span> <span class="pl-c1">=</span> <span class="pl-c1">6</span>
 <span class="pl-k">var</span> <span class="pl-s1">imageToTextSpacing</span><span class="pl-kos">:</span> <span class="pl-smi">CGFloat</span> <span class="pl-c1">=</span> <span class="pl-c1">12</span></pre></div>
 <p>For deeper layout changes (e.g. custom typography per-notification based on payload data), override the <code>open</code> hooks:</p>
-<div class="highlight highlight-source-swift"><pre><span class="pl-k"><span class="pl-k">override</span></span> <span class="pl-en">func</span> applyTitle<span class="pl-kos">(</span>_ text<span class="pl-kos">:</span> <span class="pl-smi">String</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-    titleLabel<span class="pl-kos">.</span>attributedText <span class="pl-c1">=</span> <span class="pl-en">NSAttributedString</span><span class="pl-kos">(</span>
-        string<span class="pl-kos">:</span> text<span class="pl-kos">,</span>
-        attributes<span class="pl-kos">:</span> <span class="pl-kos">[</span><span class="pl-kos">.</span>font<span class="pl-kos">:</span> <span class="pl-en">UIFont</span><span class="pl-kos">(</span>name<span class="pl-kos">:</span> <span class="pl-s">"</span><span class="pl-s">Inter-Bold</span><span class="pl-s">"</span><span class="pl-kos">,</span> size<span class="pl-kos">:</span> <span class="pl-c1">18</span><span class="pl-kos">)</span>!<span class="pl-kos">,</span>
-                     <span class="pl-kos">.</span>kern<span class="pl-kos">:</span> <span class="pl-c1">0.3</span><span class="pl-kos">]</span>
+<div class="highlight highlight-source-swift"><pre><span class="pl-k"><span class="pl-k">override</span></span> <span class="pl-en">func</span> <span class="pl-en">applyTitle</span><span class="pl-kos">(</span><span class="pl-s1">_</span> <span class="pl-s1">text</span><span class="pl-kos">:</span> <span class="pl-smi">String</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-s1">titleLabel</span><span class="pl-kos">.</span><span class="pl-s1">attributedText</span> <span class="pl-c1">=</span> <span class="pl-en">NSAttributedString</span><span class="pl-kos">(</span>
+        <span class="pl-s1">string</span><span class="pl-kos">:</span> <span class="pl-s1">text</span><span class="pl-kos">,</span>
+        <span class="pl-s1">attributes</span><span class="pl-kos">:</span> <span class="pl-kos">[</span><span class="pl-kos">.</span><span class="pl-s1">font</span><span class="pl-kos">:</span> <span class="pl-en">UIFont</span><span class="pl-kos">(</span><span class="pl-s1">name</span><span class="pl-kos">:</span> <span class="pl-s">"</span><span class="pl-s">Inter-Bold</span><span class="pl-s">"</span><span class="pl-kos">,</span> <span class="pl-s1">size</span><span class="pl-kos">:</span> <span class="pl-c1">18</span><span class="pl-kos">)</span><span class="pl-c1">!</span><span class="pl-kos">,</span>
+                     <span class="pl-kos">.</span><span class="pl-s1">kern</span><span class="pl-kos">:</span> <span class="pl-c1">0.3</span><span class="pl-kos">]</span>
     <span class="pl-kos">)</span>
 <span class="pl-kos">}</span>
 
-<span class="pl-k"><span class="pl-k">override</span></span> <span class="pl-en">func</span> applyBody<span class="pl-kos">(</span>_ text<span class="pl-kos">:</span> <span class="pl-smi">String</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
-    super<span class="pl-kos">.</span><span class="pl-en">applyBody</span><span class="pl-kos">(</span>text<span class="pl-kos">)</span>
+<span class="pl-k"><span class="pl-k">override</span></span> <span class="pl-en">func</span> <span class="pl-en">applyBody</span><span class="pl-kos">(</span><span class="pl-s1">_</span> <span class="pl-s1">text</span><span class="pl-kos">:</span> <span class="pl-smi">String</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-smi">super</span><span class="pl-kos">.</span><span class="pl-en">applyBody</span><span class="pl-kos">(</span><span class="pl-s1">text</span><span class="pl-kos">)</span>
     // post-process bodyLabel further...
 <span class="pl-kos">}</span></pre></div>
 <p>For a fully bespoke layout, override <code>installConstraints()</code> in a subclass — but at that point you're rebuilding the renderer, which is usually overkill.</p>
@@ -692,9 +691,8 @@ fetch('https://pub.dev/api/packages/flutter_rich_notifications/score').then(func
   d.textContent=n==null?'↓ new on pub.dev':'↓ '+n.toLocaleString()+' downloads / 30 days';
   d.title=n==null?'Downloads appear after the first daily count on pub.dev':'Downloads in the last 30 days, from pub.dev'; d.hidden=false;
 }).catch(function(){});</script>
-
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4321e47ebde948179272a962602c33a0"}'></script><!-- End Cloudflare Web Analytics -->
 
 <!-- pwa --><script src="/install.js" data-app="flutterdev.in" data-icon="/icons/icon-192.png" defer></script><script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js')});</script><!-- /pwa -->
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4321e47ebde948179272a962602c33a0"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
