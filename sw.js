@@ -1,7 +1,7 @@
 // flutterdev.in offline support: pages are network-first (always fresh online, last copy offline);
 // small files are served from cache and refreshed in the background. The Flutter demos (large) are never cached.
-const CACHE = 'flutterdev-v4';
-const CORE = ['/', '/learn/', '/demos/', '/articles/', '/about/', '/manifest.webmanifest', '/icons/icon-192.png', '/install.js', '/app.css', '/app.js', '/exit-confirm.js'];
+const CACHE = 'flutterdev-v5';
+const CORE = ['/', '/learn/', '/demos/', '/articles/', '/about/', '/manifest.webmanifest', '/icons/icon-192.png', '/install.js', '/app.css', '/app.js', '/exit-confirm.js', '/cmdk.js', '/fonts/manrope.woff2', '/fonts/inter.woff2', '/fonts/jetbrains-mono.woff2'];
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(CACHE).then((c) => Promise.all(CORE.map((u) => c.add(u).catch(() => null))))); self.skipWaiting(); });
 self.addEventListener('activate', (e) => e.waitUntil((async () => {
   for (const k of await caches.keys()) if (k !== CACHE) await caches.delete(k);
@@ -16,6 +16,7 @@ self.addEventListener('fetch', (e) => {
     return;
   }
   if (url.pathname.startsWith('/demos/')) return;   // demo apps are big: always from the network
+  if (url.pathname.startsWith('/media/')) return;   // videos need HTTP range requests (Safari): leave them to the browser
   e.respondWith(caches.match(req).then((hit) => {
     const net = fetch(req).then((res) => { if (res.ok) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(req, copy)); } return res; }).catch(() => hit);
     return hit || net;

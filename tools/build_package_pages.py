@@ -18,7 +18,7 @@ favicon = re.search(r'<link rel="icon" href="[^"]*">', home).group(0)
 nav = re.search(r'<nav>.*?</nav>', home, re.S).group(0).replace('href="#packages"', 'href="/#packages"')
 footer = re.search(r'<footer class="wrap">.*?</footer>', home, re.S).group(0)
 theme_js = """<script>(function(){var r=document.documentElement;try{var s=localStorage.getItem('t');if(s)r.setAttribute('data-t',s);}catch(e){}
-function f(){var c=r.getAttribute('data-t');if(!c)c=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';var n=c==='dark'?'light':'dark';r.setAttribute('data-t',n);try{localStorage.setItem('t',n);}catch(e){}}
+function f(){var c=r.getAttribute('data-t');if(!c)c='dark';var n=c==='dark'?'light':'dark';r.setAttribute('data-t',n);try{localStorage.setItem('t',n);}catch(e){}}
 document.getElementById('tt').addEventListener('click',function(){if(document.startViewTransition&&!matchMedia('(prefers-reduced-motion:reduce)').matches)document.startViewTransition(f);else f();});
 document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',function(){navigator.clipboard&&navigator.clipboard.writeText(b.dataset.c).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1400);});});});})();</script>"""
 
@@ -26,13 +26,12 @@ PAGE_CSS = """
 .pk{padding:40px 0 70px;}
 .crumbs{font-size:13.5px; color:var(--mute); margin-bottom:18px;}
 .crumbs a{color:var(--mute); text-decoration:none;} .crumbs a:hover{color:var(--brand);}
-.pk-head h1{font-size:clamp(30px,5vw,46px); letter-spacing:-.03em; margin:0 0 10px; word-break:break-word;}
+.pk-head h1{font-family:var(--f-m); font-weight:700; font-size:clamp(28px,4.6vw,44px); letter-spacing:-.04em; margin:0 0 10px; word-break:break-word;}
 .pk-head .lede{font-size:18px; color:var(--mute); max-width:760px; margin:0 0 20px; line-height:1.55;}
 .pk-meta{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:22px;}
 .pk-meta .tag{font-size:13px; font-weight:600; padding:5px 11px; border-radius:999px; border:1px solid var(--line); background:var(--surf); color:var(--ink);}
 .pk-meta .tag.ok{color:var(--ok);}
 .pk-actions{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:26px;}
-.pk .dep{max-width:520px; margin-bottom:34px;}
 .md{max-width:860px; font-size:16px; line-height:1.7; color:var(--ink); overflow-wrap:break-word;}
 .md :not(pre) > code, .md a{overflow-wrap:anywhere;}
 .pk-head .lede, .dep code{overflow-wrap:anywhere;}
@@ -41,7 +40,7 @@ PAGE_CSS = """
 .md h3{font-size:19px; margin:28px 0 8px;}
 .md a{color:var(--brand);} .md a.anchor{display:none;}
 .md p,.md li{color:var(--ink);} .md ul,.md ol{padding-left:22px;}
-.md code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.88em; background:var(--surf2); padding:2px 6px; border-radius:6px;}
+.md code{font-family:var(--f-m); font-size:.88em; background:var(--surf2); padding:2px 6px; border-radius:6px;}
 .md pre{background:var(--surf2); border:1px solid var(--line); border-radius:12px; padding:16px 18px; overflow-x:auto; line-height:1.55;}
 .md pre code{background:none; padding:0; font-size:13.5px;}
 .md .highlight{margin:14px 0;}
@@ -53,21 +52,36 @@ PAGE_CSS = """
 .md blockquote{margin:16px 0; padding:4px 16px; border-left:3px solid var(--brand); color:var(--mute);}
 .md .markdown-alert{border-left:3px solid var(--brand); padding:6px 16px; margin:16px 0; background:var(--sky); border-radius:0 10px 10px 0;}
 .md .markdown-alert-title{font-weight:700;} .md svg.octicon{display:none;}
-/* GitHub syntax colours */
-.md .pl-k{color:#cf222e;} .md .pl-s,.md .pl-pds{color:#0a3069;} .md .pl-c{color:#57606a; font-style:italic;}
-.md .pl-en,.md .pl-e{color:#8250df;} .md .pl-c1,.md .pl-v{color:#0550ae;} .md .pl-smi{color:inherit;} .md .pl-ent{color:#116329;}
-:root[data-t="dark"] .md .pl-k{color:#ff7b72;} :root[data-t="dark"] .md .pl-s,:root[data-t="dark"] .md .pl-pds{color:#a5d6ff;}
-:root[data-t="dark"] .md .pl-c{color:#8b949e;} :root[data-t="dark"] .md .pl-en,:root[data-t="dark"] .md .pl-e{color:#d2a8ff;}
-:root[data-t="dark"] .md .pl-c1,:root[data-t="dark"] .md .pl-v{color:#79c0ff;} :root[data-t="dark"] .md .pl-ent{color:#7ee787;}
-@media (prefers-color-scheme:dark){:root:not([data-t="light"]) .md .pl-k{color:#ff7b72;} :root:not([data-t="light"]) .md .pl-s,:root:not([data-t="light"]) .md .pl-pds{color:#a5d6ff;}
-  :root:not([data-t="light"]) .md .pl-c{color:#8b949e;} :root:not([data-t="light"]) .md .pl-en,:root:not([data-t="light"]) .md .pl-e{color:#d2a8ff;}
-  :root:not([data-t="light"]) .md .pl-c1,:root:not([data-t="light"]) .md .pl-v{color:#79c0ff;} :root:not([data-t="light"]) .md .pl-ent{color:#7ee787;}}
+/* GitHub syntax colours: dark by default, light when the light theme is chosen */
+.md .pl-k{color:#ff7b72;} .md .pl-s,.md .pl-pds{color:#a5d6ff;} .md .pl-c{color:#8b949e; font-style:italic;}
+.md .pl-en,.md .pl-e{color:#d2a8ff;} .md .pl-c1,.md .pl-v{color:#79c0ff;} .md .pl-smi{color:inherit;} .md .pl-ent{color:#7ee787;}
+:root[data-t="light"] .md .pl-k{color:#cf222e;} :root[data-t="light"] .md .pl-s,:root[data-t="light"] .md .pl-pds{color:#0a3069;}
+:root[data-t="light"] .md .pl-c{color:#57606a;} :root[data-t="light"] .md .pl-en,:root[data-t="light"] .md .pl-e{color:#8250df;}
+:root[data-t="light"] .md .pl-c1,:root[data-t="light"] .md .pl-v{color:#0550ae;} :root[data-t="light"] .md .pl-ent{color:#116329;}
+.pk-body{display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:48px; align-items:start; margin-top:8px;}
+.pk-side{position:sticky; top:84px; display:flex; flex-direction:column; gap:14px;}
+@media (max-width:980px){.pk-body{grid-template-columns:minmax(0,1fr); gap:28px;} .pk-side{position:static; order:-1;}}
+.pk-media{border-radius:16px; overflow:hidden; border:1px solid var(--line); background:radial-gradient(120% 90% at 50% 0%,color-mix(in srgb,var(--brand) 8%,var(--bg2)),var(--bg2));}
+.pk-media video{display:block; width:100%; max-height:420px; object-fit:contain; padding:14px 14px 0;}
+.pk-media figcaption{font:500 11.5px var(--f-m); color:var(--mute); padding:10px 14px; border-top:1px solid var(--line);}
+.inst{border-radius:16px; border:1px solid var(--line); background:var(--surf); padding:16px;}
+.inst h2{font:700 13px var(--f-m); letter-spacing:.08em; text-transform:uppercase; color:var(--mute); margin:0 0 12px;}
+.inst-tabs{display:flex; gap:4px; margin-bottom:10px; padding:3px; border-radius:10px; background:var(--bg2); border:1px solid var(--line);}
+.inst-tabs button{flex:1; font:600 12.5px var(--f-b); padding:7px 8px; border:0; border-radius:8px; cursor:pointer; background:none; color:var(--mute);}
+.inst-tabs button[aria-selected="true"]{background:var(--surf2); color:var(--ink); box-shadow:var(--sh-s);}
+.inst .dep{margin:0;}
+.inst .dep[hidden]{display:none;}
+.inst-links{display:grid; gap:6px; margin-top:14px;}
+.inst-links a{display:flex; align-items:center; justify-content:space-between; font-size:14px; font-weight:500; color:var(--ink); text-decoration:none;
+  padding:9px 12px; border-radius:10px; border:1px solid var(--line); background:var(--bg2); transition:border-color .16s,color .16s;}
+.inst-links a:hover{border-color:color-mix(in srgb,var(--brand) 55%,var(--line)); color:var(--brand);}
+.inst-links a.demo{color:var(--brand); border-color:color-mix(in srgb,var(--brand) 35%,var(--line));}
 .more-pk{margin-top:56px; padding-top:24px; border-top:1px solid var(--line);}
 .more-pk h2{font-size:20px; margin:0 0 12px;}
 .more-pk ul{list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:8px;}
 .more-pk a{display:inline-block; font-size:14px; padding:7px 12px; border-radius:9px; border:1px solid var(--line); background:var(--surf); color:var(--ink); text-decoration:none;}
 .more-pk a:hover{border-color:var(--brand); color:var(--brand);}
-.pk-meta .tag#dl{font-family:ui-monospace,Menlo,monospace; font-weight:500;}
+.pk-meta .tag#dl{font-family:var(--f-m); font-weight:500;}
 """
 
 def gh(args, inp=None):
@@ -109,6 +123,12 @@ for name, plats, live in cards:
             {'@type': 'ListItem', 'position': 2, 'name': 'Packages', 'item': SITE + '#packages'},
             {'@type': 'ListItem', 'position': 3, 'name': name, 'item': url}]}]
     demo = '<a class="btn sec" href="/demos/%s/">&#9658; Live demo</a>' % name if live == '1' else ''
+    has_media = os.path.exists(os.path.join(ROOT, 'media', 'pkg', name + '.mp4'))
+    media = ('<figure class="pk-media" style="margin:0"><video muted loop playsinline preload="metadata" poster="/media/pkg/%s.webp" data-src="/media/pkg/%s.mp4"></video>'
+             '<figcaption>Demo recording from the README</figcaption></figure>' % (name, name)) if has_media else ''
+    side_demo = '<a class="demo" href="/demos/%s/">&#9658; Run the live demo <span>&#8594;</span></a>' % name if live == '1' else ''
+    if has_media:   # the side panel already plays this recording: drop the README's copy of the GIF
+        body = re.sub(r'<p>\s*(?:<a[^>]*>)?\s*<img[^>]*/demo\.gif"[^>]*>\s*(?:</a>)?\s*</p>\s*', '', body, count=1)
     others = ''.join('<li><a href="/packages/%s/">%s</a></li>' % (n, n) for n in names if n != name)
     page = f"""<!DOCTYPE html>
 <html lang="en" data-t="">
@@ -118,8 +138,7 @@ for name, plats, live in cards:
 <title>{e(title)}</title>
 <meta name="description" content="{e(meta_desc)}">
 <link rel="canonical" href="{url}">
-<meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme:light)">
-<meta name="theme-color" content="#060c14" media="(prefers-color-scheme:dark)">
+<meta name="theme-color" content="#07090d">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="flutterdev.in">
 <meta property="og:title" content="{e(name)} · Flutter package">
@@ -141,15 +160,36 @@ for name, plats, live in cards:
     <p class="lede">{e(desc)}</p>
     <div class="pk-meta"><span class="tag">v{e(ver)}</span><span class="tag ok" id="pts">160/160 pub points</span><span class="tag" id="dl" hidden></span><span class="tag">MIT</span>{''.join('<span class="tag">%s</span>' % p for p in platforms)}</div>
     <div class="pk-actions"><a class="btn pri" href="https://pub.dev/packages/{name}">View on pub.dev &#8594;</a>{demo}<a class="btn sec" href="https://github.com/{OWNER}/{name}">Source on GitHub</a></div>
-    <div class="dep"><code>{name}: ^{e(ver)}</code><button class="cp" data-c="{name}: ^{e(ver)}" aria-label="Copy dependency for {name}">Copy</button></div>
   </header>
+  <div class="pk-body">
   <article class="md">
 {body}
   </article>
+  <aside class="pk-side">
+    {media}
+    <section class="inst" aria-label="Install {name}">
+      <h2>Install</h2>
+      <div class="inst-tabs" role="tablist"><button role="tab" aria-selected="true" data-tab="yaml">pubspec.yaml</button><button role="tab" aria-selected="false" data-tab="cli">Terminal</button></div>
+      <div class="dep" data-pane="yaml"><code>{name}: ^{e(ver)}</code><button class="cp" data-c="{name}: ^{e(ver)}" aria-label="Copy dependency for {name}">Copy</button></div>
+      <div class="dep" data-pane="cli" hidden><code>flutter pub add {name}</code><button class="cp" data-c="flutter pub add {name}" aria-label="Copy install command for {name}">Copy</button></div>
+      <div class="inst-links">{side_demo}<a href="https://pub.dev/packages/{name}">pub.dev <span>&#8599;</span></a><a href="https://github.com/{OWNER}/{name}">Source on GitHub <span>&#8599;</span></a><a href="https://pub.dev/documentation/{name}/latest/">API reference <span>&#8599;</span></a></div>
+    </section>
+  </aside>
+  </div>
   <section class="more-pk"><h2>More Flutter packages</h2><ul>{others}</ul></section>
 </main>
 {footer}
 {theme_js}
+<script>/* Install tabs, and the demo video plays only while it is on screen. */
+document.querySelectorAll('.inst-tabs').forEach(function(tabs){{tabs.addEventListener('click',function(e){{
+  var b=e.target.closest('button'); if(!b) return; var box=tabs.parentNode;
+  tabs.querySelectorAll('button').forEach(function(x){{x.setAttribute('aria-selected',String(x===b));}});
+  box.querySelectorAll('[data-pane]').forEach(function(p){{p.hidden=p.dataset.pane!==b.dataset.tab;}});
+}});}});
+(function(){{var v=document.querySelector('.pk-media video'); if(!v) return;
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches||(navigator.connection&&navigator.connection.saveData)||!('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(es){{ if(es[0].isIntersecting){{ if(!v.src) v.src=v.dataset.src; v.play().catch(function(){{}}); }} else v.pause(); }},{{threshold:.3}}).observe(v);
+}})();</script>
 <script>/* Live pub.dev numbers: 30-day downloads (refreshed by pub.dev about daily) and pub points. */
 fetch('https://pub.dev/api/packages/{name}/score').then(function(r){{return r.ok?r.json():null;}}).then(function(s){{
   if(!s)return; var d=document.getElementById('dl'), p=document.getElementById('pts'), n=s.downloadCount30Days;

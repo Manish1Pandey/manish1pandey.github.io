@@ -180,8 +180,7 @@ page = f"""<!DOCTYPE html>
 <title>Manish Kumar Panday · Flutter developer portfolio | flutterdev.in</title>
 <meta name="description" content="{e(DESC)}">
 <link rel="canonical" href="{URL}">
-<meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme:light)">
-<meta name="theme-color" content="#060c14" media="(prefers-color-scheme:dark)">
+<meta name="theme-color" content="#07090d">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Manish Kumar Panday · Flutter developer">
 <meta property="og:description" content="{e(DESC)}">

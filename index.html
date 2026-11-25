@@ -2,11 +2,11 @@
 <html lang="en" data-t="">
 <head>
 <meta charset="utf-8">
+<!-- kit --><link rel="preload" href="/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin><script>(function(){var r=document.documentElement;r.classList.add('js');try{var s=localStorage.getItem('t');if(s)r.setAttribute('data-t',s);}catch(e){}})();</script><!-- /kit -->
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>flutterdev.in &mdash; open-source Flutter &amp; Dart packages</title>
 <meta name="description" content="Fourteen production-ready, open-source Flutter and Dart packages. Eight run live in your browser. Every package scores 160/160 on pub.dev.">
-<meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme:light)">
-<meta name="theme-color" content="#060c14" media="(prefers-color-scheme:dark)">
+<meta name="theme-color" content="#07090d">
 <meta property="og:title" content="flutterdev.in &mdash; open-source Flutter &amp; Dart packages">
 <meta property="og:description" content="Fourteen production-ready Flutter packages. Eight run live in your browser.">
 <meta property="og:url" content="https://flutterdev.in/">
@@ -19,90 +19,94 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="flutterdev.in — Flutter packages, built for production. 14 packages, 8 live demos, 160/160 pub points.">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='58 16 226 266'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%230468d7'/><stop offset='1' stop-color='%2312b3f3'/></linearGradient></defs><path d='M196 24 66 154l40 40L276 24z' fill='url(%23g)'/><path d='M196 140 130 206l40 40 66-66z' fill='url(%23g)' opacity='.82'/><path d='M106 194 66 234l40 40h84l-44-44z' fill='url(%23g)' opacity='.6'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='58 16 226 266'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%232fe3c8'/><stop offset='1' stop-color='%237c66ff'/></linearGradient></defs><path d='M196 24 66 154l40 40L276 24z' fill='url(%23g)'/><path d='M196 140 130 206l40 40 66-66z' fill='url(%23g)' opacity='.82'/><path d='M106 194 66 234l40 40h84l-44-44z' fill='url(%23g)' opacity='.6'/></svg>">
 <style>
+/* self-hosted fonts (SIL Open Font License): Manrope display, Inter text, JetBrains Mono code */
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url(/fonts/inter.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 600;font-display:swap;src:url(/fonts/jetbrains-mono.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500 800;font-display:swap;src:url(/fonts/manrope.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+/* Dark navy is the default look (LangChain / LangGraph style: navy surfaces, teal-to-violet accent).
+   Light is the opt-in theme from the toggle. Token names are shared with the generated package pages. */
 :root{
-  --bg:#f6f8fb; --surf:#ffffff; --surf2:#eef3f9; --ink:#0a1a2b; --mute:#5b6f85;
-  --line:#dde6f1; --brand:#0468d7; --brand2:#12b3f3; --sky:#e8f3ff; --ok:#087f5b;
-  --sh-s:0 1px 2px rgba(10,26,43,.06); --sh-m:0 4px 16px -4px rgba(10,26,43,.10);
-  --sh-l:0 18px 46px -18px rgba(4,104,215,.30);
+  --bg:#07090d; --bg2:#0a0e15; --surf:#0d1219; --surf2:#121925; --ink:#e9eef6; --mute:#8d99ab; --faint:#5d6879;
+  --line:#1b2330; --line2:#263142; --brand:#2fe3c8; --brand2:#7c66ff; --sky:#0c1c1f; --ok:#3fdba5;
+  --glow-a:rgba(47,227,200,.16); --glow-b:rgba(124,102,255,.18); --dot:rgba(255,255,255,.055);
+  --sh-s:0 1px 2px rgba(0,0,0,.5); --sh-m:0 10px 30px -12px rgba(0,0,0,.7);
+  --sh-l:0 18px 50px -18px rgba(47,227,200,.38);
+  --on-brand:#041210;
+  --f-d:"Manrope",ui-sans-serif,system-ui,sans-serif; --f-b:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-m:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.2,.9,.25,1);
+  color-scheme:dark;
+}
+:root[data-t="light"]{
+  --bg:#f6f7fb; --bg2:#eef1f7; --surf:#ffffff; --surf2:#f1f3f9; --ink:#0b1020; --mute:#55607a; --faint:#8a93a8;
+  --line:#e1e5ee; --line2:#d3d9e5; --brand:#0a8f7d; --brand2:#6247e8; --sky:#e6f6f3; --ok:#0a8a5f;
+  --glow-a:rgba(10,143,125,.12); --glow-b:rgba(98,71,232,.12); --dot:rgba(11,16,32,.07);
+  --sh-s:0 1px 2px rgba(11,16,32,.06); --sh-m:0 12px 30px -14px rgba(11,16,32,.18);
+  --sh-l:0 16px 40px -16px rgba(98,71,232,.35);
+  --on-brand:#ffffff;
   color-scheme:light;
 }
-:root[data-t="dark"]{
-  --bg:#060c14; --surf:#0d1725; --surf2:#101d2e; --ink:#e8f0f9; --mute:#8fa5bd;
-  --line:#1b2b3f; --brand:#54c5f8; --brand2:#0fa5e0; --sky:#0e2338; --ok:#3fcf9a;
-  --sh-s:0 1px 2px rgba(0,0,0,.5); --sh-m:0 4px 18px -6px rgba(0,0,0,.6);
-  --sh-l:0 20px 50px -20px rgba(84,197,248,.28);
-  color-scheme:dark;
-}
-@media (prefers-color-scheme:dark){:root:not([data-t="light"]){
-  --bg:#060c14; --surf:#0d1725; --surf2:#101d2e; --ink:#e8f0f9; --mute:#8fa5bd;
-  --line:#1b2b3f; --brand:#54c5f8; --brand2:#0fa5e0; --sky:#0e2338; --ok:#3fcf9a;
-  --sh-s:0 1px 2px rgba(0,0,0,.5); --sh-m:0 4px 18px -6px rgba(0,0,0,.6);
-  --sh-l:0 20px 50px -20px rgba(84,197,248,.28);
-  color-scheme:dark;
-}}
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth; scroll-padding-top:78px;}
+html{scroll-behavior:smooth; scroll-padding-top:84px;}
 body{margin:0; background:var(--bg); color:var(--ink);
-  font:400 16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  font:400 16px/1.65 var(--f-b); -webkit-font-smoothing:antialiased; overflow-x:hidden;
   transition:background .3s ease,color .3s ease;}
-.mono{font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;}
-.wrap{width:min(1180px,100% - 40px); margin-inline:auto;}
+::selection{background:color-mix(in srgb,var(--brand) 32%,transparent);}
+.mono{font-family:var(--f-m);}
+.wrap{width:min(1200px,100% - 40px); margin-inline:auto;}
 a{color:var(--brand);}
-h1,h2,h3{letter-spacing:-.025em; margin:0;}
+h1,h2,h3{font-family:var(--f-d); letter-spacing:-.03em; margin:0;}
+.grad,h1 .grad{background:linear-gradient(100deg,var(--brand) 0%,color-mix(in srgb,var(--brand) 45%,var(--brand2)) 45%,var(--brand2) 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;}
 
 /* ---------- nav ---------- */
-nav{position:sticky; top:0; z-index:40; background:color-mix(in srgb,var(--bg) 82%,transparent);
-  backdrop-filter:blur(16px) saturate(1.6); border-bottom:1px solid var(--line);}
-.nav-in{display:flex; align-items:center; gap:22px; height:64px;}
-.mark{display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--ink); font-weight:650;
-  letter-spacing:-.03em; font-size:17px;}
-.mark .glyph{width:30px; height:30px; flex:none; border-radius:8px; background:linear-gradient(145deg,var(--brand),var(--brand2));
-  display:grid; place-items:center; box-shadow:var(--sh-m);}
-.mark .glyph svg{width:16px; height:16px;}
-.mark .tld{color:var(--mute); font-weight:450;}
-.nav-links{margin-left:auto; display:flex; align-items:center; gap:6px;}
-.nav-links a{font-size:14.5px; color:var(--mute); text-decoration:none; padding:8px 13px; border-radius:8px;
+nav{position:sticky; top:0; z-index:40; background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid color-mix(in srgb,var(--line) 80%,transparent);}
+.nav-in{display:flex; align-items:center; gap:22px; height:66px;}
+.mark{display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--ink); font-family:var(--f-d); font-weight:800;
+  letter-spacing:-.035em; font-size:17.5px;}
+.mark .tld{color:var(--mute); font-weight:600;}
+.nav-links{margin-left:auto; display:flex; align-items:center; gap:4px;}
+.nav-links a{font-size:14.5px; font-weight:500; color:var(--mute); text-decoration:none; padding:8px 12px; border-radius:9px;
   transition:color .18s,background .18s;}
 .nav-links a:hover{color:var(--ink); background:var(--surf2);}
-.tt{display:grid; place-items:center; width:36px; height:36px; border-radius:9px; cursor:pointer;
+.tt{display:grid; place-items:center; width:36px; height:36px; margin-left:6px; border-radius:10px; cursor:pointer;
   border:1px solid var(--line); background:var(--surf); color:var(--mute);
-  transition:color .18s,border-color .18s;}
-.tt:hover{color:var(--brand); border-color:var(--brand);}
+  transition:color .18s,border-color .18s,transform .18s var(--ease);}
+.tt:hover{color:var(--brand); border-color:color-mix(in srgb,var(--brand) 55%,var(--line)); transform:rotate(-12deg);}
 .tt svg{width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round;}
-:root[data-t="dark"] .i-sun,:root:not([data-t="light"]) .i-sun{display:none;}
-:root[data-t="dark"] .i-moon,:root:not([data-t="light"]) .i-moon{display:block;}
-.i-moon{display:none;}
-@media (prefers-color-scheme:light){:root:not([data-t="dark"]) .i-sun{display:block;}
-  :root:not([data-t="dark"]) .i-moon{display:none;}}
+.i-sun{display:none;} .i-moon{display:block;}
 :root[data-t="light"] .i-sun{display:block;} :root[data-t="light"] .i-moon{display:none;}
-@media (max-width:820px){.nav-links a:not(.cta){display:none;}}
+@media (max-width:1000px){.nav-links a:not(.cta){display:none;}}
+@media (max-width:1180px){.nav-links a[href^="https://github.com"]{display:none;}}
+@media (max-width:760px){.nav-links a.ztm,.nav-links a.dartlog{padding:5px 6px;} .nav-links a.ztm>span,.nav-links a.dartlog>span{display:none;}}
 .nav-links a.dartiscool{display:inline-flex; align-items:center; gap:8px; padding:5px 13px 5px 6px; margin-right:6px;
-  font-weight:800; letter-spacing:.01em; color:#e2e9e6; border-radius:10px;
+  font-family:var(--f-d); font-weight:800; letter-spacing:.005em; color:#e2e9e6; border-radius:11px;
   background:linear-gradient(180deg,#1d2a28,#0f1817); border:1px solid rgba(143,248,229,.22);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 2px 8px -3px rgba(0,0,0,.45); transition:transform .18s,box-shadow .18s,border-color .18s;}
 .nav-links a.dartiscool:hover{color:#e2e9e6; background:linear-gradient(180deg,#22322f,#111b1a); border-color:rgba(143,248,229,.5);
   transform:translateY(-1px); box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 6px 16px -6px rgba(111,219,201,.45);}
 .nav-links a.dartiscool .ag-logo{width:24px; height:24px; flex:none;}
 .nav-links a.dartiscool .ist{color:#ffb877;}
-footer a.ag-foot .ist{color:#b45309;}
-footer a.zm-foot .ist{color:#0a5cc2;} footer a.dl-foot .ist{color:#6d4fd8;}
-:root[data-t="dark"] footer a.zm-foot .ist{color:#86c8ff;} :root[data-t="dark"] footer a.dl-foot .ist{color:#b9a8ff;}
-@media (prefers-color-scheme:dark){:root:not([data-t="light"]) footer a.zm-foot .ist{color:#86c8ff;} :root:not([data-t="light"]) footer a.dl-foot .ist{color:#b9a8ff;}}
-
-:root[data-t="dark"] footer a.ag-foot .ist{color:#ffb877;}
-@media (prefers-color-scheme:dark){:root:not([data-t="light"]) footer a.ag-foot .ist{color:#ffb877;}}
-/* shine: a light sweep crosses the badge every few seconds, and the saffron glows softly */
+.nav-links a.ztm{background:linear-gradient(180deg,#16223a,#0a0f1b); border-color:rgba(134,200,255,.24);}
+.nav-links a.ztm:hover{background:linear-gradient(180deg,#1b2a47,#0c1220);}
+.nav-links a.dartlog{background:linear-gradient(180deg,#1a2130,#0b0e15); border-color:rgba(185,168,255,.24);}
+.nav-links a.dartlog:hover{background:linear-gradient(180deg,#202839,#0d1119);}
+footer a.ag-foot .ist{color:#ffb877;} footer a.zm-foot .ist{color:#86c8ff;} footer a.dl-foot .ist{color:#b9a8ff;}
+:root[data-t="light"] footer a.ag-foot .ist{color:#b45309;} :root[data-t="light"] footer a.zm-foot .ist{color:#0a5cc2;}
+:root[data-t="light"] footer a.dl-foot .ist{color:#6d4fd8;}
+/* shine: a light sweep crosses each product badge every few seconds */
 .nav-links a.dartiscool{position:relative; overflow:hidden; isolation:isolate;}
-.nav-links a.dartiscool::after{content:""; position:absolute; inset:-2px auto -2px -60%; width:55%; z-index:1; pointer-events:none; mix-blend-mode:screen;
+.nav-links a.dartiscool::after{content:""; position:absolute; inset:-2px auto -2px 0; width:55%; z-index:1; pointer-events:none; will-change:transform;
   background:linear-gradient(105deg,transparent 0%,rgba(255,214,170,.18) 28%,rgba(255,250,240,.85) 50%,rgba(255,214,170,.18) 72%,transparent 100%);
-  transform:skewX(-18deg); animation:ag-shine 4.2s cubic-bezier(.4,0,.2,1) 1.2s infinite;}
+  transform:translateX(-120%) skewX(-18deg); animation:ag-shine 4.2s cubic-bezier(.4,0,.2,1) 1.2s infinite;}
 .nav-links a.dartiscool:hover::after{animation-duration:1.6s;}
 .nav-links a.dartiscool .ist{text-shadow:0 0 10px rgba(255,159,67,.55); animation:ag-glow 4.2s ease-in-out 1.2s infinite;}
 .nav-links a.dartiscool .ag-logo{filter:drop-shadow(0 0 4px rgba(255,159,67,.35)); animation:ag-logo 4.2s ease-in-out 1.2s infinite;}
-@keyframes ag-shine{0%{left:-60%;} 38%,100%{left:125%;}}
+@keyframes ag-shine{0%{transform:translateX(-120%) skewX(-18deg);} 38%,100%{transform:translateX(260%) skewX(-18deg);}}
 @keyframes ag-glow{0%,100%{text-shadow:0 0 6px rgba(255,159,67,.35);} 30%{text-shadow:0 0 14px rgba(255,159,67,.85);}}
 @keyframes ag-logo{0%,100%{filter:drop-shadow(0 0 3px rgba(255,159,67,.3));} 30%{filter:drop-shadow(0 0 8px rgba(255,159,67,.75));}}
 .nav-links a.ztm .ist{color:#86c8ff; animation-name:zm-glow;}
@@ -118,167 +122,319 @@ footer a.zm-foot .ist{color:#0a5cc2;} footer a.dl-foot .ist{color:#6d4fd8;}
 @keyframes dl-logo{0%,100%{filter:drop-shadow(0 0 3px rgba(139,108,255,.3));} 30%{filter:drop-shadow(0 0 8px rgba(139,108,255,.75));}}
 @media (max-width:560px){.nav-in{gap:10px;} .nav-links{gap:6px;} .nav-links a.dartiscool{margin-right:0;} .nav-links a.dartlog{padding:5px 6px;} .nav-links a.dartlog>span{display:none;}}
 @media (max-width:460px){.mark>span:not(.glyph){display:none;}}
+@media (max-width:380px){.nav-links a.dartiscool:not(.ztm):not(.dartlog){padding:5px 6px; margin-right:0;} .nav-links a.dartiscool:not(.ztm):not(.dartlog)>span{display:none;}}
 @media (max-width:360px){.nav-in{gap:8px;} .nav-links{gap:4px;} .nav-links a.dartiscool{padding:4px 10px 4px 4px; gap:6px; font-size:13.5px;} .nav-links a.dartlog,.nav-links a.ztm{padding:4px;}}
 @media (prefers-reduced-motion:reduce){.nav-links a.dartiscool::after,.nav-links a.dartiscool .ist,.nav-links a.dartiscool .ag-logo{animation:none;}}
 
-/* ---------- hero ---------- */
-.hero{position:relative; padding:clamp(60px,10vh,104px) 0 clamp(54px,8vh,84px); overflow:hidden;}
-.hero::before{content:""; position:absolute; inset:-30% -10% auto -10%; height:120%;
-  background:radial-gradient(48% 42% at 22% 8%,color-mix(in srgb,var(--brand) 16%,transparent),transparent 70%),
-             radial-gradient(38% 40% at 86% 22%,color-mix(in srgb,var(--brand2) 14%,transparent),transparent 72%);
-  pointer-events:none;}
-.hero-in{position:relative; display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
-  gap:54px; align-items:center;}
-@media (max-width:900px){.hero-in{grid-template-columns:1fr; gap:38px;} .beam-wrap{order:-1;}}
-.pill{display:inline-flex; align-items:center; gap:9px; font-size:13px; font-weight:550; color:var(--brand);
-  background:var(--sky); border:1px solid color-mix(in srgb,var(--brand) 26%,transparent);
-  padding:6px 14px; border-radius:99px; margin-bottom:22px;}
-.pill i{width:6px; height:6px; border-radius:50%; background:var(--brand); font-style:normal;
-  animation:pulse 2.4s ease-out infinite;}
-@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--brand) 60%,transparent);}70%,100%{box-shadow:0 0 0 8px transparent;}}
-h1{font-size:clamp(34px,5.4vw,58px); line-height:1.06; font-weight:700; margin-bottom:20px;}
-h1 .grad{background:linear-gradient(115deg,var(--brand),var(--brand2)); -webkit-background-clip:text;
-  background-clip:text; color:transparent;}
-.sub{font-size:clamp(16px,1.9vw,18.5px); color:var(--mute); max-width:54ch; margin:0 0 30px;}
-.cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:38px;}
-.btn{display:inline-flex; align-items:center; gap:9px; font-size:14.5px; font-weight:600; text-decoration:none;
-  padding:12px 22px; border-radius:11px; transition:transform .18s cubic-bezier(.2,.9,.3,1),box-shadow .18s,background .18s;}
-.btn.pri{background:linear-gradient(145deg,var(--brand),var(--brand2)); color:#fff; box-shadow:var(--sh-l);}
-.btn.pri:hover{transform:translateY(-2px);}
-.btn.sec{background:var(--surf); color:var(--ink); border:1px solid var(--line); box-shadow:var(--sh-s);}
-.btn.sec:hover{border-color:var(--brand); color:var(--brand); transform:translateY(-2px);}
-.stats{display:flex; flex-wrap:wrap; gap:34px;}
-.stats b{display:block; font-size:26px; font-weight:700; letter-spacing:-.03em; line-height:1.15;}
-.stats span{font-size:13px; color:var(--mute);}
-.stats .b1 b{color:var(--brand);}
+/* ---------- atmosphere: dot grid + two soft glows behind the hero ---------- */
+.hero{position:relative; padding:clamp(56px,9vh,104px) 0 0; overflow:hidden; isolation:isolate;}
+.hero::before{content:""; position:absolute; inset:0; z-index:-2;
+  background-image:radial-gradient(var(--dot) 1px,transparent 1.2px); background-size:22px 22px;
+  -webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 30%,#000 30%,transparent 78%);
+          mask-image:radial-gradient(ellipse 75% 65% at 50% 30%,#000 30%,transparent 78%);}
+.hero::after{content:""; position:absolute; inset:-25% -10% auto; height:110%; z-index:-1; pointer-events:none;
+  background:radial-gradient(40% 46% at 18% 18%,var(--glow-a),transparent 70%),
+             radial-gradient(38% 44% at 84% 30%,var(--glow-b),transparent 72%);}
+.hero-in{position:relative; display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); gap:52px; align-items:center;}
+@media (max-width:940px){.hero-in{grid-template-columns:1fr; gap:44px;}}
+.pill{display:inline-flex; align-items:center; gap:10px; font:500 12.5px/1 var(--f-m); letter-spacing:.02em; color:var(--ink);
+  background:color-mix(in srgb,var(--surf) 85%,transparent); border:1px solid var(--line2);
+  padding:8px 14px 8px 11px; border-radius:99px; margin-bottom:26px; text-decoration:none;}
+.pill i{position:relative; width:7px; height:7px; border-radius:50%; background:var(--brand); font-style:normal; box-shadow:0 0 10px var(--brand);}
+.pill i::after{content:""; position:absolute; inset:0; border-radius:50%; background:var(--brand); animation:pulse 2.4s ease-out infinite; will-change:transform,opacity;}
+.pill b{font-weight:600; color:var(--brand);}
+@keyframes pulse{0%{transform:scale(1); opacity:.6;} 70%,100%{transform:scale(3.4); opacity:0;}}
+/* decorative loops stop while the hero is off screen */
+.hero-off .pill i::after,.hero-off .caret,.hero-off .nav-links a.dartiscool::after,.hero-off .nav-links a.dartiscool .ist,.hero-off .nav-links a.dartiscool .ag-logo,.hero-off .mark .glyph .p{animation-play-state:paused;}
+h1{font-size:clamp(38px,5vw,62px); line-height:1.02; font-weight:800; letter-spacing:-.045em; margin-bottom:22px;}
+.sub{font-size:clamp(16px,1.7vw,18.5px); line-height:1.65; color:var(--mute); max-width:52ch; margin:0 0 34px;}
+.cta-row{display:flex; flex-wrap:wrap; gap:12px;}
+.btn{position:relative; display:inline-flex; align-items:center; gap:9px; font:600 14.5px/1 var(--f-b); text-decoration:none;
+  padding:14px 22px; border-radius:12px; transition:transform .2s var(--ease),box-shadow .2s,background .2s,border-color .2s,color .2s;}
+.btn .arr{transition:transform .2s var(--ease);}
+.btn:hover .arr{transform:translateX(3px);}
+.btn.pri{background:linear-gradient(100deg,var(--brand),var(--brand2)); color:var(--on-brand); box-shadow:var(--sh-l);}
+.btn.pri:hover{transform:translateY(-2px); box-shadow:0 22px 50px -16px color-mix(in srgb,var(--brand2) 60%,transparent);}
+.btn.sec{background:color-mix(in srgb,var(--surf) 80%,transparent); color:var(--ink); border:1px solid var(--line2);}
+.btn.sec:hover{border-color:color-mix(in srgb,var(--brand) 60%,var(--line2)); transform:translateY(-2px);}
+.btn.sec .tri{color:var(--brand); font-size:11px;}
 
-/* beam graphic */
-.beam-wrap{display:grid; place-items:center;}
-.beam{width:min(400px,84%); height:auto; filter:drop-shadow(0 26px 46px rgba(4,104,215,.26));}
-/* one mark, one motion: every plane in every logo shares this animation,
-   with no delay, so the nav mark and the hero beam stay frame-locked. */
-/* the original hero motion, now shared by the nav mark: each plane floats on
-   the same 7s curve, offset from the next, so the beams drift against each
-   other. Identical delays in both logos keep the two marks frame-locked. */
-.beam .p,.mark .glyph .p{animation:float 7s ease-in-out infinite;}
-.beam .p2,.mark .glyph .p2{animation-delay:-2.3s;}
-.beam .p3,.mark .glyph .p3{animation-delay:-4.6s;}
-@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-11px);}}
+/* ---------- hero terminal: types `flutter pub add` for each real package ---------- */
+.term-wrap{position:relative;}
+.term-wrap::before{content:""; position:absolute; inset:8% 4% -6%; z-index:-1; border-radius:30px; filter:blur(46px);
+  background:linear-gradient(120deg,color-mix(in srgb,var(--brand) 38%,transparent),color-mix(in srgb,var(--brand2) 42%,transparent));
+  opacity:.55;}
+.term{position:relative; border-radius:16px; overflow:hidden; font:13.5px/1.75 var(--f-m);
+  background:linear-gradient(180deg,#0c1118,#080b10); color:#c9d4e3;
+  border:1px solid rgba(255,255,255,.09);
+  box-shadow:0 40px 80px -30px rgba(0,0,0,.75),inset 0 1px 0 rgba(255,255,255,.05);}
+.term::before{content:""; position:absolute; inset:0; border-radius:inherit; padding:1px; pointer-events:none;
+  background:linear-gradient(140deg,rgba(47,227,200,.55),transparent 35%,transparent 65%,rgba(124,102,255,.6));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude;}
+.t-bar{display:flex; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.02); font-size:12px; color:#6f7b8e;}
+.t-bar i{width:11px; height:11px; border-radius:50%; background:#2a3140;}
+.t-bar i:nth-child(1){background:#ff5f57;} .t-bar i:nth-child(2){background:#febc2e;} .t-bar i:nth-child(3){background:#28c840;}
+.t-bar span{margin-left:auto; margin-right:auto; padding-right:44px;}
+.t-body{padding:18px 20px 20px; min-height:262px;}
+.t-body p{margin:0; white-space:pre-wrap; word-break:break-word;}
+.t-ps{color:#2fe3c8;} .t-cmd{color:#e9eef6;} .t-dim{color:#6f7b8e;} .t-add{color:#7ee7a8;} .t-vio{color:#b3a4ff;}
+.t-ok{color:#3fdba5;} .t-key{color:#7fb8ff;}
+.caret{display:inline-block; width:8px; height:1.15em; margin-left:1px; vertical-align:-.2em; background:#2fe3c8;
+  animation:blink 1.05s steps(1) infinite;}
+@keyframes blink{50%{opacity:0;}}
+.t-line{opacity:0; transform:translateY(4px); transition:opacity .3s var(--ease),transform .3s var(--ease);}
+.t-line.on{opacity:1; transform:none;}
+.t-yaml{margin-top:14px; padding-top:14px; border-top:1px dashed rgba(255,255,255,.08);}
+.t-yaml .k{color:#7fb8ff;} .t-yaml .v{color:#e9eef6;} .t-yaml .n{color:#b3a4ff;}
+.t-yaml .new{background:rgba(47,227,200,.10); box-shadow:inset 2px 0 0 #2fe3c8; display:block; margin:0 -20px; padding:0 20px;}
+
+/* ---------- stats strip ---------- */
+.stats{position:relative; margin-top:clamp(56px,9vh,92px); display:grid; grid-template-columns:repeat(5,minmax(0,1fr));
+  border:1px solid var(--line); border-radius:18px; background:color-mix(in srgb,var(--surf) 70%,transparent); overflow:hidden;}
+.stats>div{padding:22px 24px; border-left:1px solid var(--line);}
+.stats>div:first-child{border-left:0;}
+.stats b{display:block; font:800 clamp(26px,3vw,34px)/1.1 var(--f-d); letter-spacing:-.04em; color:var(--ink);}
+.stats b{background:linear-gradient(100deg,var(--brand),var(--brand2)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.stats span{display:block; margin-top:6px; font-size:13px; color:var(--mute);}
+@media (max-width:820px){.stats{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .stats>div{border-left:0; border-top:1px solid var(--line);} .stats>div:nth-child(-n+2){border-top:0;}
+  .stats>div:nth-child(even){border-left:1px solid var(--line);}
+  .stats>div:last-child{grid-column:1/-1; border-left:0;}}
 
 /* ---------- section ---------- */
-section{padding:clamp(56px,8vh,88px) 0 0;}
-.sec-h{display:flex; align-items:end; justify-content:space-between; gap:24px; flex-wrap:wrap;
-  margin-bottom:28px;}
-.sec-h h2{font-size:clamp(23px,3vw,31px); font-weight:680;}
-.sec-h p{margin:7px 0 0; color:var(--mute); font-size:15px; max-width:56ch;}
-.tools{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:26px;}
-#q{flex:1 1 200px; min-width:0; font:14.5px inherit; padding:10px 15px; border-radius:10px;
-  border:1px solid var(--line); background:var(--surf); color:var(--ink); box-shadow:var(--sh-s);}
-#q:focus{outline:2px solid var(--brand); outline-offset:1px; border-color:transparent;}
-.chips{display:flex; gap:7px; flex-wrap:wrap;}
-.chip{font:13px inherit; font-weight:520; padding:8px 14px; border-radius:9px; cursor:pointer;
+section{padding:clamp(72px,10vh,112px) 0 0;}
+.eyebrow{display:inline-flex; align-items:center; gap:8px; font:500 12px/1 var(--f-m); letter-spacing:.12em; text-transform:uppercase;
+  color:var(--brand); margin-bottom:14px;}
+.eyebrow::before{content:""; width:18px; height:1px; background:currentColor;}
+.sec-h{display:flex; align-items:end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:30px;}
+.sec-h h2{font-size:clamp(28px,3.6vw,42px); font-weight:800; letter-spacing:-.04em;}
+.sec-h p{margin:10px 0 0; color:var(--mute); font-size:15.5px; max-width:58ch;}
+.tools{display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:28px;}
+.search{position:relative; flex:1 1 240px; min-width:0;}
+.search svg{position:absolute; left:14px; top:50%; width:16px; height:16px; transform:translateY(-50%); fill:none; stroke:var(--faint); stroke-width:1.8; pointer-events:none;}
+.search kbd{position:absolute; right:10px; top:50%; transform:translateY(-50%); font:500 11px/1 var(--f-m); color:var(--faint);
+  border:1px solid var(--line2); border-radius:6px; padding:4px 7px; background:var(--surf2); pointer-events:none;}
+#q{width:100%; font:14.5px var(--f-b); padding:12px 44px 12px 40px; border-radius:12px;
+  border:1px solid var(--line); background:var(--surf); color:var(--ink); transition:border-color .18s,box-shadow .18s;}
+#q::placeholder{color:var(--faint);}
+#q:focus{outline:none; border-color:color-mix(in srgb,var(--brand) 60%,var(--line)); box-shadow:0 0 0 4px color-mix(in srgb,var(--brand) 16%,transparent);}
+.chips{display:flex; gap:6px; flex-wrap:wrap;}
+.chip{font:500 13px var(--f-b); padding:9px 14px; border-radius:10px; cursor:pointer;
   border:1px solid var(--line); background:var(--surf); color:var(--mute);
-  transition:color .16s,border-color .16s,background .16s,transform .16s;}
-.chip:hover{color:var(--ink); transform:translateY(-1px);}
-.chip[aria-pressed="true"]{background:var(--brand); border-color:var(--brand); color:#fff;}
-:root[data-t="dark"] .chip[aria-pressed="true"]{color:#06131f;}
-@media (prefers-color-scheme:dark){:root:not([data-t="light"]) .chip[aria-pressed="true"]{color:#06131f;}}
+  transition:color .16s,border-color .16s,background .16s,transform .16s var(--ease);}
+.chip:hover{color:var(--ink); border-color:var(--line2); transform:translateY(-1px);}
+.chip[aria-pressed="true"]{background:linear-gradient(100deg,var(--brand),var(--brand2)); border-color:transparent; color:var(--on-brand); font-weight:600;}
 
 /* ---------- cards ---------- */
-.grid{display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(324px,1fr));}
-.card{position:relative; background:var(--surf); border:1px solid var(--line); border-radius:15px;
-  padding:22px 22px 18px; display:flex; flex-direction:column; gap:13px; box-shadow:var(--sh-s);
-  opacity:0; transform:translateY(18px);
-  transition:opacity .55s cubic-bezier(.2,.9,.3,1),transform .55s cubic-bezier(.2,.9,.3,1),
-             box-shadow .22s ease,border-color .22s ease;}
-.card.in{opacity:1; transform:none; transition-delay:calc(var(--i) * 45ms);}
-/* The card title's link is stretched over the whole card, so clicking
-   anywhere on a card opens its package page on this site. Everything else that is
-   clickable sits above it. */
-.c-top h3 a::after{content:""; position:absolute; inset:0; z-index:1; border-radius:15px;}
+.grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));}
+.card,.dep{min-width:0;}
+.card{position:relative; border-radius:16px; padding:22px 22px 18px; display:flex; flex-direction:column; gap:13px;
+  background:linear-gradient(var(--surf),var(--surf)) padding-box,
+             linear-gradient(140deg,var(--line2),var(--line) 40%,var(--line) 60%,var(--line2)) border-box;
+  border:1px solid transparent; isolation:isolate;
+  transition:transform .2s var(--ease),box-shadow .2s ease;}
+/* cursor spotlight + gradient rim on hover */
+.card::before{content:""; position:absolute; inset:0; z-index:-1; border-radius:inherit; pointer-events:none; opacity:0;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--brand) 9%,transparent),transparent 45%);
+  transition:opacity .3s ease;}
+.card::after{content:""; position:absolute; inset:-1px; border-radius:inherit; padding:1px; pointer-events:none; opacity:0;
+  background:radial-gradient(300px circle at var(--mx,50%) var(--my,0%),var(--brand),var(--brand2) 40%,transparent 70%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude;
+  transition:opacity .3s ease;}
+.card:hover::before,.card:hover::after,.card:focus-within::after{opacity:1;}
+.card:hover{transform:translateY(-3px);}
+.card:hover{box-shadow:var(--sh-m);}
+/* The card title's link is stretched over the whole card, so clicking anywhere on a card opens its package
+   page on this site. Everything else that is clickable sits above it. */
+.c-top h3 a::after{content:""; position:absolute; inset:0; z-index:1; border-radius:16px;}
 .card{cursor:pointer;}
-/* Only the controls themselves, not their containers — otherwise the
-   rows they sit in become dead zones over the card-wide link. */
 .live,.cp,.c-foot a,.dep code{position:relative; z-index:2;}
 .live{text-decoration:none;}
-.live:hover{filter:brightness(1.08);}
-.card:focus-within{border-color:color-mix(in srgb,var(--brand) 45%,var(--line));}
-.card:hover{transform:translateY(-4px); box-shadow:var(--sh-m); border-color:color-mix(in srgb,var(--brand) 45%,var(--line));}
-.card::after{content:""; position:absolute; left:22px; right:22px; top:0; height:2px; border-radius:0 0 3px 3px;
-  background:linear-gradient(90deg,var(--brand),var(--brand2)); transform:scaleX(0); transform-origin:left;
-  transition:transform .34s cubic-bezier(.2,.9,.3,1);}
-.card:hover::after,.card:focus-within::after{transform:scaleX(1);}
 .c-top{display:flex; align-items:center; gap:10px;}
-.c-top h3{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:15.5px; font-weight:620;
-  letter-spacing:-.035em; overflow-wrap:anywhere;}
-.c-top h3 a{color:inherit; text-decoration:none;}
-.c-top h3 a:hover{color:var(--brand);}
-.ver{margin-left:auto; font:11.5px ui-monospace,Menlo,monospace; color:var(--mute); background:var(--surf2);
-  padding:3px 8px; border-radius:6px; white-space:nowrap;}
-.live{display:inline-flex; align-self:flex-start; align-items:center; gap:5px; font-size:11px; font-weight:650; color:#fff;
-  background:linear-gradient(145deg,var(--brand),var(--brand2)); padding:3px 9px; border-radius:99px;
-  letter-spacing:.02em; white-space:nowrap;}
-:root[data-t="dark"] .live,:root:not([data-t="light"]) .live{color:#06131f;}
-.blurb{margin:0; font-size:14.5px; color:var(--mute); flex:1;}
+.c-top h3{font:600 15.5px/1.35 var(--f-m); letter-spacing:-.02em; overflow-wrap:anywhere;}
+.c-top h3 a{color:inherit; text-decoration:none; transition:color .18s;}
+.card:hover .c-top h3 a{color:var(--brand);}
+.ver{margin-left:auto; font:500 11.5px var(--f-m); color:var(--mute); background:var(--surf2); border:1px solid var(--line);
+  padding:3px 8px; border-radius:7px; white-space:nowrap;}
+.live{display:inline-flex; align-self:flex-start; align-items:center; gap:6px; font:600 11px/1 var(--f-m); letter-spacing:.04em;
+  color:var(--brand); background:color-mix(in srgb,var(--brand) 10%,transparent); border:1px solid color-mix(in srgb,var(--brand) 30%,transparent);
+  padding:5px 9px; border-radius:99px; white-space:nowrap; transition:background .18s;}
+.live:hover{background:color-mix(in srgb,var(--brand) 18%,transparent);}
+.blurb{margin:0; font-size:14.5px; line-height:1.6; color:var(--mute); flex:1;}
 .pls{display:flex; gap:5px; flex-wrap:wrap;}
-.pl{font:11px ui-monospace,Menlo,monospace; color:var(--mute); background:var(--surf2);
-  padding:3px 8px; border-radius:6px;}
-.dep{display:flex; align-items:center; gap:8px; background:var(--surf2); border:1px solid var(--line);
-  border-radius:9px; padding:8px 10px;}
-.dep code{flex:1; font:12.5px ui-monospace,Menlo,monospace; white-space:nowrap; overflow-x:auto;
-  scrollbar-width:none;}
+.pl{font:500 11px var(--f-m); color:var(--mute); background:var(--surf2); padding:3px 8px; border-radius:6px;}
+.dep{display:flex; align-items:center; gap:8px; background:var(--bg2); border:1px solid var(--line); border-radius:10px; padding:8px 8px 8px 12px;}
+.dep code{flex:1; font:500 12.5px var(--f-m); color:var(--ink); white-space:nowrap; overflow-x:auto; scrollbar-width:none;}
 .dep code::-webkit-scrollbar{display:none;}
-.cp{font:11px inherit; font-weight:600; border:0; background:transparent; color:var(--mute); cursor:pointer;
-  padding:3px 5px; border-radius:5px;}
-.cp:hover{color:var(--brand);}
-.c-foot{display:flex; align-items:center; gap:15px; padding-top:3px; border-top:1px solid var(--line);
-  margin-top:2px; padding-top:13px;}
-.c-foot a{font-size:13px; font-weight:550; text-decoration:none; color:var(--mute);
-  transition:color .16s;}
-.c-foot a:hover{color:var(--brand);}
-.c-foot a.demo{color:var(--brand);}
-.pts{margin-left:auto; font:11.5px ui-monospace,Menlo,monospace; color:var(--ok);}
-.dl{margin-left:auto; font:11.5px ui-monospace,Menlo,monospace; color:var(--mute); white-space:nowrap;}
+.cp{font:600 11px var(--f-b); border:1px solid var(--line); background:var(--surf); color:var(--mute); cursor:pointer;
+  padding:5px 9px; border-radius:7px; transition:color .16s,border-color .16s;}
+.cp:hover{color:var(--brand); border-color:color-mix(in srgb,var(--brand) 50%,var(--line));}
+.c-foot{display:flex; align-items:center; gap:15px; border-top:1px solid var(--line); margin-top:2px; padding-top:13px;}
+.c-foot a{font-size:13px; font-weight:500; text-decoration:none; color:var(--mute); transition:color .16s; white-space:nowrap;}
+@media (max-width:420px){.c-foot{gap:12px;}}
+@media (max-width:360px){.c-foot{flex-wrap:wrap; row-gap:8px;}}
+.c-foot a:hover{color:var(--ink);}
+.c-foot a.demo{color:var(--brand); font-weight:600;}
+.pts{margin-left:auto; font:500 11.5px var(--f-m); color:var(--ok);}
+.dl{margin-left:auto; font:500 11.5px var(--f-m); color:var(--mute); white-space:nowrap;}
 .dl + .pts{margin-left:0;}
-.empty{display:none; text-align:center; padding:58px 20px; color:var(--mute);}
-.empty b{display:block; font-size:17px; color:var(--ink); margin-bottom:5px;}
+.empty{display:none; text-align:center; padding:64px 20px; color:var(--mute); border:1px dashed var(--line2); border-radius:16px;}
+.empty b{display:block; font:700 18px var(--f-d); color:var(--ink); margin-bottom:6px;}
 
 /* ---------- demo band ---------- */
-.band{margin-top:clamp(56px,8vh,86px); border-radius:20px; padding:clamp(30px,5vw,46px);
-  background:linear-gradient(135deg,color-mix(in srgb,var(--brand) 12%,var(--surf)),var(--surf));
-  border:1px solid color-mix(in srgb,var(--brand) 26%,var(--line)); box-shadow:var(--sh-m);
-  display:grid; grid-template-columns:minmax(0,1fr) auto; gap:26px; align-items:center;}
+.band{position:relative; margin-top:clamp(72px,10vh,110px); border-radius:22px; padding:clamp(32px,5vw,52px); overflow:hidden; isolation:isolate;
+  background:linear-gradient(var(--surf),var(--surf)) padding-box,
+             linear-gradient(120deg,color-mix(in srgb,var(--brand) 60%,transparent),var(--line) 40%,var(--line) 60%,color-mix(in srgb,var(--brand2) 65%,transparent)) border-box;
+  border:1px solid transparent;
+  display:grid; grid-template-columns:minmax(0,1fr) auto; gap:28px; align-items:center;}
+.band::before{content:""; position:absolute; inset:0; z-index:-1;
+  background:radial-gradient(50% 120% at 0% 0%,var(--glow-a),transparent 60%),radial-gradient(45% 120% at 100% 100%,var(--glow-b),transparent 60%);}
+.band::after{content:""; position:absolute; inset:0; z-index:-1; opacity:.6;
+  background-image:radial-gradient(var(--dot) 1px,transparent 1.2px); background-size:22px 22px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 70%); mask-image:linear-gradient(90deg,transparent,#000 70%);}
 @media (max-width:760px){.band{grid-template-columns:1fr;}}
-.band h2{font-size:clamp(21px,2.7vw,27px); margin-bottom:9px;}
-.band p{margin:0; color:var(--mute); font-size:15px; max-width:54ch;}
+.band h2{font-size:clamp(24px,3vw,34px); font-weight:800; letter-spacing:-.04em; margin-bottom:10px;}
+.band p{margin:0; color:var(--mute); font-size:15.5px; max-width:54ch;}
 
-footer{margin-top:clamp(56px,8vh,86px); border-top:1px solid var(--line); padding:30px 0 56px;
+footer{margin-top:clamp(72px,10vh,110px); border-top:1px solid var(--line); padding:30px 0 56px;
   display:flex; flex-wrap:wrap; gap:14px 26px; align-items:center;}
-footer a{font-size:13.5px; color:var(--mute); text-decoration:none;}
-footer a:hover{color:var(--brand);}
+footer a{font-size:13.5px; color:var(--mute); text-decoration:none; transition:color .16s;}
+footer a:hover{color:var(--ink);}
 .f-mark{display:flex; align-items:center; gap:9px; font-size:13.5px; color:var(--mute);}
-.f-mark b{color:var(--ink); font-weight:620; letter-spacing:-.02em;}
+.f-mark b{color:var(--ink); font-family:var(--f-d); font-weight:800; letter-spacing:-.03em;}
 .f-right{margin-left:auto; display:flex; gap:22px; flex-wrap:wrap;}
-:focus-visible{outline:2px solid var(--brand); outline-offset:2px; border-radius:5px;}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{
-  animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;}
-  .card{opacity:1; transform:none;}}
+:focus-visible{outline:2px solid var(--brand); outline-offset:2px; border-radius:6px;}
 
-/* ---------- wordmark: same beam, same float as the hero ---------- */
-.mark .glyph{width:32px; height:32px; background:none; box-shadow:none; border-radius:0;
-  display:grid; place-items:center;}
+/* ---------- wordmark: the Flutter beams, each plane floating on the same 7s curve ---------- */
+.mark .glyph{width:32px; height:32px; flex:none; display:grid; place-items:center;}
 .mark .glyph svg{width:30px; height:30px; overflow:visible;
-  filter:drop-shadow(0 4px 10px color-mix(in srgb,var(--brand) 34%,transparent));
-  transition:transform .34s cubic-bezier(.2,.9,.3,1),filter .34s ease;}
-.mark:hover .glyph svg,.mark:focus-visible .glyph svg{
-  transform:translateY(-1px) scale(1.09) rotate(-3deg);
-  filter:drop-shadow(0 9px 20px color-mix(in srgb,var(--brand) 52%,transparent));}
+  filter:drop-shadow(0 4px 12px color-mix(in srgb,var(--brand) 40%,transparent));
+  transition:transform .34s var(--ease),filter .34s ease;}
+.mark:hover .glyph svg,.mark:focus-visible .glyph svg{transform:translateY(-1px) scale(1.09) rotate(-3deg);
+  filter:drop-shadow(0 9px 22px color-mix(in srgb,var(--brand2) 55%,transparent));}
 .mark .tld{transition:color .28s ease;}
 .mark:hover .tld{color:var(--brand);}
-@media (prefers-reduced-motion:reduce){
-  .mark:hover .glyph svg,.mark:focus-visible .glyph svg{transform:none;}
+.mark .glyph .p{animation:float 7s ease-in-out infinite;}
+.mark .glyph .p2{animation-delay:-2.3s;}
+.mark .glyph .p3{animation-delay:-4.6s;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-11px);}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{
+  animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;}
+  .t-line{opacity:1; transform:none;}}
+
+/* ---------- card media: the package's real README demo, played only while on screen ---------- */
+.media{position:relative; margin:-22px -22px 4px; height:236px; border-radius:15px 15px 0 0; overflow:hidden;
+  background:radial-gradient(120% 90% at 50% 0%,color-mix(in srgb,var(--brand) 7%,var(--bg2)),var(--bg2));
+  border-bottom:1px solid var(--line);}
+.media::before{content:""; position:absolute; inset:0; opacity:.7;
+  background-image:radial-gradient(var(--dot) 1px,transparent 1.2px); background-size:18px 18px;}
+.media video{position:relative; display:block; width:100%; height:100%; object-fit:contain; padding:14px 14px 0;
+  object-position:50% 100%;}
+.media .mtag{position:absolute; left:12px; top:12px; z-index:1; font:600 10.5px/1 var(--f-m); letter-spacing:.06em; text-transform:uppercase;
+  color:var(--mute); background:color-mix(in srgb,var(--surf) 85%,transparent); border:1px solid var(--line);
+  padding:5px 8px; border-radius:7px; backdrop-filter:blur(6px); display:inline-flex; align-items:center; gap:6px;}
+.media .mtag::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--faint);}
+.media.playing .mtag::before{background:#ff5f57; box-shadow:0 0 8px #ff5f57;}
+.media.code{padding:16px 18px; font:12px/1.7 var(--f-m); color:#c9d4e3; background:linear-gradient(180deg,#0c1118,#080b10);}
+.media.code::before{display:none;}
+.media.code pre{margin:28px 0 0; white-space:pre; overflow:hidden; font:inherit;
+  -webkit-mask-image:linear-gradient(90deg,#000 82%,transparent),linear-gradient(#000 70%,transparent);
+  -webkit-mask-composite:source-in; mask-image:linear-gradient(90deg,#000 82%,transparent),linear-gradient(#000 70%,transparent); mask-composite:intersect;}
+.media.code .mtag{background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.08); color:#8d99ab;}
+.media.code .mtag::before{background:#2fe3c8;}
+.media.code .k{color:#ff8fb1;} .media.code .c{color:#7fb8ff;} .media.code .s{color:#a5e8a0;} .media.code .f{color:#e9c46a;} .media.code .d{color:#6f7b8e;}
+
+/* ---------- toolbar: sticks under the nav while browsing ---------- */
+.tools{position:sticky; top:66px; z-index:20; margin:0 -12px 22px; padding:12px; border-radius:16px;
+  transition:background .2s,box-shadow .2s,border-color .2s; border:1px solid transparent;}
+.tools.stuck{background:color-mix(in srgb,var(--bg) 96%,var(--surf)); border-color:var(--line); box-shadow:var(--sh-m);}
+.chip .n{margin-left:6px; font:500 11px var(--f-m); opacity:.65;}
+.sort{position:relative; flex:none;}
+.sort select{appearance:none; -webkit-appearance:none; font:500 13px var(--f-b); color:var(--ink); cursor:pointer;
+  padding:10px 34px 10px 13px; border-radius:10px; border:1px solid var(--line); background:var(--surf);}
+.sort select:hover{border-color:var(--line2);}
+.sort select:focus-visible{outline:2px solid var(--brand); outline-offset:2px;}
+.sort svg{position:absolute; right:11px; top:50%; width:14px; height:14px; transform:translateY(-50%); fill:none; stroke:var(--mute); stroke-width:2; pointer-events:none;}
+.res{display:flex; align-items:center; gap:12px; margin:0; font-size:13.5px; color:var(--mute);}
+.res b{color:var(--ink); font-weight:600;}
+.clr{font:600 12.5px var(--f-b); color:var(--brand); background:none; border:0; padding:4px 2px; cursor:pointer;}
+.clr:hover{text-decoration:underline;}
+.clr[hidden]{display:none;}
+/* phones: search + sort on one row, chips on one swipeable row, so the stuck bar stays two rows tall */
+@media (max-width:640px){
+  .tools{gap:10px; margin-bottom:16px;}
+  .search{flex:1 1 0; order:1;} .search kbd{display:none;} #q{padding-right:14px;}
+  .sort{order:2; flex:0 1 auto; max-width:44%;} .sort select{width:100%; padding-right:30px;}
+  .chips{order:3; flex:1 1 100%; flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; margin:0 -12px; padding:0 12px;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 28px),transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 28px),transparent);}
+  .chips::-webkit-scrollbar{display:none;} .chip{flex:none;}
+  .sec-h{margin-bottom:18px;}
 }
+
+/* ---------- compare: pick up to 3 cards, see them side by side ---------- */
+.cmp{position:absolute; z-index:3; right:12px; top:12px; display:inline-flex; align-items:center; gap:6px; font:600 11.5px var(--f-b); cursor:pointer;
+  color:var(--mute); background:color-mix(in srgb,var(--surf) 88%,transparent); border:1px solid var(--line); border-radius:7px; padding:5px 8px; transition:color .16s,border-color .16s,background .16s;}
+.cmp::before{content:""; width:10px; height:10px; border-radius:3px; border:1.5px solid currentColor; transition:background .16s;}
+.cmp:hover{color:var(--ink); border-color:var(--line2);}
+.cmp[aria-pressed="true"]{color:var(--brand); border-color:color-mix(in srgb,var(--brand) 50%,var(--line)); background:color-mix(in srgb,var(--brand) 8%,transparent);}
+.cmp[aria-pressed="true"]::before{background:var(--brand); border-color:var(--brand);}
+.card.picked{box-shadow:0 0 0 1px color-mix(in srgb,var(--brand) 60%,transparent),var(--sh-m);}
+.tray{position:fixed; left:50%; bottom:18px; z-index:60; display:flex; align-items:center; gap:10px; max-width:calc(100% - 24px);
+  padding:10px 10px 10px 16px; border-radius:14px; background:var(--surf); border:1px solid var(--line2); box-shadow:0 20px 50px -16px rgba(0,0,0,.6);
+  transform:translate(-50%,140%); transition:transform .28s var(--ease);}
+.tray.show{transform:translate(-50%,0);}
+.tray .names{display:flex; gap:6px; overflow:hidden; min-width:0;}
+.tray .names span{font:500 12px var(--f-m); color:var(--ink); background:var(--surf2); border:1px solid var(--line); border-radius:7px; padding:4px 8px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:170px;}
+.tray .hint{font-size:12.5px; color:var(--mute); white-space:nowrap;}
+.tray .go{font:600 13px var(--f-b); border:0; border-radius:10px; padding:9px 14px; cursor:pointer; color:var(--on-brand); background:linear-gradient(100deg,var(--brand),var(--brand2)); white-space:nowrap;}
+.tray .go:disabled{opacity:.45; cursor:not-allowed;}
+.tray .x{font:600 12.5px var(--f-b); border:0; background:none; color:var(--mute); cursor:pointer; padding:6px;}
+.tray .x:hover{color:var(--ink);}
+@media (max-width:560px){.tray .names{display:none;}}
+.cmpd{position:fixed; inset:0; z-index:90; display:none; align-items:flex-start; justify-content:center; padding:8vh 14px 14px; background:rgba(3,5,9,.62);}
+:root[data-t="light"] .cmpd{background:rgba(11,16,32,.32);}
+.cmpd.open{display:flex;}
+.cmpd-box{width:min(980px,100%); max-height:84vh; overflow:auto; border-radius:18px; background:var(--surf); border:1px solid var(--line2); box-shadow:0 30px 80px -20px rgba(0,0,0,.6);}
+.cmpd-hd{position:sticky; top:0; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 20px; background:var(--surf); border-bottom:1px solid var(--line);}
+.cmpd-hd h2{font-size:18px; font-weight:800; letter-spacing:-.03em;}
+.cmpd-hd button{font:600 13px var(--f-b); border:1px solid var(--line); background:var(--surf2); color:var(--ink); border-radius:9px; padding:7px 12px; cursor:pointer;}
+.cmpd table{width:100%; border-collapse:collapse; font-size:14px;}
+.cmpd th,.cmpd td{padding:12px 16px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top;}
+.cmpd thead th{font:600 14px var(--f-m); color:var(--ink); background:var(--bg2); position:sticky; top:61px;}
+.cmpd thead th a{color:inherit; text-decoration:none;} .cmpd thead th a:hover{color:var(--brand);}
+.cmpd tbody th{font:600 11.5px var(--f-m); letter-spacing:.08em; text-transform:uppercase; color:var(--mute); width:150px; white-space:nowrap;}
+.cmpd td{color:var(--ink);}
+.cmpd .yes{color:var(--ok); font-weight:600;} .cmpd .no{color:var(--faint);}
+.cmpd .best{color:var(--brand); font-weight:700;}
+.cmpd code{font:500 12px var(--f-m); background:var(--bg2); border:1px solid var(--line); border-radius:6px; padding:3px 7px; white-space:nowrap;}
+.cmpd .lk a{margin-right:12px; font-weight:500;}
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -325,37 +481,36 @@ footer a:hover{color:var(--brand);}
 </nav>
 
 <header class="hero">
-  <div class="wrap hero-in">
-    <div>
-      <span class="pill"><i></i> 14 packages on pub.dev</span>
-      <h1>Flutter packages,<br><span class="grad">built for production.</span></h1>
-      <p class="sub">Open-source Flutter and Dart packages for the gaps the framework leaves open &mdash; notification extensions, watch tiles, OS proxy resolution, scroll transitions. Each one solved a real problem in a shipped app.</p>
-      <div class="cta-row">
-        <a class="btn pri" href="#packages">Browse packages &#8594;</a>
-        <a class="btn sec" href="/demos/">&#9658; Try 8 live demos</a>
+  <div class="wrap">
+    <div class="hero-in">
+      <div>
+        <span class="pill"><i></i><span><b>14</b> packages on pub.dev &middot; 160/160 each</span></span>
+        <h1>Flutter packages,<br><span class="grad">built for production.</span></h1>
+        <p class="sub">Open-source Flutter and Dart packages for the gaps the framework leaves open &mdash; notification extensions, watch tiles, OS proxy resolution, scroll transitions. Each one solved a real problem in a shipped app.</p>
+        <div class="cta-row">
+          <a class="btn pri" href="#packages">Browse packages <span class="arr">&#8594;</span></a>
+          <a class="btn sec" href="/demos/"><span class="tri">&#9658;</span> Try 8 live demos</a>
+        </div>
       </div>
-      <div class="stats">
-        <div><b>14</b><span>published packages</span></div>
-        <div class="b1"><b>8</b><span>run in your browser</span></div>
-        <div><b id="dl-total" data-total="6284" title="6,284 downloads since the first release of each package, from pub.dev (counted to the week of 9 Nov 2026)">6.2k+</b><span>downloads in total</span></div>
-        <div><b>160/160</b><span>pub points, every one</span></div>
-        <div><b>6</b><span>platforms supported</span></div>
+      <div class="term-wrap" aria-hidden="true">
+        <div class="term">
+          <div class="t-bar"><i></i><i></i><i></i><span>~/my_app &mdash; zsh</span></div>
+          <div class="t-body" id="term">
+            <p class="t-line on"><span class="t-ps">&#10140; </span><span class="t-cmd">flutter pub add mobius_carousel</span></p>
+            <p class="t-line on t-dim">Resolving dependencies&hellip;</p>
+            <p class="t-line on"><span class="t-add">+ mobius_carousel 0.3.3</span></p>
+            <p class="t-line on"><span class="t-ok">&#10003;</span> 160/160 pub points <span class="t-dim">&middot;</span> 6 platforms <span class="t-dim">&middot;</span> <span class="t-vio">live demo</span></p>
+            <div class="t-yaml t-line on"><p><span class="k">dependencies</span>:</p><p>  <span class="k">flutter</span>:</p><p>    <span class="k">sdk</span>: <span class="v">flutter</span></p><p class="new">  <span class="n">mobius_carousel</span>: <span class="v">^0.3.3</span></p></div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="beam-wrap">
-      <svg class="beam" viewBox="0 0 320 300" role="img" aria-label="Stacked Flutter beams">
-        <defs>
-          <linearGradient id="b1" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="var(--brand)"/><stop offset="1" stop-color="var(--brand2)"/>
-          </linearGradient>
-          <linearGradient id="b2" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="var(--brand2)"/><stop offset="1" stop-color="var(--brand)"/>
-          </linearGradient>
-        </defs>
-        <g class="p p1"><path d="M196 24 66 154l40 40L276 24z" fill="url(#b1)"/></g>
-        <g class="p p2"><path d="M196 140 130 206l40 40 66-66z" fill="url(#b2)" opacity=".82"/></g>
-        <g class="p p3"><path d="M106 194 66 234l40 40h84l-44-44z" fill="url(#b1)" opacity=".6"/></g>
-      </svg>
+    <div class="stats">
+      <div><b>14</b><span>published packages</span></div>
+      <div class="b1"><b>8</b><span>run in your browser</span></div>
+      <div><b id="dl-total" data-total="6284" title="6,284 downloads since the first release of each package, from pub.dev (counted to the week of 9 Nov 2026)">6.2k+</b><span>downloads in total</span></div>
+      <div class="b2"><b>160/160</b><span>pub points, every one</span></div>
+      <div><b>6</b><span>platforms supported</span></div>
     </div>
   </div>
 </header>
@@ -364,12 +519,14 @@ footer a:hover{color:var(--brand);}
   <section id="packages">
     <div class="sec-h">
       <div>
+        <span class="eyebrow">Packages</span>
         <h2>All packages</h2>
         <p>Every package is null-safe, documented, and scores a full 160/160 on pub.dev.</p>
       </div>
+      <p class="res"><span id="res" aria-live="polite">Showing all <b>14</b> packages</span><button class="clr" id="clr" type="button" hidden>Clear filters</button></p>
     </div>
     <div class="tools">
-      <input id="q" type="search" placeholder="Search packages&hellip;" aria-label="Search packages">
+      <label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Search packages&hellip;" aria-label="Search packages"><kbd>/</kbd></label>
       <div class="chips" id="chips">
         <button class="chip" data-f="all" aria-pressed="true">All</button>
         <button class="chip" data-f="live" aria-pressed="false">&#9658; Live demo</button>
@@ -380,9 +537,17 @@ footer a:hover{color:var(--brand);}
         <button class="chip" data-f="linux" aria-pressed="false">Linux</button>
         <button class="chip" data-f="web" aria-pressed="false">Web</button>
       </div>
+      <label class="sort"><span class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Sort packages</span><select id="sort" aria-label="Sort packages"><option value="featured">Featured</option><option value="downloads">Most downloaded</option><option value="updated">Recently updated</option><option value="az">A&ndash;Z</option></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></label>
     </div>
     <div class="grid" id="grid">
         <article class="card" data-n="flutter_rich_notifications" data-b="push notifications with a full hero image and the full body text, on android and ios." data-p="android ios" data-live="0" style="--i:0">
+          <div class="media code" aria-hidden="true"><span class="mtag">Example</span><pre><span class="k">await</span> <span class="c">FlutterRichNotifications</span>.<span class="f">show</span>(
+  title: <span class="s">'Booking confirmed'</span>,
+  body: <span class="s">'Your stay at Krishna Apartments from 12 Jun – 18 Jun is confirmed. '</span>
+        <span class="s">'Check-in instructions have been sent to your email.'</span>,
+  imageUrl: <span class="s">'https://cdn.example.com/booking-banner.jpg'</span>,
+  screenRoute: <span class="s">'/booking/123'</span>,
+);</pre></div>
           <div class="c-top">
             <h3><a href="/packages/flutter_rich_notifications/">flutter_rich_notifications</a></h3>
             <span class="ver">0.1.5</span>
@@ -394,6 +559,7 @@ footer a:hover{color:var(--brand);}
           <div class="c-foot"><a href="https://pub.dev/packages/flutter_rich_notifications">pub.dev</a><a href="https://github.com/Manish1Pandey/flutter_rich_notifications">Source</a><span class="pts">160/160</span></div>
         </article>
         <article class="card" data-n="interactive_keyboard_dismiss" data-b="the keyboard follows your finger as a list is dragged into it." data-p="android ios" data-live="0" style="--i:1">
+          <div class="media" aria-hidden="true"><span class="mtag">Demo</span><video muted loop playsinline preload="none" poster="/media/pkg/interactive_keyboard_dismiss.webp" data-src="/media/pkg/interactive_keyboard_dismiss.mp4"></video></div>
           <div class="c-top">
             <h3><a href="/packages/interactive_keyboard_dismiss/">interactive_keyboard_dismiss</a></h3>
             <span class="ver">0.1.2</span>
@@ -405,6 +571,7 @@ footer a:hover{color:var(--brand);}
           <div class="c-foot"><a href="https://pub.dev/packages/interactive_keyboard_dismiss">pub.dev</a><a href="https://github.com/Manish1Pandey/interactive_keyboard_dismiss">Source</a><span class="pts">160/160</span></div>
         </article>
         <article class="card" data-n="flutter_control_center" data-b="ios 18 control center, lock screen and action button controls." data-p="ios" data-live="0" style="--i:2">
+          <div class="media" aria-hidden="true"><span class="mtag">Demo</span><video muted loop playsinline preload="none" poster="/media/pkg/flutter_control_center.webp" data-src="/media/pkg/flutter_control_center.mp4"></video></div>
           <div class="c-top">
             <h3><a href="/packages/flutter_control_center/">flutter_control_center</a></h3>
             <span class="ver">0.1.2</span>
@@ -416,6 +583,15 @@ footer a:hover{color:var(--brand);}
           <div class="c-foot"><a href="https://pub.dev/packages/flutter_control_center">pub.dev</a><a href="https://github.com/Manish1Pandey/flutter_control_center">Source</a><span class="pts">160/160</span></div>
         </article>
         <article class="card" data-n="wear_os_tiles" data-b="wear os tiles and watch-face complications, described in dart." data-p="android" data-live="0" style="--i:3">
+          <div class="media code" aria-hidden="true"><span class="mtag">Example</span><pre><span class="k">final</span> layout = <span class="c">TileLayout</span>(
+  freshness: <span class="k">const</span> <span class="c">Duration</span>(minutes: <span class="s">30</span>),
+  root: <span class="c">TileBox</span>(
+    children: [
+      <span class="c">TileArc</span>.<span class="f">progress</span>(progress: <span class="s">0.62</span>),
+      <span class="c">TileText</span>(<span class="s">'6,200'</span>, fontSize: <span class="s">30</span>),
+    ],
+  ),
+);</pre></div>
           <div class="c-top">
             <h3><a href="/packages/wear_os_tiles/">wear_os_tiles</a></h3>
             <span class="ver">0.1.1</span>
@@ -427,6 +603,7 @@ footer a:hover{color:var(--brand);}
           <div class="c-foot"><a href="https://pub.dev/packages/wear_os_tiles">pub.dev</a><a href="https://github.com/Manish1Pandey/wear_os_tiles">Source</a><span class="pts">160/160</span></div>
         </article>
         <article class="card" data-n="input_language" data-b="detects the active keyboard language and sets text direction." data-p="android ios macos windows linux web" data-live="1" style="--i:4">
+          <div class="media" aria-hidden="true"><span class="mtag">Demo</span><video muted loop playsinline preload="none" poster="/media/pkg/input_language.webp" data-src="/media/pkg/input_language.mp4"></video></div>
           <div class="c-top">
             <h3><a href="/packages/input_language/">input_language</a></h3>
             <span class="ver">0.1.3</span>
@@ -438,6 +615,7 @@ footer a:hover{color:var(--brand);}
           <div class="c-foot"><a class="demo" href="/demos/input_language/">Run demo &#8594;</a><a href="https://pub.dev/packages/input_language">pub.dev</a><a href="https://github.com/Manish1Pandey/input_language">Source</a><span class="pts">160/160</span></div>
         </article>
         <article class="card" data-n="mobius_carousel" data-b="a drag-driven carousel with tilted cards and a ripple reveal." data-p="android ios macos windows linux web" data-live="1" style="--i:5">
+          <div class="media" aria-hidden="true"><span class="mtag">Demo</span><video muted loop playsinline preload="none" poster="/media/pkg/mobius_carousel.webp" data-src="/media/pkg/mobius_carousel.mp4"></video></div>
           <div class="c-top">
             <h3><a href="/packages/mobius_carousel/">mobius_carousel</a></h3>
             <span class="ver">0.3.3</span>
@@ -449,6 +627,7 @@ footer a:hover{color:var(--brand);}
           <div class="c-foot"><a class="demo" href="/demos/mobius_carousel/">Run demo &#8594;</a><a href="https://pub.dev/packages/mobius_carousel">pub.dev</a><a href="https://github.com/Manish1Pandey/mobius_carousel">Source</a><span class="pts">160/160</span></div>
         </article>
         <article class="card" data-n="scroll_transition" data-b="swiftui-style scroll transitions and visual effects." data-p="android ios macos windows linux web" data-live="1" style="--i:6">
+          <div class="media" aria-hidden="true"><span class="mtag">Demo</span><video muted loop playsinline preload="none" poster="/media/pkg/scroll_transition.webp" data-src="/media/pkg/scroll_transition.mp4"></video></div>
           <div class="c-top">
             <h3><a href="/packages/scroll_transition/">scroll_transition</a></h3>
             <span class="ver">0.1.2</span>
@@ -460,6 +639,7 @@ footer a:hover{color:var(--brand);}
           <div class="c-foot"><a class="demo" href="/demos/scroll_transition/">Run demo &#8594;</a><a href="https://pub.dev/packages/scroll_transition">pub.dev</a><a href="https://github.com/Manish1Pandey/scroll_transition">Source</a><span class="pts">160/160</span></div>
         </article>
         <article class="card" data-n="material_defaults" data-b="public access to the material 3 default styles flutter keeps private." data-p="android ios macos windows linux web" data-live="1" style="--i:7">
+          <div class="media" aria-hidden="true"><span class="mtag">Demo</span><video muted loop playsinline preload="none" poster="/media/pkg/material_defaults.webp" data-src="/media/pkg/material_defaults.mp4"></video></div>
           <div class="c-top">
             <h3><a href="/packages/material_defaults/">material_defaults</a></h3>
             <span class="ver">0.1.3</span>
@@ -471,6 +651,7 @@ footer a:hover{color:var(--brand);}
           <div class="c-foot"><a class="demo" href="/demos/material_defaults/">Run demo &#8594;</a><a href="https://pub.dev/packages/material_defaults">pub.dev</a><a href="https://github.com/Manish1Pandey/material_defaults">Source</a><span class="pts">160/160</span></div>
         </article>
         <article class="card" data-n="middle_click_autoscroll" data-b="browser-style middle-click autoscroll for desktop and web." data-p="android ios macos windows linux web" data-live="1" style="--i:8">
+          <div class="media" aria-hidden="true"><span class="mtag">Demo</span><video muted loop playsinline preload="none" poster="/media/pkg/middle_click_autoscroll.webp" data-src="/media/pkg/middle_click_autoscroll.mp4"></video></div>
           <div class="c-top">
             <h3><a href="/packages/middle_click_autoscroll/">middle_click_autoscroll</a></h3>
             <span class="ver">0.1.2</span>
@@ -482,6 +663,7 @@ footer a:hover{color:var(--brand);}
           <div class="c-foot"><a class="demo" href="/demos/middle_click_autoscroll/">Run demo &#8594;</a><a href="https://pub.dev/packages/middle_click_autoscroll">pub.dev</a><a href="https://github.com/Manish1Pandey/middle_click_autoscroll">Source</a><span class="pts">160/160</span></div>
         </article>
         <article class="card" data-n="universal_spell_check" data-b="spell check for text fields on web, macos, windows and linux." data-p="android ios macos windows linux web" data-live="1" style="--i:9">
+          <div class="media" aria-hidden="true"><span class="mtag">Demo</span><video muted loop playsinline preload="none" poster="/media/pkg/universal_spell_check.webp" data-src="/media/pkg/universal_spell_check.mp4"></video></div>
           <div class="c-top">
             <h3><a href="/packages/universal_spell_check/">universal_spell_check</a></h3>
             <span class="ver">0.1.3</span>
@@ -493,6 +675,7 @@ footer a:hover{color:var(--brand);}
           <div class="c-foot"><a class="demo" href="/demos/universal_spell_check/">Run demo &#8594;</a><a href="https://pub.dev/packages/universal_spell_check">pub.dev</a><a href="https://github.com/Manish1Pandey/universal_spell_check">Source</a><span class="pts">160/160</span></div>
         </article>
         <article class="card" data-n="web_update_guard" data-b="stops flutter web users running a stale cached build after a deploy." data-p="android ios macos windows linux web" data-live="1" style="--i:10">
+          <div class="media" aria-hidden="true"><span class="mtag">Demo</span><video muted loop playsinline preload="none" poster="/media/pkg/web_update_guard.webp" data-src="/media/pkg/web_update_guard.mp4"></video></div>
           <div class="c-top">
             <h3><a href="/packages/web_update_guard/">web_update_guard</a></h3>
             <span class="ver">0.1.3</span>
@@ -504,6 +687,7 @@ footer a:hover{color:var(--brand);}
           <div class="c-foot"><a class="demo" href="/demos/web_update_guard/">Run demo &#8594;</a><a href="https://pub.dev/packages/web_update_guard">pub.dev</a><a href="https://github.com/Manish1Pandey/web_update_guard">Source</a><span class="pts">160/160</span></div>
         </article>
         <article class="card" data-n="native_proxy_resolver" data-b="resolves the os proxy per url, including pac and wpad auto-config." data-p="android ios macos windows linux" data-live="0" style="--i:11">
+          <div class="media" aria-hidden="true"><span class="mtag">Demo</span><video muted loop playsinline preload="none" poster="/media/pkg/native_proxy_resolver.webp" data-src="/media/pkg/native_proxy_resolver.mp4"></video></div>
           <div class="c-top">
             <h3><a href="/packages/native_proxy_resolver/">native_proxy_resolver</a></h3>
             <span class="ver">0.1.3</span>
@@ -515,6 +699,7 @@ footer a:hover{color:var(--brand);}
           <div class="c-foot"><a href="https://pub.dev/packages/native_proxy_resolver">pub.dev</a><a href="https://github.com/Manish1Pandey/native_proxy_resolver">Source</a><span class="pts">160/160</span></div>
         </article>
         <article class="card" data-n="aether_thread" data-b="runs heavy work off the ui thread on warm worker isolates, in one call." data-p="android ios macos windows linux web" data-live="0" style="--i:12">
+          <div class="media" aria-hidden="true"><span class="mtag">Demo</span><video muted loop playsinline preload="none" poster="/media/pkg/aether_thread.webp" data-src="/media/pkg/aether_thread.mp4"></video></div>
           <div class="c-top">
             <h3><a href="/packages/aether_thread/">aether_thread</a></h3>
             <span class="ver">0.1.2</span>
@@ -526,6 +711,7 @@ footer a:hover{color:var(--brand);}
           <div class="c-foot"><a href="https://pub.dev/packages/aether_thread">pub.dev</a><a href="https://github.com/Manish1Pandey/aether_thread">Source</a><span class="pts">160/160</span></div>
         </article>
         <article class="card" data-n="morphos_ui" data-b="animates thousands of ui items at full frame rate, on one spring-driven surface." data-p="android ios macos windows linux web" data-live="1" style="--i:13">
+          <div class="media" aria-hidden="true"><span class="mtag">Demo</span><video muted loop playsinline preload="none" poster="/media/pkg/morphos_ui.webp" data-src="/media/pkg/morphos_ui.mp4"></video></div>
           <div class="c-top">
             <h3><a href="/packages/morphos_ui/">morphos_ui</a></h3>
             <span class="ver">0.1.2</span>
@@ -537,7 +723,7 @@ footer a:hover{color:var(--brand);}
           <div class="c-foot"><a class="demo" href="/demos/morphos_ui/">Run demo &#8594;</a><a href="https://pub.dev/packages/morphos_ui">pub.dev</a><a href="https://github.com/Manish1Pandey/morphos_ui">Source</a><span class="pts">160/160</span></div>
         </article>
     </div>
-    <p class="empty" id="empty"><b>No matching package</b>Try a different search term, or clear the filter.</p>
+    <p class="empty" id="empty"><b>No matching package</b>Try a different search term, or <button class="clr" id="empty-clr" type="button">clear the filters</button>.</p>
   </section>
 
   <div class="band">
@@ -545,7 +731,7 @@ footer a:hover{color:var(--brand);}
       <h2>Eight of them run right here</h2>
       <p>No install, no clone, no emulator. The demos are real Flutter web builds &mdash; open one and interact with the package in this tab.</p>
     </div>
-    <a class="btn pri" href="/demos/">Open the demos &#8594;</a>
+    <a class="btn pri" href="/demos/">Open the demos <span class="arr">&#8594;</span></a>
   </div>
 </main>
 
@@ -564,102 +750,329 @@ footer a:hover{color:var(--brand);}
 </footer>
 
 <script>
+/* Hero terminal: types `flutter pub add <package>` for each real package card on this page, shows what pub prints,
+   and the line it adds to pubspec.yaml. Pauses while off screen or in a background tab. Static under reduced motion. */
+(function(){
+  var el=document.getElementById('term'); if(!el) return;
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var pk=[].slice.call(document.querySelectorAll('.card[data-n]')).map(function(c){
+    var v=c.querySelector('.ver'); return {n:c.dataset.n, v:v?v.textContent.trim():'', p:c.dataset.p.split(' ').length, live:c.dataset.live==='1'};
+  });
+  if(!pk.length) return;
+  var i=Math.max(0,pk.map(function(x){return x.n;}).indexOf('mobius_carousel'))+1, visible=true, timer=null;
+  function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function line(html,cls){var p=document.createElement('p'); p.className='t-line'+(cls?' '+cls:''); p.innerHTML=html; el.appendChild(p);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){p.classList.add('on');});}); return p;}
+  function wait(ms){return new Promise(function(r){(function tick(){ if(visible&&!document.hidden){timer=setTimeout(r,ms);} else timer=setTimeout(tick,400); })();});}
+  function run(){
+    var x=pk[i%pk.length]; i++;
+    el.innerHTML='';
+    var cmd=line('<span class="t-ps">&#10140; </span><span class="t-cmd"></span><span class="caret"></span>');
+    cmd.classList.add('on');
+    var out=cmd.querySelector('.t-cmd'), text='flutter pub add '+x.n, k=0;
+    function type(){
+      if(k<=text.length){ out.textContent=text.slice(0,k++); return wait(k<17?22:34+Math.random()*30).then(type); }
+      cmd.querySelector('.caret').remove();
+      return wait(380).then(function(){ line('Resolving dependencies&hellip;','t-dim'); return wait(650); })
+        .then(function(){ line('<span class="t-add">+ '+esc(x.n)+' '+esc(x.v)+'</span>'); return wait(420); })
+        .then(function(){ line('<span class="t-ok">&#10003;</span> 160/160 pub points <span class="t-dim">&middot;</span> '+x.p+' platform'+(x.p>1?'s':'')+
+          (x.live?' <span class="t-dim">&middot;</span> <span class="t-vio">live demo</span>':'')); return wait(520); })
+        .then(function(){ var y=document.createElement('div'); y.className='t-yaml t-line';
+          y.innerHTML='<p><span class="k">dependencies</span>:</p><p>  <span class="k">flutter</span>:</p><p>    <span class="k">sdk</span>: <span class="v">flutter</span></p>'+
+            '<p class="new">  <span class="n">'+esc(x.n)+'</span>: <span class="v">^'+esc(x.v)+'</span></p>';
+          el.appendChild(y); requestAnimationFrame(function(){requestAnimationFrame(function(){y.classList.add('on');});});
+          return wait(3200); })
+        .then(run);
+    }
+    type();
+  }
+  if('IntersectionObserver' in window) new IntersectionObserver(function(es){ visible=es[0].isIntersecting; }).observe(el);
+  wait(2600).then(run);
+})();
+/* Card spotlight: the glow and gradient rim follow the cursor. Pointer devices only. */
+(function(){
+  if(!matchMedia('(hover:hover)').matches) return;
+  var ev=null, queued=false;
+  document.addEventListener('pointermove',function(e){
+    ev=e; if(queued) return; queued=true;
+    requestAnimationFrame(function(){ queued=false;
+      var c=ev.target.closest&&ev.target.closest('.card'); if(!c) return;
+      var r=c.getBoundingClientRect(); c.style.setProperty('--mx',(ev.clientX-r.left)+'px'); c.style.setProperty('--my',(ev.clientY-r.top)+'px'); });
+  },{passive:true});
+})();
+/* "/" focuses the package search, like most docs sites. */
+document.addEventListener('keydown',function(e){
+  var t=e.target; if(e.key!=='/'||e.metaKey||e.ctrlKey||e.altKey||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)||t.isContentEditable) return;
+  var q=document.getElementById('q'); if(q){ e.preventDefault(); q.focus(); }
+});
+</script>
+<script>
+/* Package browser: search, platform filter, sort, URL state, copy, theme, reveal. */
 (function(){
   var root=document.documentElement,
       cards=[].slice.call(document.querySelectorAll('.card')),
       q=document.getElementById('q'), empty=document.getElementById('empty'),
-      grid=document.getElementById('grid'), f='all';
+      grid=document.getElementById('grid'), chips=document.getElementById('chips'),
+      sortEl=document.getElementById('sort'), res=document.getElementById('res'), clr=document.getElementById('clr'),
+      f='all', sort='featured', TOTAL=cards.length;
+  cards.forEach(function(c,i){ c.dataset.o=i; });
 
-  try{ var sv=localStorage.getItem('t'); if(sv) root.setAttribute('data-t',sv); }catch(e){}
+  /* theme: dark by default, light is opt-in; saved choice was applied in <head> */
   function flip(){
-    var c=root.getAttribute('data-t');
-    if(!c) c=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
-    var n=c==='dark'?'light':'dark';
-    root.setAttribute('data-t',n);
+    var c=root.getAttribute('data-t'); if(!c) c='dark';
+    var n=c==='dark'?'light':'dark'; root.setAttribute('data-t',n);
     try{ localStorage.setItem('t',n); }catch(e){}
   }
   document.getElementById('tt').addEventListener('click',function(){
-    if(document.startViewTransition && !matchMedia('(prefers-reduced-motion:reduce)').matches)
-      document.startViewTransition(flip);
+    if(document.startViewTransition && !matchMedia('(prefers-reduced-motion:reduce)').matches) document.startViewTransition(flip);
     else flip();
   });
 
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    },{rootMargin:'0px 0px -6% 0px',threshold:.06});
-    cards.forEach(function(c){ io.observe(c); });
-  } else cards.forEach(function(c){ c.classList.add('in'); });
 
-  function apply(){
+  /* chip counts */
+  [].slice.call(chips.children).forEach(function(b){
+    var k=b.dataset.f, n=k==='all'?TOTAL:cards.filter(function(c){ return k==='live'?c.dataset.live==='1':c.dataset.p.split(' ').indexOf(k)!==-1; }).length;
+    var s=document.createElement('span'); s.className='n'; s.textContent=n; b.appendChild(s);
+  });
+
+  /* state <-> URL (?q=&f=&sort=) so a filtered view can be shared and survives back/forward */
+  function readURL(){
+    var p=new URLSearchParams(location.search);
+    q.value=p.get('q')||''; f=p.get('f')||'all'; sort=p.get('sort')||'featured';
+    if(!chips.querySelector('[data-f="'+f+'"]')) f='all';
+    if(!sortEl.querySelector('option[value="'+sort+'"]')) sort='featured';
+    sortEl.value=sort;
+    [].slice.call(chips.children).forEach(function(c){ c.setAttribute('aria-pressed',String(c.dataset.f===f)); });
+  }
+  function writeURL(){
+    var p=new URLSearchParams(), t=q.value.trim();
+    if(t) p.set('q',t); if(f!=='all') p.set('f',f); if(sort!=='featured') p.set('sort',sort);
+    var s=p.toString(); history.replaceState(null,'',location.pathname+(s?'?'+s:'')+location.hash);
+  }
+
+  function order(){
+    var key={
+      featured:function(a,b){ return a.dataset.o-b.dataset.o; },
+      downloads:function(a,b){ return (+b.dataset.dl||0)-(+a.dataset.dl||0) || a.dataset.o-b.dataset.o; },
+      updated:function(a,b){ return (b.dataset.up||'').localeCompare(a.dataset.up||'') || a.dataset.o-b.dataset.o; },
+      az:function(a,b){ return a.dataset.n.localeCompare(b.dataset.n); }
+    }[sort];
+    cards.slice().sort(key).forEach(function(c){ grid.appendChild(c); });
+  }
+
+  function apply(fromUser){
     var t=q.value.trim().toLowerCase(), shown=0, k=0;
-    cards.forEach(function(c){
-      var okF = f==='all' || (f==='live' ? c.dataset.live==='1'
-                                         : c.dataset.p.split(' ').indexOf(f)!==-1);
-      var okT = !t || c.dataset.n.indexOf(t)!==-1 || c.dataset.b.indexOf(t)!==-1;
+    order();
+    [].slice.call(grid.children).forEach(function(c){
+      var okF = f==='all' || (f==='live' ? c.dataset.live==='1' : c.dataset.p.split(' ').indexOf(f)!==-1);
+      var okT = !t || c.dataset.n.indexOf(t.replace(/\s+/g,'_'))!==-1 || c.dataset.b.indexOf(t)!==-1;
       var v = okF && okT;
       c.style.display = v ? '' : 'none';
-      if(v){ c.style.setProperty('--i',k++); c.classList.add('in'); shown++; }
+      if(v){ c.style.setProperty('--i',k++); if(fromUser) c.classList.add('in'); shown++; }
     });
     grid.style.display = shown ? '' : 'none';
     empty.style.display = shown ? 'none' : 'block';
+    var filtered = t || f!=='all';
+    res.innerHTML = filtered ? 'Showing <b>'+shown+'</b> of '+TOTAL+' packages' : 'Showing all <b>'+TOTAL+'</b> packages';
+    clr.hidden = !filtered;
+    if(fromUser) writeURL();
   }
-  q.addEventListener('input',apply);
-  document.getElementById('chips').addEventListener('click',function(e){
+  q.addEventListener('input',function(){ apply(true); });
+  q.addEventListener('keydown',function(e){ if(e.key==='Escape'&&q.value){ q.value=''; apply(true); } });
+  chips.addEventListener('click',function(e){
     var b=e.target.closest('.chip'); if(!b) return;
     f=b.dataset.f;
     [].slice.call(this.children).forEach(function(c){ c.setAttribute('aria-pressed',String(c===b)); });
-    apply();
+    apply(true);
   });
+  sortEl.addEventListener('change',function(){ sort=sortEl.value; apply(true); });
+  function clearAll(){ q.value=''; f='all'; [].slice.call(chips.children).forEach(function(c){ c.setAttribute('aria-pressed',String(c.dataset.f==='all')); }); apply(true); q.focus(); }
+  clr.addEventListener('click',clearAll);
+  document.getElementById('empty-clr').addEventListener('click',clearAll);
+  document.addEventListener('pubdata',function(){ if(sort!=='featured'&&sort!=='az') apply(false); });
+  readURL(); apply(false);
+  if(location.search) setTimeout(function(){ document.getElementById('packages').scrollIntoView(); },0);
 
+  /* sticky toolbar gets a surface once it is stuck */
+  var tools=document.querySelector('.tools'), sent=document.createElement('div');
+  tools.parentNode.insertBefore(sent,tools);
+  if('IntersectionObserver' in window) new IntersectionObserver(function(es){
+    tools.classList.toggle('stuck', !es[0].isIntersecting && es[0].boundingClientRect.top<80);
+  },{rootMargin:'-67px 0px 0px 0px'}).observe(sent);
+
+  /* copy dependency line */
   document.addEventListener('click',function(e){
     var b=e.target.closest('.cp'); if(!b) return;
     var done=function(){ b.textContent='Copied'; setTimeout(function(){ b.textContent='Copy'; },1400); };
-    if(navigator.clipboard&&navigator.clipboard.writeText)
-      navigator.clipboard.writeText(b.dataset.c).then(done,done);
-    else{
-      var ta=document.createElement('textarea'); ta.value=b.dataset.c;
-      document.body.appendChild(ta); ta.select();
-      try{ document.execCommand('copy'); }catch(err){}
-      document.body.removeChild(ta); done();
-    }
+    if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(b.dataset.c).then(done,done);
+    else{ var ta=document.createElement('textarea'); ta.value=b.dataset.c; document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); }catch(err){} document.body.removeChild(ta); done(); }
   });
+
+  /* demo videos: one plays at a time, so scrolling stays smooth. The hovered card wins on desktop; otherwise the
+     most visible card nearest the middle of the screen. Posters only for reduced motion or Save-Data. */
+  var calm=matchMedia('(prefers-reduced-motion:reduce)').matches || (navigator.connection&&navigator.connection.saveData);
+  var vids=[].slice.call(document.querySelectorAll('.media video')), ratio=new Map(), hovered=null, current=null, raf=0;
+  function pick(){
+    raf=0; var best=null, bestScore=-1, mid=innerHeight/2;
+    if(hovered && (ratio.get(hovered)||0)>0.3) best=hovered;
+    else vids.forEach(function(v){
+      var r=ratio.get(v)||0; if(r<0.5) return;
+      var b=v.getBoundingClientRect(), d=Math.abs((b.top+b.bottom)/2-mid)/innerHeight, s=r-d;
+      if(s>bestScore){ bestScore=s; best=v; }
+    });
+    if(best===current) return;
+    if(current){ current.pause(); current.parentNode.classList.remove('playing'); }
+    current=best;
+    if(best){ if(!best.src) best.src=best.dataset.src;
+      var pr=best.play(); if(pr&&pr.then) pr.then(function(){ if(current===best) best.parentNode.classList.add('playing'); },function(){}); }
+  }
+  function schedule(){ if(!raf) raf=requestAnimationFrame(pick); }
+  if(!calm && 'IntersectionObserver' in window){
+    var vo=new IntersectionObserver(function(es){ es.forEach(function(e){ ratio.set(e.target,e.intersectionRatio); }); schedule(); },
+      {threshold:[0,.25,.5,.75,1]});
+    vids.forEach(function(v){ vo.observe(v);
+      var card=v.closest('.card');
+      card.addEventListener('pointerenter',function(){ hovered=v; schedule(); });
+      card.addEventListener('pointerleave',function(){ if(hovered===v){ hovered=null; schedule(); } });
+    });
+    var st=0; addEventListener('scroll',function(){ clearTimeout(st); st=setTimeout(schedule,120); },{passive:true});
+  }
+  /* pause the hero's decorative loops once it scrolls away */
+  var hero=document.querySelector('.hero');
+  if(hero && 'IntersectionObserver' in window) new IntersectionObserver(function(es){ root.classList.toggle('hero-off',!es[0].isIntersecting); }).observe(hero);
 })();
 </script>
 <script>
-/* Live pub.dev numbers on every card: 30-day downloads (pub.dev refreshes
-   these about once a day) and pub points. Fetched on each visit, so the page
-   never needs a redeploy to stay current. */
+/* Live pub.dev numbers on every card: 30-day downloads, pub points and last release date.
+   Fetched on each visit, so the page never needs a redeploy to stay current. */
 (function(){
   var cards=[].slice.call(document.querySelectorAll('.card[data-n]')),
       totalEl=document.getElementById('dl-total'), total=0, pending=cards.length;
   function fmt(n){return n>=1e6?(n/1e6).toFixed(1).replace(/\.0$/,'')+'M':n>=1e4?Math.round(n/1e3)+'k':n>=1e3?(n/1e3).toFixed(1).replace(/\.0$/,'')+'k':String(n);}
+  function ago(iso){ var d=(Date.now()-Date.parse(iso))/864e5;
+    return d<1?'today':d<2?'yesterday':d<31?Math.floor(d)+' days ago':d<365?Math.floor(d/30.4)+' month'+(d>=60.8?'s':'')+' ago':Math.floor(d/365)+' year'+(d>=730?'s':'')+' ago'; }
   /* the headline shows all-time downloads, written in by tools/update_downloads.py; the live 30-day sum goes in its hover text */
-  function done(){ if(--pending!==0||!totalEl||total<=0) return;
+  function done(){ if(--pending!==0) return;
+    document.dispatchEvent(new Event('pubdata'));
+    if(!totalEl||total<=0) return;
     if(totalEl.hasAttribute('data-total')) totalEl.title=totalEl.title.replace(/ \(\d[\d,]* in the last 30 days\)$/,'')+' ('+total.toLocaleString()+' in the last 30 days)';
     else totalEl.textContent=fmt(total); }
   cards.forEach(function(c){
-    var n=c.getAttribute('data-n'), foot=c.querySelector('.c-foot'), pts=c.querySelector('.pts');
+    var n=c.getAttribute('data-n'), foot=c.querySelector('.c-foot'), pts=c.querySelector('.pts'), ver=c.querySelector('.ver');
     if(!foot){ done(); return; }
-    var d=document.createElement('span'); d.className='dl'; d.textContent='\u2193 \u2026';
+    var d=document.createElement('span'); d.className='dl'; d.textContent='↓ …';
     foot.insertBefore(d,pts);
-    fetch('https://pub.dev/api/packages/'+n+'/score').then(function(r){return r.ok?r.json():null;}).then(function(s){
+    var score=fetch('https://pub.dev/api/packages/'+n+'/score').then(function(r){return r.ok?r.json():null;}).then(function(s){
       if(!s){ d.remove(); return; }
       var dl=s.downloadCount30Days;
-      if(dl==null){ d.textContent='\u2193 new'; d.title='New on pub.dev: downloads appear after its first daily count'; }
-      else { total+=dl; d.textContent='\u2193 '+fmt(dl); d.title=dl.toLocaleString()+' downloads in the last 30 days, from pub.dev'; }
+      if(dl==null){ d.textContent='↓ new'; d.title='New on pub.dev: downloads appear after its first daily count'; }
+      else { total+=dl; c.dataset.dl=dl; d.textContent='↓ '+fmt(dl); d.title=dl.toLocaleString()+' downloads in the last 30 days, from pub.dev'; }
       d.setAttribute('aria-label',d.title);
       if(pts&&s.maxPoints) pts.textContent=s.grantedPoints+'/'+s.maxPoints;
-    }).catch(function(){ d.remove(); }).then(done);
+    }).catch(function(){ d.remove(); });
+    var info=fetch('https://pub.dev/api/packages/'+n).then(function(r){return r.ok?r.json():null;}).then(function(p){
+      if(!p||!p.latest) return;
+      c.dataset.up=p.latest.published;
+      if(ver){ ver.textContent=p.latest.version; ver.title='Version '+p.latest.version+', released '+ago(p.latest.published); }
+    }).catch(function(){});
+    Promise.all([score,info]).then(done,done);
   });
 })();
 </script>
 
 
 
+<script>
+/* Compare: up to three packages side by side, from the cards' own data and the live pub.dev numbers. */
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.card[data-n]')), picked=[], MAX=3;
+  var PLAT=[['android','Android'],['ios','iOS'],['macos','macOS'],['windows','Windows'],['linux','Linux'],['web','Web']];
+  var tray=document.createElement('div'); tray.className='tray'; tray.setAttribute('role','region'); tray.setAttribute('aria-label','Packages to compare');
+  tray.innerHTML='<div class="names"></div><span class="hint"></span><button class="go" type="button">Compare</button><button class="x" type="button">Clear</button>';
+  document.body.appendChild(tray);
+  var dlg=document.createElement('div'); dlg.className='cmpd'; dlg.setAttribute('role','dialog'); dlg.setAttribute('aria-modal','true'); dlg.setAttribute('aria-label','Compare packages');
+  dlg.innerHTML='<div class="cmpd-box"><div class="cmpd-hd"><h2>Compare packages</h2><button type="button">Close</button></div><table></table></div>';
+  document.body.appendChild(dlg);
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function fmt(n){return n>=1e3?(n/1e3).toFixed(1).replace(/\.0$/,'')+'k':String(n);}
+  cards.forEach(function(c){
+    var media=c.querySelector('.media'); if(!media) return;
+    var b=document.createElement('button'); b.type='button'; b.className='cmp'; b.setAttribute('aria-pressed','false'); b.textContent='Compare';
+    b.setAttribute('aria-label','Compare '+c.dataset.n);
+    media.appendChild(b); media.removeAttribute('aria-hidden');
+    b.addEventListener('click',function(e){ e.preventDefault(); e.stopPropagation(); toggle(c,b); });
+  });
+  function toggle(c,b){
+    var i=picked.indexOf(c);
+    if(i>=0) picked.splice(i,1);
+    else { if(picked.length>=MAX){ var old=picked.shift(); old.classList.remove('picked'); old.querySelector('.cmp').setAttribute('aria-pressed','false'); } picked.push(c); }
+    c.classList.toggle('picked',picked.indexOf(c)>=0); b.setAttribute('aria-pressed',String(picked.indexOf(c)>=0));
+    update();
+  }
+  function update(){
+    tray.classList.toggle('show',picked.length>0);
+    tray.querySelector('.names').innerHTML=picked.map(function(c){return '<span>'+esc(c.dataset.n)+'</span>';}).join('');
+    tray.querySelector('.hint').textContent=picked.length<2?'Pick '+(2-picked.length)+' more':picked.length+' of '+MAX;
+    tray.querySelector('.go').disabled=picked.length<2;
+  }
+  tray.querySelector('.x').addEventListener('click',function(){ picked.slice().forEach(function(c){ toggle(c,c.querySelector('.cmp')); }); });
+  tray.querySelector('.go').addEventListener('click',open);
+  function row(label,cells){ return '<tr><th scope="row">'+label+'</th>'+cells.map(function(x){return '<td>'+x+'</td>';}).join('')+'</tr>'; }
+  function open(){
+    var P=picked.map(function(c){
+      var ver=(c.querySelector('.ver')||{}).textContent||'', up=c.dataset.up, dl=c.dataset.dl;
+      return {n:c.dataset.n, b:(c.querySelector('.blurb')||{}).textContent||'', v:ver.trim(), up:up, dl:dl==null?null:+dl,
+              pts:((c.querySelector('.pts')||{}).textContent||'').trim(), p:c.dataset.p.split(' '), live:c.dataset.live==='1'};
+    });
+    var maxDl=Math.max.apply(null,P.map(function(x){return x.dl||0;})), newest=P.map(function(x){return x.up||'';}).sort().pop();
+    var h='<thead><tr><th></th>'+P.map(function(x){return '<th scope="col"><a href="/packages/'+x.n+'/">'+esc(x.n)+'</a></th>';}).join('')+'</tr></thead><tbody>';
+    h+=row('What it does',P.map(function(x){return esc(x.b);}));
+    h+=row('Version',P.map(function(x){return '<code>'+esc(x.v)+'</code>';}));
+    h+=row('Released',P.map(function(x){ if(!x.up) return '<span class="no">&mdash;</span>'; var d=new Date(x.up).toLocaleDateString(undefined,{day:'numeric',month:'short',year:'numeric'});
+      return x.up===newest&&P.length>1?'<span class="best">'+d+'</span>':d; }));
+    h+=row('Downloads (30 d)',P.map(function(x){ if(x.dl==null) return '<span class="no">&mdash;</span>'; return x.dl===maxDl&&maxDl>0?'<span class="best">'+fmt(x.dl)+'</span>':fmt(x.dl); }));
+    h+=row('Pub points',P.map(function(x){return '<span class="yes">'+esc(x.pts)+'</span>';}));
+    PLAT.forEach(function(pl){ h+=row(pl[1],P.map(function(x){ return x.p.indexOf(pl[0])>=0?'<span class="yes">&#10003; Yes</span>':'<span class="no">&mdash;</span>'; })); });
+    h+=row('Live demo',P.map(function(x){ return x.live?'<a href="/demos/'+x.n+'/">&#9658; Run it</a>':'<span class="no">&mdash;</span>'; }));
+    h+=row('Install',P.map(function(x){ return '<code>'+esc(x.n)+': ^'+esc(x.v)+'</code>'; }));
+    h+=row('Links',P.map(function(x){ return '<span class="lk"><a href="https://pub.dev/packages/'+x.n+'">pub.dev</a><a href="https://github.com/Manish1Pandey/'+x.n+'">Source</a></span>'; }));
+    dlg.querySelector('table').innerHTML=h+'</tbody>';
+    dlg.classList.add('open'); document.documentElement.style.overflow='hidden'; dlg.querySelector('.cmpd-hd button').focus();
+  }
+  function close(){ dlg.classList.remove('open'); document.documentElement.style.overflow=''; tray.querySelector('.go').focus(); }
+  dlg.querySelector('.cmpd-hd button').addEventListener('click',close);
+  dlg.addEventListener('mousedown',function(e){ if(e.target===dlg) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&dlg.classList.contains('open')) close(); });
+})();
+</script>
 <script src="/exit-confirm.js" data-app="flutterdev.in"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4321e47ebde948179272a962602c33a0"}'></script><!-- End Cloudflare Web Analytics -->
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- pwa --><script src="/install.js" data-app="flutterdev.in" data-icon="/icons/icon-192.png" defer></script><script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js')});</script><!-- /pwa -->
+<!-- kit --><script src="/cmdk.js" defer></script><!-- /kit -->
 </body>
 </html>

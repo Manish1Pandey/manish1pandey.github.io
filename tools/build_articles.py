@@ -28,8 +28,7 @@ def shell(title, desc, url, body, ld, kind='article'):
 <title>{e(title)} | flutterdev.in</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{url}">
-<meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme:light)">
-<meta name="theme-color" content="#060c14" media="(prefers-color-scheme:dark)">
+<meta name="theme-color" content="#07090d">
 <meta property="og:type" content="{kind}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}og.png"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')}</script>
